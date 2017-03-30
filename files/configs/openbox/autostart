@@ -1,0 +1,12 @@
+tint2 &
+lxpolkit &
+xrandr --addmode VGA1 1280x1024_60.00 &
+volumeicon &
+hexchat &
+gigolo &
+pidgin &
+redshift &
+chromium &
+nitrogen --restore &
+steam-native 
+
