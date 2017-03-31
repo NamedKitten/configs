@@ -336,9 +336,18 @@
         </startupnotify>
       </action>
     </keybind>
-    <keybind key="W-t">
+    <keybind key="C-A-t">
       <action name="Execute">
         <command>lxterminal</command>
+        <startupnotify>
+          <enabled>yes</enabled>
+          <name>lxterminal</name>
+        </startupnotify>
+      </action>
+    </keybind>
+    <keybind key="W-l">
+      <action name="Execute">
+        <command>xscreensaver-command -lock</command>
         <startupnotify>
           <enabled>yes</enabled>
           <name>lxterminal</name>
@@ -747,8 +756,7 @@
         <action name="ToggleMaximizeHorz"/>
       </mousebind>
     </context>
- <keybind key="W-t"><action name="Execute"><command>lxterminal</command></action></keybind>
-    <context name="Close">
+  <context name="Close">
       <mousebind action="Press" button="Left">
         <action name="Focus"/>
         <action name="Raise"/>

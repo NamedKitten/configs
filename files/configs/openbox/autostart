@@ -8,5 +8,6 @@ pidgin &
 redshift &
 chromium &
 nitrogen --restore &
+xscreensaver -no-splash & 
 steam-native 
 

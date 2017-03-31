@@ -1,9 +1,11 @@
 #!/bin/sh
-FILE_DIR=`pwd`/files/configs
-WALL_DIR=`pwd`/files/wallpaper
-mkdir ~/Pictures/wallpaper
-rm -rf ~/.config/openbox ~/.config/nitrogen
-cp -r $FILE_DIR/openbox ~/.config/
-cp -r $FILE_DIR/nitrogen ~/.config
-cp $WALL_DIR/* ~/Pictures/wallpaper/
-openbox --reconfigure
+SCRIPT_DIR=`dirname "$0"`
+CONF_DIR=$SCRIPT_DIR/files/configs
+WALL_DIR=$SCRIPT_DIR/files/wallpaper
+mkdir ~/Pictures/wallpaper/
+cp $WALL_DIR/*  ~/Pictures/wallpaper/
+cd $CONF_DIR
+for dir in * ; do
+	rm -rf ~/config/$dir
+	cp -r $dir ~/.config/
+done

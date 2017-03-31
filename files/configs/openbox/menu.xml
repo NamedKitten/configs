@@ -40,7 +40,7 @@
 		<item label="Web Browser">
 			<action name="Execute">
 				<command>
-					firefox
+					chromium
 				</command>
 			</action>
 		</item>
@@ -223,27 +223,8 @@
 			</command>
 		</action>
 	</item>
-	<item label="Power Off">
-		<action name="Execute">
-			<command>
-				gksu poweroff
-			</command>
-		</action>
-	</item>
-	<item label="Reboot">
-		<action name="Execute">
-			<command>
-				gksu reboot
-			</command>
-		</action>
-	<item label="Exit">
-		<action name="Execute">
-			<command>
-				pkill X
-			</command>
-		</action>
-	</item>
-	</item>
+	<item label="Lock"> <action name="Execute"> <execute>xscreensaver-command -lock</execute> </action> </item>
+	<item label="Exit"> <action name="Execute"> <execute>gksu pkill X</execute> </action> </item>
 	</menu>
 </menu>
 </openbox_menu>
