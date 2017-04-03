@@ -6,6 +6,6 @@ mkdir ~/Pictures/wallpaper/
 cp $WALL_DIR/*  ~/Pictures/wallpaper/
 cd $CONF_DIR
 for dir in * ; do
-	rm -rf ~/config/$dir
+	rm -rf ~/.config/$dir
 	cp -r $dir ~/.config/
 done

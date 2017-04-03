@@ -3,23 +3,28 @@
 <action>
 	<icon>utilities-terminal</icon>
 	<name>Open Terminal Here</name>
-	<unique-id>1473897552220189-5</unique-id>
-	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
+	<unique-id>1491226838946563-4</unique-id>
+	<command>lxterminal --working-directory=%f</command>
 	<description>Example for a custom action</description>
 	<patterns>*</patterns>
 	<directories/>
 </action>
 <action>
-	<icon>preferences-system-sharing-symbolic</icon>
-	<name>d2k5 upload</name>
-	<unique-id>1473901687616152-1</unique-id>
-	<command>sh ~/Thunar-upload.sh %f %d</command>
-	<description></description>
-	<patterns>*</patterns>
-	<audio-files/>
-	<image-files/>
+	<icon></icon>
+	<name>Java</name>
+	<unique-id>1491226910522333-5</unique-id>
+	<command>java -jar %f</command>
+	<description>java, open the selected jar</description>
+	<patterns>*.jar</patterns>
 	<other-files/>
-	<text-files/>
-	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>Unzip</name>
+	<unique-id>1491227631972514-4</unique-id>
+	<command>unzip %f -d %f_EXTRACTED</command>
+	<description>Unzip selected file</description>
+	<patterns>*.zip</patterns>
+	<other-files/>
 </action>
 </actions>
