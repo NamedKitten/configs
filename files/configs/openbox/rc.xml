@@ -40,7 +40,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Onyx-Citrus</name>
+    <name>Adapta-Nokto</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -756,7 +756,7 @@
         <action name="ToggleMaximizeHorz"/>
       </mousebind>
     </context>
-  <context name="Close">
+    <context name="Close">
       <mousebind action="Press" button="Left">
         <action name="Focus"/>
         <action name="Raise"/>
