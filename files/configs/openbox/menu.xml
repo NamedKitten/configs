@@ -2,7 +2,7 @@
 <openbox_menu xmlns="http://openbox.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://openbox.org/                 file:///usr/share/openbox/menu.xsd">
 	<menu id="root-menu" label="Openbox 3">
 		
-		<separator label="TT-dev-III"/>
+		<separator label="TT-dev-VII"/>
 		<menu id="pipe" label="Pipe Menu">
 		<menu id="openbox-menu" label="Applications" execute="/usr/bin/openbox-menu lxde-applications.menu"/>
 		<menu execute="~/.config/openbox/pipemenus/obpipemenu-places ~/" id="places" label="Places"/>
@@ -25,7 +25,7 @@
 		<item label="Volume">
 			<action name="Execute">
 				<command>
-					xfce4-mixer
+					gnome-alsamixer
 				</command>
 			</action>
 		</item>
