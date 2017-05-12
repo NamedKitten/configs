@@ -267,7 +267,7 @@
     <keybind key="A-F4">
       <action name="Close"/>
     </keybind>
-    <keybind key="A-F2">
+    <keybind key="W-r">
       <action name="Execute">
         <command>gmrun</command>
         <startupnotify>

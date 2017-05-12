@@ -9,5 +9,5 @@ redshift &
 chromium &
 nitrogen --restore &
 xscreensaver -no-splash & 
-steam-native 
+steam -silent 
 
