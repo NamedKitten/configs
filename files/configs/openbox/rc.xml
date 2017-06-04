@@ -269,11 +269,7 @@
     </keybind>
     <keybind key="W-r">
       <action name="Execute">
-        <command>gmrun</command>
-        <startupnotify>
-          <enabled>yes</enabled>
-          <name>gmrun</name>
-        </startupnotify>
+        <command>rofi -show run</command>
       </action>
     </keybind>
     <!--
@@ -307,7 +303,9 @@
       </action>
     </keybind>
     <keybind key="A-Tab">
-      <action name="NextWindow"/>
+       <action name="Execute">
+        <command>rofi -show</command>
+       </action>
     </keybind>
     <keybind key="A-S-Tab">
       <action name="PreviousWindow"/>
