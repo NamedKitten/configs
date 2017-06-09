@@ -517,16 +517,6 @@
       </mousebind>
     </context>
     <context name="Titlebar">
-      <mousebind button="Up" action="Click">
-        <action name="Execute">
-          <execute>transset-df -p .2 --inc  </execute>
-        </action>
-      </mousebind>
-      <mousebind button="Down" action="Click">
-        <action name="Execute">
-          <execute>transset-df -p .2 --dec </execute>
-        </action>
-      </mousebind>
       <mousebind action="Press" button="Left">
         <action name="Focus"/>
         <action name="Raise"/>
