@@ -9,5 +9,5 @@ firefox &
 nitrogen --restore &
 xscreensaver -no-splash & 
 steam -silent &
-compton --active-opacity 0.8 --opacity-rule '99:class_g = "Firefox"'
+compton --config ~/.config/openbox/compton.conf
 
