@@ -26,6 +26,7 @@ install_dep_pacman () {
 install_usage () {
 	echo "USAGE: sh install.sh [OPTIONS]"
 	echo "OPTIONS:	"
+	echo "|	--dep"
 	echo "|	--wallpaper"
 	echo "|	--configs"
 	echo "|	--bash_it"
@@ -35,6 +36,10 @@ if [ ! $1 ]; then
 install_usage
 fi
 case $1 in
+	"--dep")
+	install_dep_pacman
+	install_dep_yaourt	
+	;;
 	"--wallpaper")
 	install_wall
 	;;
@@ -45,6 +50,8 @@ case $1 in
 	install_bash_it
 	;;
 	"--all")
+	install_dep_pacman
+        install_dep_yaourt
 	install_wall
 	install_conf
 	install_bash_it
