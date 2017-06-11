@@ -16,6 +16,16 @@ install_conf () {
 install_bash_it () {
 	git clone --depth=1 https://github.com/Bash-it/bash-it.git $HOME/.bash_it
 	sh $HOME/.bash_it/install.sh
+	echo "Installing custom theme"
+	cp -r files/theme/tim ~/.bash_it/themes/
+	sed -i '/BASH_IT_THEME/d' $HOME/.bashrc
+	sed -i '/bash_it.sh/d' $HOME/.bashrc
+	echo "export BASH_IT_THEME='tim'" >> $HOME/.bashrc
+	echo "source $HOME/.bash_it/bash_it.sh" >> $HOME/.bashrc	
+}
+install_bashrc () {
+	sudo cp files/custom/screenfetch /usr/bin/screenfetch
+	echo "screenfetch -L" >> .bashrc
 }
 install_dep_yaourt () {
 	yaourt -S --noconfirm `cat files/dep/yaourt`
@@ -30,6 +40,7 @@ install_usage () {
 	echo "|	--wallpaper"
 	echo "|	--configs"
 	echo "|	--bash_it"
+	echo "|	--bashrc"
 	echo "|	--all"
 }
 if [ ! $1 ]; then
@@ -49,11 +60,15 @@ case $1 in
 	"--bash_it")
 	install_bash_it
 	;;
+	"--bashrc")
+	install_bashrc
+	;;
 	"--all")
 	install_dep_pacman
-        install_dep_yaourt
+    install_dep_yaourt
 	install_wall
 	install_conf
+	install_bashrc
 	install_bash_it
 	;;
 	*)
