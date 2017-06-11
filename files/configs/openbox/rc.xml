@@ -303,9 +303,9 @@
       </action>
     </keybind>
     <keybind key="A-Tab">
-       <action name="Execute">
+      <action name="Execute">
         <command>rofi -show</command>
-       </action>
+      </action>
     </keybind>
     <keybind key="A-S-Tab">
       <action name="PreviousWindow"/>
