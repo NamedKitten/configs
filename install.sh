@@ -44,36 +44,36 @@ install_dep_pacman () {
 install_usage () {
 	echo "USAGE: sh install.sh [OPTIONS]"
 	echo "OPTIONS:	"
-	echo "|	--dep"
-	echo "|	--wallpaper"
-	echo "|	--configs"
-	echo "|	--bash_it"
-	echo "|	--bashrc"
-	echo "|	--all"
+	echo "|	dep"
+	echo "|	wallpaper"
+	echo "|	configs"
+	echo "|	bash_it"
+	echo "|	bashrc"
+	echo "|	all"
 }
 if [ ! $1 ]; then
 install_usage
 fi
 case $1 in
-	"--dep")
+	"dep")
 	install_dep_pacman
 	install_dep_yaourt	
 	;;
-	"--wallpaper")
+	"wallpaper")
 	install_wall
 	;;
-	"--configs")
+	"configs")
 	install_conf
 	;;
-	"--bash_it")
+	"bash_it")
 	install_bash_it
 	;;
-	"--bashrc")
+	"bashrc")
 	install_bashrc
 	;;
-	"--all")
+	"all")
 	install_dep_pacman
-    install_dep_yaourt
+	install_dep_yaourt
 	install_wall
 	install_conf
 	install_bashrc
