@@ -51,9 +51,6 @@ install_usage () {
 	echo "|	bashrc"
 	echo "|	all"
 }
-if [ ! $1 ]; then
-install_usage
-fi
 case $1 in
 	"dep")
 	install_dep_pacman
@@ -80,4 +77,6 @@ case $1 in
 	install_bash_it
 	;;
 	*)
+	install_usage
+	;;
 esac
