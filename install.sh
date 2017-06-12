@@ -28,9 +28,17 @@ install_bashrc () {
 	echo "screenfetch -L" >> .bashrc
 }
 install_dep_yaourt () {
+	if [ ! -f files/dep/yaourt ]; then
+	echo "Yaourt's dep file not found!"
+		exit 1
+	fi
 	yaourt -S --noconfirm `cat files/dep/yaourt`
 }
 install_dep_pacman () {
+	if [ ! -f files/dep/pacman ]; then
+	echo "Pacman's dep file not found!"
+		exit 1
+	fi
 	sudo pacman -S --noconfirm `cat files/dep/pacman`
 }
 install_usage () {
