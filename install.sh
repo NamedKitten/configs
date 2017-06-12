@@ -24,8 +24,8 @@ install_bash_it () {
 	echo "source $HOME/.bash_it/bash_it.sh" >> $HOME/.bashrc	
 }
 install_bashrc () {
-	sudo cp files/custom/screenfetch /usr/bin/screenfetch
-	echo "screenfetch -L" >> .bashrc
+	sudo cp files/custom/printarch /usr/bin/printarch
+	echo "printarch" >> .bashrc
 }
 install_etc () {
 cat << END > $HOME/.Xresources
