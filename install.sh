@@ -27,6 +27,16 @@ install_bashrc () {
 	sudo cp files/custom/screenfetch /usr/bin/screenfetch
 	echo "screenfetch -L" >> .bashrc
 }
+install_etc () {
+cat << END > $HOME/.Xresources
+rofi.color-enabled: true
+rofi.color-window: #002b37, #002b37, #003642
+rofi.color-normal: #002b37, #819396, #002b37, #003642, #819396
+rofi.color-active: #002b37, #008ed4, #002b37, #003642, #008ed4
+rofi.color-urgent: #002b37, #da4281, #002b37, #003642, #da4281
+END
+echo "exec openbox-session" > $HOME/.xinitrc 
+}
 install_dep_yaourt () {
 	if [ ! -f files/dep/yaourt ]; then
 	echo "Yaourt's dep file not found!"
@@ -44,6 +54,7 @@ install_dep_pacman () {
 install_usage () {
 	echo "USAGE: sh install.sh [OPTIONS]"
 	echo "OPTIONS:	"
+	echo "| etc"
 	echo "|	dep"
 	echo "|	wallpaper"
 	echo "|	configs"
@@ -55,6 +66,9 @@ case $1 in
 	"dep")
 	install_dep_pacman
 	install_dep_yaourt	
+	;;
+	"etc")
+	install_etc
 	;;
 	"wallpaper")
 	install_wall
