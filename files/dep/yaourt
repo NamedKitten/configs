@@ -4,5 +4,6 @@ gnome-alsamixer
 openbox-menu 
 volumeicon 
 galculator 
-rofi compton 
+rofi 
+compton 
 plank
