@@ -68,14 +68,14 @@ install_dep_pacman () {
 install_usage () {
 	echo "USAGE: sh install.sh [OPTIONS]"
 	echo "OPTIONS:	"
-	echo "| etc"
+	echo "|	etc"
 	echo "|	dep"
-	echo "| dep_opt"
+	echo "|	dep_opt"
 	echo "|	wallpaper"
 	echo "|	configs"
 	echo "|	bash_it"
 	echo "|	bashrc"
-	echo "|	all"
+	echo "|	base"
 	echo "| full"
 }
 case $1 in
