@@ -51,6 +51,13 @@ install_yaourt_opt () {
 	fi
 	yaourt -S `cat files/dep/yaourt_opt`
 }
+install_pacman_opt () {
+	if [ ! -f files/dep/pacman_opt ]; then
+	echo "Pacman's dep file not found!"
+		exit 1
+	fi
+	sudo pacman -S `cat files/dep/pacman_opt`
+}
 install_dep_pacman () {
 	if [ ! -f files/dep/pacman ]; then
 	echo "Pacman's dep file not found!"
@@ -106,6 +113,7 @@ case $1 in
 	install_dep_pacman
 	install_dep_yaourt
 	install_yaourt_opt
+	install_pacman_opt
 	install_etc
 	install_wall
 	install_conf
