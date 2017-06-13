@@ -28,7 +28,7 @@ install_bashrc () {
 	echo "printarch" >> .bashrc
 }
 install_etc () {
-cat << END > $HOME/.Xresources
+cat > $HOME/.Xresources << END
 rofi.color-enabled: true
 rofi.color-window: #002b37, #002b37, #003642
 rofi.color-normal: #002b37, #819396, #002b37, #003642, #819396
