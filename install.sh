@@ -44,6 +44,13 @@ install_dep_yaourt () {
 	fi
 	yaourt -S --noconfirm `cat files/dep/yaourt`
 }
+install_yaourt_opt () {
+	if [ ! -f files/dep/yaourt_opt ]; then
+	echo "Yaourt's dep file not found!"
+		exit 1
+	fi
+	yaourt -S `cat files/dep/yaourt_opt`
+}
 install_dep_pacman () {
 	if [ ! -f files/dep/pacman ]; then
 	echo "Pacman's dep file not found!"
@@ -56,16 +63,21 @@ install_usage () {
 	echo "OPTIONS:	"
 	echo "| etc"
 	echo "|	dep"
+	echo "| dep_opt"
 	echo "|	wallpaper"
 	echo "|	configs"
 	echo "|	bash_it"
 	echo "|	bashrc"
 	echo "|	all"
+	echo "| full"
 }
 case $1 in
 	"dep")
 	install_dep_pacman
 	install_dep_yaourt	
+	;;
+	"dep_opt")
+	install_yaourt_opt
 	;;
 	"etc")
 	install_etc
@@ -82,9 +94,19 @@ case $1 in
 	"bashrc")
 	install_bashrc
 	;;
-	"all")
+	"base")
 	install_dep_pacman
 	install_dep_yaourt
+	install_wall
+	install_conf
+	install_bashrc
+	install_bash_it
+	;;
+	"full")
+	install_dep_pacman
+	install_dep_yaourt
+	install_yaourt_opt
+	install_etc
 	install_wall
 	install_conf
 	install_bashrc
