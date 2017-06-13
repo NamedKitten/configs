@@ -49,14 +49,14 @@ install_yaourt_opt () {
 	echo "Yaourt's dep file not found!"
 		exit 1
 	fi
-	yaourt -S `cat files/dep/yaourt_opt`
+	yaourt -S --noconfirm `cat files/dep/yaourt_opt`
 }
 install_pacman_opt () {
 	if [ ! -f files/dep/pacman_opt ]; then
 	echo "Pacman's dep file not found!"
 		exit 1
 	fi
-	sudo pacman -S `cat files/dep/pacman_opt`
+	sudo pacman -S --noconfirm `cat files/dep/pacman_opt`
 }
 install_dep_pacman () {
 	if [ ! -f files/dep/pacman ]; then
