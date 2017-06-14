@@ -24,7 +24,7 @@ install_bash_it () {
 	echo "source $HOME/.bash_it/bash_it.sh" >> $HOME/.bashrc	
 }
 install_bashrc () {
-	sudo cp files/custom/printarch /usr/bin/printarch
+	cp files/custom/printarch /usr/bin/printarch
 	echo "printarch" >> .bashrc
 }
 install_etc () {
@@ -56,18 +56,55 @@ install_pacman_opt () {
 	echo "Pacman's dep file not found!"
 		exit 1
 	fi
-	sudo pacman -S --noconfirm `cat files/dep/pacman_opt`
+	pacman -S --noconfirm `cat files/dep/pacman_opt`
 }
 install_dep_pacman () {
 	if [ ! -f files/dep/pacman ]; then
 	echo "Pacman's dep file not found!"
 		exit 1
 	fi
-	sudo pacman -S --noconfirm `cat files/dep/pacman`
+	pacman -S --noconfirm `cat files/dep/pacman`
+}
+install_check () {
+	if [ "`whoami`" != "root" ]; then
+		echo "Script must run as root"
+		exit 1
+	fi
+	echo "Checking for dep files"
+	for file in "pacman" "pacman_opt" "yaourt" "yaourt_opt"; do
+		if [ ! -f files/dep/$file ]; then
+		echo "`pwd`/files/dep/$file not found"
+			exit 1
+		else
+			echo "`pwd`/files/dep/$file found"
+		fi
+	done
+	for program in "pacman" "git" "cat" "grep"; do 
+		which $program > /dev/null 2>&1
+		if [ $? != 0 ]; then
+			echo "$program is not installed"
+		else
+			echo "$program is installed"
+		fi
+	done
+	which yaourt > /dev/null 2>&1
+	if [ $? != 0 ]; then
+		echo "Installing yaourt"
+		install_yaourt
+	fi
+}
+install_yaourt () {
+	cat /etc/pacman.conf | grep "http://repo.archlinux.fr" > /dev/null 2>&1
+	if [ $? != 0 ]; then
+		cat files/custom/pacman.conf >> /etc/pacman.conf 
+		pacman -Syyu --noconfirm
+	fi
+	pacman -S yaourt --noconfirm
 }
 install_usage () {
 	echo "USAGE: sh install.sh [OPTIONS]"
 	echo "OPTIONS:	"
+	echo "|	check"
 	echo "|	etc"
 	echo "|	dep"
 	echo "|	dep_opt"
@@ -76,32 +113,43 @@ install_usage () {
 	echo "|	bash_it"
 	echo "|	bashrc"
 	echo "|	base"
-	echo "| full"
+	echo "|	full"
 }
 case $1 in
+	"check")
+	install_check
+	;;
 	"dep")
+	install_check
 	install_dep_pacman
 	install_dep_yaourt	
 	;;
 	"dep_opt")
+	install_check
 	install_yaourt_opt
 	;;
 	"etc")
+	install_check
 	install_etc
 	;;
 	"wallpaper")
+	install_check
 	install_wall
 	;;
 	"configs")
+	install_check
 	install_conf
 	;;
 	"bash_it")
+	install_check
 	install_bash_it
 	;;
 	"bashrc")
+	install_check
 	install_bashrc
 	;;
 	"base")
+	install_check
 	install_dep_pacman
 	install_dep_yaourt
 	install_wall
@@ -110,6 +158,7 @@ case $1 in
 	install_bash_it
 	;;
 	"full")
+	install_check
 	install_dep_pacman
 	install_dep_yaourt
 	install_yaourt_opt
