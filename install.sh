@@ -83,6 +83,7 @@ install_check () {
 		which $program > /dev/null 2>&1
 		if [ $? != 0 ]; then
 			echo "$program is not installed"
+				exit 1
 		else
 			echo "$program is installed"
 		fi
