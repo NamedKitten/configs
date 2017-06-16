@@ -9,10 +9,10 @@ install_conf () {
 	cd files/configs/
 	for dir in * ; do
 		rm -rf ~/.config/$dir
+		cp -r $dir ~/.config/
 		if [ "$dir" == "nitrogen" ]; then
 			echo "dirs=$HOME/Pictures/wallpaper;" >> $HOME/.config/nitrogen/nitrogen.cfg
 		fi
-		cp -r $dir ~/.config/
 	done
 	cd ../../
 }
