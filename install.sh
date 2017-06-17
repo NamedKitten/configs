@@ -12,9 +12,19 @@ install_conf () {
 		cp -r $dir ~/.config/
 		if [ "$dir" == "nitrogen" ]; then
 			echo "dirs=$HOME/Pictures/wallpaper;" >> $HOME/.config/nitrogen/nitrogen.cfg
+			sed -i '/file=/home/tim/Pictures/wallpaper/9fMIIeh.jpg/d' $HOME/.config/nitrogen/bg-saved.cfg
+			echo "file=$HOME/Pictures/wallpaper/9fMIIeh.jpg" >> $HOME/.config/nitrogen/bg-saved.cfg
 		fi
 	done
 	cd ../../
+}
+install_lxdm_theme () {
+	cp -r files/lxdm-arch/arch /usr/share/lxdm/themes/
+	sed -i "s/gtk_theme=.*/gtk_theme=Adapta/g" /etc/lxdm/lxdm.conf
+	sed -i "s/theme=.*/theme=arch/g" /etc/lxdm/lxdm.conf
+}
+install_services () {
+	systemctl enable lxdm
 }
 install_bash_it () {
 	git clone --depth=1 https://github.com/Bash-it/bash-it.git $HOME/.bash_it
@@ -177,6 +187,7 @@ case $1 in
 	install_conf
 	install_bashrc
 	install_bash_it
+	install_lxdm_theme
 	;;
 	"full")
 	install_check
@@ -189,6 +200,8 @@ case $1 in
 	install_conf
 	install_bashrc
 	install_bash_it
+	install_lxdm_theme
+	install_services
 	;;
 	*)
 	install_usage
