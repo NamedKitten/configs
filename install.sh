@@ -89,6 +89,7 @@ install_check () {
 		echo "Script must run as root"
 		exit 1
 	fi
+	pacman -Syyu --noconfirm
 	echo "Checking for dep files"
 	for file in "pacman" "pacman_opt" "yaourt" "yaourt_opt"; do
 		if [ ! -f files/dep/$file ]; then
