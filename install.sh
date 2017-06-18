@@ -22,7 +22,7 @@ install_lxdm_theme () {
 	cp -r files/lxdm-arch/arch /usr/share/lxdm/themes/
 	sed -i "s/gtk_theme=.*/gtk_theme=Adapta/g" /etc/lxdm/lxdm.conf
 	sed -i "s/theme=.*/theme=arch/g" /etc/lxdm/lxdm.conf
-	sed -i "s/session=.*/session=`which openbox-session`" /etc/lxdm/lxdm.conf
+	sed -i "s/.*.session=.*/session=openbox-session/g" /etc/lxdm/lxdm.conf
 }
 install_services () {
 	systemctl enable lxdm
