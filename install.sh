@@ -12,7 +12,7 @@ install_conf () {
 		cp -r $dir ~/.config/
 		if [ "$dir" == "nitrogen" ]; then
 			echo "dirs=$HOME/Pictures/wallpaper;" >> $HOME/.config/nitrogen/nitrogen.cfg
-			sed -i '/file=/home/tim/Pictures/wallpaper/9fMIIeh.jpg/d' $HOME/.config/nitrogen/bg-saved.cfg
+			sed -i 's/file=.*/d/g' $HOME/.config/nitrogen/bg-saved.cfg
 			echo "file=$HOME/Pictures/wallpaper/9fMIIeh.jpg" >> $HOME/.config/nitrogen/bg-saved.cfg
 		fi
 	done
@@ -39,6 +39,7 @@ install_bash_it () {
 }
 install_bashrc () {
 	cp files/custom/printarch /usr/bin/printarch
+	chmod 777 /usr/bin/printarch
 	echo "printarch" >> .bashrc
 }
 install_etc () {
