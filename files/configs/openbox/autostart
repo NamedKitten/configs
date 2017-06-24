@@ -4,7 +4,7 @@ pcmanfm --desktop &
 pidgin &
 lxpolkit &
 volumeicon &
-hexchat &
+hexchat --minimize=1 &
 redshift &
 firefox &
 xscreensaver -no-splash & 
