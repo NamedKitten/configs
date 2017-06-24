@@ -1,12 +1,12 @@
 tint2 &
 plank &
+pcmanfm --desktop &
 pidgin &
 lxpolkit &
 volumeicon &
 hexchat &
 redshift &
 firefox &
-nitrogen --restore &
 xscreensaver -no-splash & 
 steam -silent &
 compton --config ~/.config/openbox/compton.conf

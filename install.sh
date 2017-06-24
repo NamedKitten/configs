@@ -10,11 +10,6 @@ install_conf () {
 	for dir in * ; do
 		rm -rf ~/.config/$dir
 		cp -r $dir ~/.config/
-		if [ "$dir" == "nitrogen" ]; then
-			echo "dirs=$HOME/Pictures/wallpaper;" >> $HOME/.config/nitrogen/nitrogen.cfg
-			sed -i 's/file=.*/d/g' $HOME/.config/nitrogen/bg-saved.cfg
-			echo "file=$HOME/Pictures/wallpaper/9fMIIeh.jpg" >> $HOME/.config/nitrogen/bg-saved.cfg
-		fi
 	done
 	cd ../../
 }
