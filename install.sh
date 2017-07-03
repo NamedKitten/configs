@@ -15,9 +15,9 @@ install_conf () {
 }
 install_bash_it () {
 	git clone --depth=1 https://github.com/Bash-it/bash-it.git $HOME/.bash_it
-	sh $HOME/.bash_it/install.sh --silent
+	bash $HOME/.bash_it/install.sh --silent
 	echo "Installing custom theme"
-	cp -r files/themes/tim ~/.bash_it/themes/
+	cp -r files/themes/tim $HOME/.bash_it/themes/
 	sed -i '/BASH_IT_THEME/d' $HOME/.bashrc
 	sed -i '/bash_it.sh/d' $HOME/.bashrc
 	echo "export BASH_IT_THEME='tim'" >> $HOME/.bashrc
