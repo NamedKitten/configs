@@ -14,13 +14,13 @@ install_conf () {
 	cd ../../
 }
 install_lxdm_theme () {
-	cp -r files/lxdm-arch/arch /usr/share/lxdm/themes/
-	sed -i "s/gtk_theme=.*/gtk_theme=Adapta/g" /etc/lxdm/lxdm.conf
-	sed -i "s/theme=.*/theme=arch/g" /etc/lxdm/lxdm.conf
-	sed -i "s/.*.session=.*/session=openbox-session/g" /etc/lxdm/lxdm.conf
+	sudo cp -r files/lxdm-arch/arch /usr/share/lxdm/themes/
+	sudo sed -i "s/gtk_theme=.*/gtk_theme=Adapta/g" /etc/lxdm/lxdm.conf
+	sudo sed -i "s/theme=.*/theme=arch/g" /etc/lxdm/lxdm.conf
+	sudo sed -i "s/.*.session=.*/session=openbox-session/g" /etc/lxdm/lxdm.conf
 }
 install_services () {
-	systemctl enable lxdm
+	sudo systemctl enable lxdm
 }
 install_bash_it () {
 	git clone --depth=1 https://github.com/Bash-it/bash-it.git $HOME/.bash_it
@@ -33,8 +33,8 @@ install_bash_it () {
 	echo "source $HOME/.bash_it/bash_it.sh" >> $HOME/.bashrc	
 }
 install_bashrc () {
-	cp files/custom/printarch /usr/bin/printarch
-	chmod 777 /usr/bin/printarch
+	sudo cp files/custom/printarch /usr/bin/printarch
+	sudo chmod 777 /usr/bin/printarch
 	echo "printarch" >> .bashrc
 }
 install_etc () {
@@ -82,21 +82,17 @@ install_pacman_opt () {
 	echo "Pacman's dep file not found!"
 		exit 1
 	fi
-	pacman -S --noconfirm `cat files/dep/pacman_opt`
+	sudo pacman -S --noconfirm `cat files/dep/pacman_opt`
 }
 install_dep_pacman () {
 	if [ ! -f files/dep/pacman ]; then
 	echo "Pacman's dep file not found!"
 		exit 1
 	fi
-	pacman -S --noconfirm `cat files/dep/pacman`
+	sudo pacman -S --noconfirm `cat files/dep/pacman`
 }
 install_check () {
-	if [ "`whoami`" != "root" ]; then
-		echo "Script must run as root"
-		exit 1
-	fi
-	pacman -Syyu --noconfirm
+	sudo pacman -Syyu --noconfirm
 	echo "Checking for dep files"
 	for file in "pacman" "pacman_opt" "yaourt" "yaourt_opt"; do
 		if [ ! -f files/dep/$file ]; then
@@ -124,10 +120,10 @@ install_check () {
 install_yaourt () {
 	cat /etc/pacman.conf | grep "http://repo.archlinux.fr" > /dev/null 2>&1
 	if [ $? != 0 ]; then
-		cat files/custom/pacman.conf >> /etc/pacman.conf 
-		pacman -Syyu --noconfirm
+		sudo cat files/custom/pacman.conf >> /etc/pacman.conf 
+		sudo pacman -Syyu --noconfirm
 	fi
-	pacman -S yaourt --noconfirm
+	sudo pacman -S yaourt --noconfirm
 }
 install_usage () {
 	echo "USAGE: sh install.sh [OPTIONS]"
