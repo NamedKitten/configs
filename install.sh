@@ -13,15 +13,6 @@ install_conf () {
 	done
 	cd ../../
 }
-install_lxdm_theme () {
-	sudo cp -r files/lxdm-arch/arch /usr/share/lxdm/themes/
-	sudo sed -i "s/gtk_theme=.*/gtk_theme=Adapta/g" /etc/lxdm/lxdm.conf
-	sudo sed -i "s/theme=.*/theme=arch/g" /etc/lxdm/lxdm.conf
-	sudo sed -i "s/.*.session=.*/session=openbox-session/g" /etc/lxdm/lxdm.conf
-}
-install_services () {
-	sudo systemctl enable lxdm
-}
 install_bash_it () {
 	git clone --depth=1 https://github.com/Bash-it/bash-it.git $HOME/.bash_it
 	sh $HOME/.bash_it/install.sh --silent
@@ -180,7 +171,6 @@ case $1 in
 	install_conf
 	install_bashrc
 	install_bash_it
-	install_lxdm_theme
 	;;
 	"full")
 	install_check
@@ -193,8 +183,6 @@ case $1 in
 	install_conf
 	install_bashrc
 	install_bash_it
-	install_lxdm_theme
-	install_services
 	;;
 	*)
 	install_usage
