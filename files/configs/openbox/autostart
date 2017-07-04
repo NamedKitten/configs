@@ -8,6 +8,5 @@ hexchat --minimize=1 &
 redshift &
 xscreensaver -no-splash & 
 steam -silent &
-compton --config ~/.config/openbox/compton.conf &
-nvdock &
+compton --config ~/.config/openbox/compton.conf
 
