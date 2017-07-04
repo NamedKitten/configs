@@ -21,7 +21,7 @@ install_bash_it () {
 	sed -i '/BASH_IT_THEME/d' $HOME/.bashrc
 	sed -i '/bash_it.sh/d' $HOME/.bashrc
 	echo "export BASH_IT_THEME='tim'" >> $HOME/.bashrc
-	echo "source $HOME/.bash_it/bash_it.sh" >> $HOME/.bashrc	
+	echo "source $HOME/.bash_it/bash_it.sh" >> $HOME/.bashrc
 }
 install_bashrc () {
 	sudo cp files/custom/printarch /usr/bin/printarch
@@ -52,7 +52,7 @@ gtk-xft-antialias=1
 gtk-xft-hinting=1
 gtk-xft-hintstyle="hintfull"
 END
-echo "exec openbox-session" > $HOME/.xinitrc 
+echo "exec openbox-session" > $HOME/.xinitrc
 }
 install_dep_yaourt () {
 	if [ ! -f files/dep/yaourt ]; then
@@ -93,7 +93,7 @@ install_check () {
 			echo "`pwd`/files/dep/$file found"
 		fi
 	done
-	for program in "pacman" "git" "cat" "grep"; do 
+	for program in "pacman" "git" "cat" "grep"; do
 		which $program > /dev/null 2>&1
 		if [ $? != 0 ]; then
 			echo "$program is not installed"
@@ -108,15 +108,20 @@ install_check () {
 		install_yaourt
 	fi
 }
-install_yaourt () {	
+install_yaourt () {
 	cat /etc/pacman.conf | grep "http://repo.archlinux.fr" > /dev/null 2>&1
 	if [ $? != 0 ]; then
 		sudo chmod 777 /etc/pacman.conf
-		cat files/custom/pacman.conf >> /etc/pacman.conf 
+		cat files/custom/pacman.conf >> /etc/pacman.conf
 		sudo chmod 644 /etc/pacman.conf
 		sudo pacman -Syyu --noconfirm
 	fi
 	sudo pacman -S yaourt --noconfirm
+}
+install_firefox () {
+	git clone https://github.com/horst3180/arc-firefox-theme
+	./autogen.sh --prefix=/usr
+	sudo make install
 }
 install_usage () {
 	echo "USAGE: sh install.sh [OPTIONS]"
@@ -131,6 +136,7 @@ install_usage () {
 	echo "|	bashrc"
 	echo "|	base"
 	echo "|	full"
+	echo "| firefox"
 }
 case $1 in
 	"check")
@@ -139,7 +145,7 @@ case $1 in
 	"dep")
 	install_check
 	install_dep_pacman
-	install_dep_yaourt	
+	install_dep_yaourt
 	;;
 	"dep_opt")
 	install_check
@@ -165,6 +171,10 @@ case $1 in
 	install_check
 	install_bashrc
 	;;
+	"firefox")
+	install_check
+	install_firefox
+	;;
 	"base")
 	install_check
 	install_dep_pacman
@@ -185,6 +195,7 @@ case $1 in
 	install_conf
 	install_bashrc
 	install_bash_it
+	install_firefox
 	;;
 	*)
 	install_usage
