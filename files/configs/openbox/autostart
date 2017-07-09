@@ -1,9 +1,11 @@
+xrandr --output VGA-1 --mode 1440x900 --pos 0x0 --rotate normal --output DVI-I-1 --off --output HDMI-1 --off &
 tint2 &
+nm-applet & 
 plank &
 pcmanfm --desktop &
-pidgin &
 lxpolkit &
 volumeicon &
+pidgin &
 hexchat --minimize=1 &
 redshift &
 xscreensaver -no-splash & 
