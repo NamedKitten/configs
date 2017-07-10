@@ -82,6 +82,11 @@ install_dep_pacman () {
 	fi
 	sudo pacman -S --noconfirm `cat files/dep/pacman`
 }
+install_services () {
+ sudo systemctl enable NetworkManager
+ sudo systemctl disable dhcpcd
+ sudo systemctl mask tmpfs.mount
+}
 install_check () {
 	sudo pacman -Syyu --noconfirm
 	echo "Checking for dep files"
@@ -134,9 +139,10 @@ install_usage () {
 	echo "|	configs"
 	echo "|	bash_it"
 	echo "|	bashrc"
+	echo "| firefox"
+	echo "| services"
 	echo "|	base"
 	echo "|	full"
-	echo "| firefox"
 }
 case $1 in
 	"check")
@@ -175,6 +181,10 @@ case $1 in
 	install_check
 	install_firefox
 	;;
+	"services")
+	install_check
+	install_services
+	;;
 	"base")
 	install_check
 	install_dep_pacman
@@ -190,6 +200,7 @@ case $1 in
 	install_dep_yaourt
 	install_yaourt_opt
 	install_pacman_opt
+	install_services
 	install_etc
 	install_wall
 	install_conf
