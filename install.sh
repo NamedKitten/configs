@@ -29,7 +29,8 @@ install_bashrc () {
 	cat files/custom/bashrc > $HOME/.bashrc
 }
 install_etc () {
-cat files/custom/Xresources > $HOME/.Xresources 
+cp -r files/custom/bin ~/
+cat files/custom/Xresources > $HOME/.Xresources
 cat files/custom/gtkrc-2.0 > $HOME/.gtkrc-2.0
 echo "exec openbox-session" > $HOME/.xinitrc
 }
