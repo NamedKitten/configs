@@ -1,13 +1,7 @@
 IP=$1
 TARGET_PORT=$3
-if [ $3 ]; then
-	IP_PORT=$2
-else
-	TARGET_PORT=$2
-fi
-if [ $4 ]; then
-	HOSTNAME=$4
-fi
+IP_PORT=$2
+HOSTNAME=$4
 if [ "x$1" = "xkill" ]; then
 	pkill ssh 
 	exit 
