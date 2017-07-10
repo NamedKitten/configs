@@ -337,7 +337,7 @@
         </startupnotify>
       </action>
     </keybind>
-    <keybind key="W-m">
+    <keybind key="W-q">
       <action name="Execute">
         <command>vlc</command>
         <startupnotify>
