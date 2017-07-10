@@ -4,6 +4,7 @@ tint2
 geany
 xorg-server
 xorg-xinit
+xorg-xkill
 thunar
 xorg-xrandr
 xterm
