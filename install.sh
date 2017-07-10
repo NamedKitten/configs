@@ -29,29 +29,8 @@ install_bashrc () {
 	cat files/custom/bashrc > $HOME/.bashrc
 }
 install_etc () {
-cat > $HOME/.Xresources << END
-rofi.color-enabled: true
-rofi.color-window: #002b37, #002b37, #003642
-rofi.color-normal: #002b37, #819396, #002b37, #003642, #819396
-rofi.color-active: #002b37, #008ed4, #002b37, #003642, #008ed4
-rofi.color-urgent: #002b37, #da4281, #002b37, #003642, #da4281
-END
-cat > $HOME/.gtkrc-2.0  << END
-gtk-theme-name="Adapta-Nokto-Eta"
-gtk-icon-theme-name="Adwaita"
-gtk-font-name="Cantarell 11"
-gtk-cursor-theme-name="Adwaita"
-gtk-cursor-theme-size=0
-gtk-toolbar-style=GTK_TOOLBAR_BOTH
-gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
-gtk-button-images=1
-gtk-menu-images=1
-gtk-enable-event-sounds=1
-gtk-enable-input-feedback-sounds=1
-gtk-xft-antialias=1
-gtk-xft-hinting=1
-gtk-xft-hintstyle="hintfull"
-END
+cat files/custom/Xresources > $HOME/.Xresources 
+cat files/custom/gtkrc-2.0 > $HOME/.gtkrc-2.0
 echo "exec openbox-session" > $HOME/.xinitrc
 }
 install_dep_yaourt () {
