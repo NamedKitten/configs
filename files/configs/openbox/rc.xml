@@ -336,11 +336,7 @@
     </keybind>
     <keybind key="C-A-t">
       <action name="Execute">
-        <command>lxterminal</command>
-        <startupnotify>
-          <enabled>yes</enabled>
-          <name>lxterminal</name>
-        </startupnotify>
+        <command>terminator</command>
       </action>
     </keybind>
     <keybind key="W-l">
