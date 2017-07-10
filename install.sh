@@ -26,7 +26,7 @@ install_bash_it () {
 install_bashrc () {
 	sudo cp files/custom/printarch /usr/bin/printarch
 	sudo chmod 777 /usr/bin/printarch
-	echo "printarch" >> .bashrc
+	cat files/custom/bashrc > $HOME/.bashrc
 }
 install_etc () {
 cat > $HOME/.Xresources << END
