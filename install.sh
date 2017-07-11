@@ -26,7 +26,7 @@ install_bash_it () {
 install_bashrc () {
 	sudo cp files/custom/printarch /usr/bin/printarch
 	sudo chmod 777 /usr/bin/printarch
-	cat files/custom/bashrc > $HOME/.bashrc
+	cat files/custom/bashrc >> $HOME/.bashrc
 }
 install_etc () {
 cp -r files/custom/bin ~/
@@ -163,8 +163,8 @@ case $1 in
 	install_dep_yaourt
 	install_wall
 	install_conf
-	install_bashrc
 	install_bash_it
+	install_bashrc
 	;;
 	"full")
 	install_check
@@ -177,8 +177,8 @@ case $1 in
 	install_etc
 	install_wall
 	install_conf
-	install_bashrc
 	install_bash_it
+	install_bashrc
 	install_services
 	;;
 	*)
