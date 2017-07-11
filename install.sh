@@ -103,15 +103,6 @@ install_yaourt () {
 	fi
 	sudo pacman -S yaourt --noconfirm
 }
-install_firefox () {
-	WD=`pwd`
-	git clone https://github.com/horst3180/arc-firefox-theme /tmp/arc-firefox-theme
-	cd /tmp/arc-firefox-theme
-	./autogen.sh --prefix=/usr
-	sudo make install
-	cd $WD
-	rm -rf /tmp/arc-firefox-theme
-}
 install_usage () {
 	echo "USAGE: sh install.sh [OPTIONS]"
 	echo "OPTIONS:	"
@@ -123,7 +114,6 @@ install_usage () {
 	echo "|	configs"
 	echo "|	bash_it"
 	echo "|	bashrc"
-	echo "| firefox"
 	echo "| services"
 	echo "|	base"
 	echo "|	full"
@@ -161,10 +151,6 @@ case $1 in
 	install_check
 	install_bashrc
 	;;
-	"firefox")
-	install_check
-	install_firefox
-	;;
 	"services")
 	install_check
 	install_services
@@ -190,7 +176,7 @@ case $1 in
 	install_conf
 	install_bashrc
 	install_bash_it
-	install_firefox
+	install_services
 	;;
 	*)
 	install_usage
