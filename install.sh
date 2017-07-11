@@ -98,17 +98,11 @@ install_check () {
 	which yaourt > /dev/null 2>&1
 	if [ $? != 0 ]; then
 		echo "Installing yaourt"
+		install_pacman_config
 		install_yaourt
 	fi
 }
 install_yaourt () {
-	cat /etc/pacman.conf | grep "http://repo.archlinux.fr" > /dev/null 2>&1
-	if [ $? != 0 ]; then
-		sudo chmod 777 /etc/pacman.conf
-		cat files/custom/pacman.conf >> /etc/pacman.conf
-		sudo chmod 644 /etc/pacman.conf
-		sudo pacman -Syyu --noconfirm
-	fi
 	sudo pacman -S yaourt --noconfirm
 }
 install_usage () {
