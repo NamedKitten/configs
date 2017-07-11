@@ -41,25 +41,11 @@ install_dep_yaourt () {
 	fi
 	yaourt -S --noconfirm `cat files/dep/yaourt`
 }
-install_yaourt_opt () {
-	if [ ! -f files/dep/yaourt_opt ]; then
-	echo "Yaourt's dep file not found!"
-		exit 1
-	fi
-	yaourt -S --noconfirm `cat files/dep/yaourt_opt`
-}
 install_pacman_config () {
 	sudo chmod 777 /etc/pacman.conf
 	cat files/custom/pacman.conf > /etc/pacman.conf
 	sudo chmod 644 /etc/pacman.conf
 	sudo pacman -Syyu
-}
-install_pacman_opt () {
-	if [ ! -f files/dep/pacman_opt ]; then
-	echo "Pacman's dep file not found!"
-		exit 1
-	fi
-	sudo pacman -S --noconfirm `cat files/dep/pacman_opt`
 }
 install_dep_pacman () {
 	if [ ! -f files/dep/pacman ]; then
@@ -78,7 +64,7 @@ install_services () {
 install_check () {
 	sudo pacman -Syyu --noconfirm
 	echo "Checking for dep files"
-	for file in "pacman" "pacman_opt" "yaourt" "yaourt_opt"; do
+	for file in "pacman"  "yaourt" ; do
 		if [ ! -f files/dep/$file ]; then
 		echo "`pwd`/files/dep/$file not found"
 			exit 1
@@ -129,10 +115,6 @@ case $1 in
 	install_dep_pacman
 	install_dep_yaourt
 	;;
-	"dep_opt")
-	install_check
-	install_yaourt_opt
-	;;
 	"etc")
 	install_check
 	install_etc
@@ -171,8 +153,6 @@ case $1 in
 	install_pacman_config
 	install_dep_pacman
 	install_dep_yaourt
-	install_yaourt_opt
-	install_pacman_opt
 	install_services
 	install_etc
 	install_wall
