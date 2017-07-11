@@ -48,6 +48,12 @@ install_yaourt_opt () {
 	fi
 	yaourt -S --noconfirm `cat files/dep/yaourt_opt`
 }
+install_pacman_config () {
+	sudo chmod 777 /etc/pacman.conf
+	cat files/custom/pacman.conf > /etc/pacman.conf
+	sudo chmod 644 /etc/pacman.conf
+	sudo pacman -Syyu
+}
 install_pacman_opt () {
 	if [ ! -f files/dep/pacman_opt ]; then
 	echo "Pacman's dep file not found!"
@@ -63,9 +69,11 @@ install_dep_pacman () {
 	sudo pacman -S --noconfirm `cat files/dep/pacman`
 }
 install_services () {
+ sudo systemctl enable systemd-swap
  sudo systemctl enable NetworkManager
  sudo systemctl disable dhcpcd
  sudo systemctl mask tmpfs.mount
+ 
 }
 install_check () {
 	sudo pacman -Syyu --noconfirm
@@ -166,6 +174,7 @@ case $1 in
 	;;
 	"full")
 	install_check
+	install_pacman_config
 	install_dep_pacman
 	install_dep_yaourt
 	install_yaourt_opt
