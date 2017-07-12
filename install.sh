@@ -39,7 +39,7 @@ install_dep_yaourt () {
 	echo "Yaourt's dep file not found!"
 		exit 1
 	fi
-	yaourt -S --noconfirm `cat files/dep/yaourt`
+	yaourt -S --needed --noconfirm `cat files/dep/yaourt`
 }
 install_pacman_config () {
 	sudo chmod 777 /etc/pacman.conf
@@ -52,7 +52,7 @@ install_dep_pacman () {
 	echo "Pacman's dep file not found!"
 		exit 1
 	fi
-	sudo pacman -S --noconfirm `cat files/dep/pacman`
+	sudo pacman -S --needed --noconfirm `cat files/dep/pacman`
 }
 install_dnsmasq () {
 	sudo chattr -i /etc/resolv.dnsmasq
@@ -78,7 +78,7 @@ install_services () {
 	sudo systemctl enable dnsmasq
 }
 install_check () {
-	sudo pacman -Syyu --noconfirm
+	sudo pacman -Sy 
 	echo "Checking for dep files"
 	for file in "pacman"  "yaourt" ; do
 		if [ ! -f files/dep/$file ]; then
