@@ -29,10 +29,10 @@ install_bashrc () {
 	cat files/custom/bashrc >> $HOME/.bashrc
 }
 install_etc () {
-cp -r files/custom/bin ~/
-cat files/custom/Xresources > $HOME/.Xresources
-cat files/custom/gtkrc-2.0 > $HOME/.gtkrc-2.0
-echo "exec openbox-session" > $HOME/.xinitrc
+	cp -r files/custom/bin ~/
+	cat files/custom/Xresources > $HOME/.Xresources
+	cat files/custom/gtkrc-2.0 > $HOME/.gtkrc-2.0
+	echo "exec openbox-session" > $HOME/.xinitrc
 }
 install_dep_yaourt () {
 	if [ ! -f files/dep/yaourt ]; then
@@ -54,12 +54,28 @@ install_dep_pacman () {
 	fi
 	sudo pacman -S --noconfirm `cat files/dep/pacman`
 }
+install_dnsmasq () {
+	sudo chattr -i /etc/resolv.dnsmasq
+	sudo chattr -i  /etc/resolv.conf
+	sudo chmod 777 /etc/dnsmasq.conf
+	sudo chmod 777 /etc/resolv.conf
+	sudo touch /etc/resolv.dnsmasq
+	sudo chmod 777 /etc/resolv.dnsmasq
+	cat files/custom/dnsmasq/dnsmasq.conf > /etc/dnsmasq.conf
+	cat files/custom/dnsmasq/resolv.dnsmasq > /etc/resolv.dnsmasq
+	echo "nameserver 127.0.0.1" > /etc/resolv.conf
+	sudo chmod 644 /etc/dnsmasq.conf
+	sudo chmod 644  /etc/resolv.conf
+	sudo chmod 644 /etc/resolv.dnsmasq
+	sudo chattr +i /etc/resolv.dnsmasq
+	sudo chattr +i  /etc/resolv.conf
+}
 install_services () {
- sudo systemctl enable systemd-swap
- sudo systemctl enable NetworkManager
- sudo systemctl disable dhcpcd
- sudo systemctl mask tmpfs.mount
- 
+	sudo systemctl enable systemd-swap
+	sudo systemctl enable NetworkManager
+	sudo systemctl disable dhcpcd
+	sudo systemctl mask tmpfs.mount
+	sudo systemctl enable dnsmasq
 }
 install_check () {
 	sudo pacman -Syyu --noconfirm
@@ -102,7 +118,8 @@ install_usage () {
 	echo "|	configs"
 	echo "|	bash_it"
 	echo "|	bashrc"
-	echo "| services"
+	echo "|	services"
+	echo "|	dnsmasq"
 	echo "|	base"
 	echo "|	full"
 }
@@ -139,6 +156,10 @@ case $1 in
 	install_check
 	install_services
 	;;
+	"dnsmasq")
+	install_check
+	install_dnsmasq
+	;;
 	"base")
 	install_check
 	install_dep_pacman
@@ -159,6 +180,7 @@ case $1 in
 	install_conf
 	install_bash_it
 	install_bashrc
+	install_dnsmasq
 	install_services
 	;;
 	*)
