@@ -33,14 +33,14 @@
 		<item label="Terminal">
 			<action name="Execute">
 				<command>
-					lxterminal
+					terminator
 				</command>
 			</action>
 		</item>
 		<item label="Web Browser">
 			<action name="Execute">
 				<command>
-					chromium
+					firefox
 				</command>
 			</action>
 		</item>
@@ -161,7 +161,7 @@
 				<item label="man page">
 					<action name="Execute">
 						<command>
-							lxterminal -e "man tint && pause"
+							terminator -e "man tint && pause"
 						</command>
 					</action>
 				</item>	
@@ -178,7 +178,7 @@
 				<item label="man xrandr">
 					<action name="Execute">
 						<command>
-						    lxterminal -e "man xrandr && pause"
+						    terminator -e "man xrandr && pause"
 					    </command>
 					</action>
 				</item>
