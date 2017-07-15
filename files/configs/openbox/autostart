@@ -1,5 +1,6 @@
 tint2 &
-nm-applet & 
+pulseaudio &
+nm-applet &
 plank &
 pcmanfm --desktop &
 kalu &
