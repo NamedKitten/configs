@@ -54,6 +54,9 @@ install_dep_pacman () {
 	fi
 	sudo pacman -S --needed --noconfirm `cat files/dep/pacman`
 }
+install_pidgin () {
+	cp files/custom/pidgin/prefs.xml $HOME/.purple/prefs.xml
+}
 install_dnsmasq () {
 	sudo chattr -i /etc/resolv.dnsmasq
 	sudo chattr -i  /etc/resolv.conf
@@ -189,6 +192,7 @@ case $1 in
 	install_bash_it
 	install_bashrc
 	install_dnsmasq
+	install_pidgin
 	install_services
 	;;
 	*)
