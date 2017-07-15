@@ -33,6 +33,7 @@ install_etc () {
 	cat files/custom/Xresources > $HOME/.Xresources
 	cat files/custom/gtkrc-2.0 > $HOME/.gtkrc-2.0
 	echo "exec openbox-session" > $HOME/.xinitrc
+	mkdir -p $HOME/.local/share
 	cp -r files/custom/xfce4 $HOME/.local/share/
 }
 install_dep_yaourt () {
