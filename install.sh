@@ -33,6 +33,7 @@ install_etc () {
 	cat files/custom/Xresources > $HOME/.Xresources
 	cat files/custom/gtkrc-2.0 > $HOME/.gtkrc-2.0
 	echo "exec openbox-session" > $HOME/.xinitrc
+	cp -r files/custom/xfce4 $HOME/.local/share/
 }
 install_dep_yaourt () {
 	if [ ! -f files/dep/yaourt ]; then
@@ -45,7 +46,7 @@ install_pacman_config () {
 	sudo chmod 777 /etc/pacman.conf
 	cat files/custom/pacman.conf > /etc/pacman.conf
 	sudo chmod 644 /etc/pacman.conf
-	sudo pacman -Syyu
+	sudo pacman -Syyu --noconfirm
 }
 install_dep_pacman () {
 	if [ ! -f files/dep/pacman ]; then
