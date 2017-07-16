@@ -3,9 +3,9 @@
 <action>
 	<icon>terminator</icon>
 	<name>Open Terminal Here</name>
-	<unique-id>1500203308057091-1</unique-id>
+	<unique-id>1500203896841186-1</unique-id>
 	<command>terminator --working-directory=%f</command>
-	<description>Example for a custom action</description>
+	<description>Open a terminal in the current directory</description>
 	<patterns>*</patterns>
 	<directories/>
 </action>
