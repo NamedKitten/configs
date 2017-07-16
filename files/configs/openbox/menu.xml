@@ -153,7 +153,7 @@
 				<item label="Restart tint2">
 					<action name="Execute">
 						<command>
-							pkill tint2 && tint2
+							killall tint2 && tint2
 						</command>
 					</action>
 				</item>
