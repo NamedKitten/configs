@@ -24,7 +24,6 @@ xorg-server
 xorg-xinit
 xorg-xkill
 xorg-xrandr
-xscreensaver
 xterm
 yaourt
 zip

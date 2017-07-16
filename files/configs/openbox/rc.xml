@@ -293,7 +293,7 @@
     </keybind>
     <keybind key="W-l">
       <action name="Execute">
-        <command>xscreensaver-command -lock</command>
+        <command>i3lock-wrapper</command>
       </action>
     </keybind>
     <keybind key="W-q">

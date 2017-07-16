@@ -223,7 +223,7 @@
 			</command>
 		</action>
 	</item>
-	<item label="Lock"> <action name="Execute"> <execute>xscreensaver-command -lock</execute> </action> </item>
+	<item label="Lock"> <action name="Execute"> <execute>i3lock-wrapper</execute> </action> </item>
 	<item label="Exit"> <action name="Execute"> <execute>gksu pkill X</execute> </action> </item>
 	</menu>
 </menu>
