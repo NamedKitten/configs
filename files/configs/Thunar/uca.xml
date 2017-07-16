@@ -27,4 +27,13 @@
 	<patterns>*.zip</patterns>
 	<other-files/>
 </action>
+<action>
+	<icon>/home/tim/.config/Thunar/icons/unzip.png</icon>
+	<name>Untar</name>
+	<unique-id>1500204394009416-1</unique-id>
+	<command>mkdir %f_extracted &amp;&amp; tar xvf %f -C %f_extracted</command>
+	<description>Untar selected file</description>
+	<patterns>*.tar.xz</patterns>
+	<other-files/>
+</action>
 </actions>
