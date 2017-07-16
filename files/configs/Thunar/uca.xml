@@ -1,27 +1,27 @@
 <?xml encoding="UTF-8" version="1.0"?>
 <actions>
 <action>
-	<icon>utilities-terminal</icon>
+	<icon>terminator</icon>
 	<name>Open Terminal Here</name>
-	<unique-id>1491226838946563-4</unique-id>
+	<unique-id>1500203308057091-1</unique-id>
 	<command>terminator --working-directory=%f</command>
 	<description>Example for a custom action</description>
 	<patterns>*</patterns>
 	<directories/>
 </action>
 <action>
-	<icon></icon>
+	<icon>/home/tim/.config/Thunar/icons/java.png</icon>
 	<name>Java</name>
-	<unique-id>1491226910522333-5</unique-id>
+	<unique-id>1500203552177040-3</unique-id>
 	<command>java -jar %f</command>
 	<description>java, open the selected jar</description>
 	<patterns>*.jar</patterns>
 	<other-files/>
 </action>
 <action>
-	<icon></icon>
+	<icon>/home/tim/.config/Thunar/icons/unzip.png</icon>
 	<name>Unzip</name>
-	<unique-id>1491227631972514-4</unique-id>
+	<unique-id>1500203641857262-4</unique-id>
 	<command>unzip %f -d %f_EXTRACTED</command>
 	<description>Unzip selected file</description>
 	<patterns>*.zip</patterns>
