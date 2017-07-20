@@ -109,10 +109,6 @@ install_check () {
 install_yaourt () {
 	sudo pacman -S yaourt --noconfirm
 }
-install_printer () {
-	yaourt  --noconfirm --needed -S python-pyqt4 brother-hl2140 hplip-plugin
-	sudo pacman --noconfirm --needed  -S hplip  foomatic-db-ppds foomatic-db-nonfree-ppds foomatic-db-gutenprint-ppds foomatic-db foomatic-db-engine gutenprint gsfonts cups 
-}
 install_usage () {
 	echo "USAGE: sh install.sh [OPTIONS]"
 	echo "OPTIONS:	"
@@ -165,10 +161,6 @@ case $1 in
 	"dnsmasq")
 	install_check
 	install_dnsmasq
-	;;
-	"printer")
-	install_check
-	install_printer
 	;;
 	"base")
 	install_check
