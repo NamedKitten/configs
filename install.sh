@@ -30,6 +30,8 @@ install_bashrc () {
 }
 install_etc () {
 	sudo rm -rf /etc/fail2ban/jail.conf
+	sudo rm -rf /etc/lxdm/lxdm.conf
+	sudo cp files/custom/lxdm/lxdm.conf /etc/lxdm/lxdm.conf
 	sudo cp files/custom/fail2ban/jail.conf /etc/fail2ban/jail.conf
 	cp -r files/custom/bin ~/
 	cat files/custom/Xresources > $HOME/.Xresources
