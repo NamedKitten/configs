@@ -44,3 +44,4 @@ openssh
 pulseaudio
 android-tools
 jdk8-openjdk
+fail2ban

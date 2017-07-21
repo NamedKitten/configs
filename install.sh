@@ -29,6 +29,8 @@ install_bashrc () {
 	cat files/custom/bashrc >> $HOME/.bashrc
 }
 install_etc () {
+	sudo rm -rf /etc/fail2ban/jail.conf
+	sudo cp files/custom/fail2ban/jail.conf /etc/fail2ban/jail.conf
 	cp -r files/custom/bin ~/
 	cat files/custom/Xresources > $HOME/.Xresources
 	cat files/custom/gtkrc-2.0 > $HOME/.gtkrc-2.0
@@ -78,6 +80,7 @@ install_services () {
 	sudo systemctl disable dhcpcd
 	sudo systemctl mask tmpfs.mount
 	sudo systemctl enable dnsmasq
+	sudo systemctl enable fail2ban
 }
 install_check () {
 	sudo pacman -Sy 
