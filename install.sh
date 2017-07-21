@@ -81,6 +81,7 @@ install_services () {
 	sudo systemctl mask tmpfs.mount
 	sudo systemctl enable dnsmasq
 	sudo systemctl enable fail2ban
+	sudo systemctl enable sshd
 }
 install_check () {
 	sudo pacman -Sy 
