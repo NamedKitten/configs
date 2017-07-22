@@ -112,6 +112,14 @@ install_check () {
 		install_yaourt
 	fi
 }
+install_fail2ban () {
+	sudo rm -rf /etc/fail2ban/jail.conf
+	sudo cp files/custom/fail2ban/jail.conf /etc/fail2ban/jail.conf
+	wget -q https://check.torproject.org/cgi-bin/TorBulkExitList.py?ip=`curl ipinfo.io/ip` -O -|sed '/^#/d' |while read IP
+	do
+		sudo fail2ban-client -vvv set sshd banip $IP 
+	done
+}
 install_yaourt () {
 	sudo pacman -S yaourt --noconfirm
 }
@@ -182,6 +190,7 @@ case $1 in
 	install_pacman_config
 	install_dep_pacman
 	install_dep_yaourt
+	install_fail2ban
 	install_services
 	install_etc
 	install_wall
