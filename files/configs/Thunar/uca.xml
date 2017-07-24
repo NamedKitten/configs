@@ -30,10 +30,19 @@
 <action>
 	<icon>/home/tim/.config/Thunar/icons/unzip.png</icon>
 	<name>Untar</name>
-	<unique-id>1500204394009416-1</unique-id>
+	<unique-id>1500302546647125-2</unique-id>
 	<command>mkdir %f_extracted &amp;&amp; tar xvf %f -C %f_extracted</command>
 	<description>Untar selected file</description>
-	<patterns>*.tar.xz</patterns>
+	<patterns>*.tar.xz;*.tar.gz</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>terminator-custom-commands</icon>
+	<name>Execute script</name>
+	<unique-id>1500915322538714-2</unique-id>
+	<command>terminator -x &quot;%f; read&quot;</command>
+	<description>Executes a shell script</description>
+	<patterns>*.sh;*.bash</patterns>
 	<other-files/>
 </action>
 </actions>
