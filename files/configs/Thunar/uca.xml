@@ -39,8 +39,8 @@
 <action>
 	<icon>terminator-custom-commands</icon>
 	<name>Execute script</name>
-	<unique-id>1500915322538714-2</unique-id>
-	<command>terminator -x &quot;%f; read&quot;</command>
+	<unique-id>1500984246507359-4</unique-id>
+	<command>terminator -x &quot;/bin/bash -c &apos;%f; read&apos;&quot;</command>
 	<description>Executes a shell script</description>
 	<patterns>*.sh;*.bash</patterns>
 	<other-files/>
