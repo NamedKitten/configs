@@ -118,11 +118,13 @@ install_fail2ban () {
 	sudo rm -rf /etc/fail2ban/jail.conf
 	sudo cp files/custom/fail2ban/jail.conf /etc/fail2ban/jail.conf
 	sudo cp files/custom/fail2ban/jail.conf /etc/fail2ban/jail.local
+	echo "Starting the fail2ban service, this can take a while!"
 	sudo systemctl start fail2ban	
 	for IP in `curl https://check.torproject.org/cgi-bin/TorBulkExitList.py?ip=$(curl ipinfo.io/ip) | sed '/^#/d'`
 	do
         sudo fail2ban-client -vvv set sshd banip $IP
 	done
+	echo "Stopping the fail2ban service, this can take a while!"
 	sudo systemctl stop fail2ban
 }
 install_yaourt () {
