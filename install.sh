@@ -118,10 +118,10 @@ install_fail2ban () {
 	sudo rm -rf /etc/fail2ban/jail.conf
 	sudo cp files/custom/fail2ban/jail.conf /etc/fail2ban/jail.conf
 	sudo cp files/custom/fail2ban/jail.conf /etc/fail2ban/jail.local
-	sudo systemctl start fail2ban
-	wget -q https://check.torproject.org/cgi-bin/TorBulkExitList.py?ip=`curl ipinfo.io/ip` -O -|sed '/^#/d' |while read IP
+	sudo systemctl start fail2ban	
+	for IP in `curl https://check.torproject.org/cgi-bin/TorBulkExitList.py?ip=$(curl ipinfo.io/ip) | sed '/^#/d'`
 	do
-		sudo fail2ban-client -vvv set sshd banip $IP 
+        sudo fail2ban-client -vvv set sshd banip $IP
 	done
 	sudo systemctl stop fail2ban
 }
