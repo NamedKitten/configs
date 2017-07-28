@@ -31,8 +31,10 @@ install_bashrc () {
 install_etc () {
 	sudo rm -rf /etc/fail2ban/jail.conf
 	sudo rm -rf /etc/lxdm/lxdm.conf
+	sudo rm -rf /etc/makepkg.conf
 	sudo cp files/custom/lxdm/lxdm.conf /etc/lxdm/lxdm.conf
 	sudo cp files/custom/fail2ban/jail.conf /etc/fail2ban/jail.conf
+	sudo cp files/custom/makepkg.conf /etc/makepkg.conf
 	cp -r files/custom/bin ~/
 	cat files/custom/Xresources > $HOME/.Xresources
 	cat files/custom/gtkrc-2.0 > $HOME/.gtkrc-2.0
