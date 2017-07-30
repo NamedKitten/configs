@@ -6,7 +6,6 @@ pcmanfm --desktop &
 kalu &
 lxpolkit &
 volumeicon &
-pidgin &
 hexchat --minimize=1 &
 redshift &
 xscreensaver -no-splash & 
