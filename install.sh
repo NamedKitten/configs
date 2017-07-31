@@ -10,6 +10,9 @@ install_conf () {
 	for dir in * ; do
 		rm -rf ~/.config/$dir
 		cp -r $dir ~/.config/
+		if [ "$dir" = "pcmanfm" ]; then
+			echo "wallpaper=$HOME/Pictures/wallpaper/9fMIIeh.jpg" >> $HOME/.config/pcmanfm/default/desktop-items-0.conf
+		fi
 	done
 	cd ../../
 }
