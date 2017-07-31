@@ -45,4 +45,14 @@
 	<patterns>*.sh;*.bash</patterns>
 	<other-files/>
 </action>
+<action>
+	<icon>terminator-custom-commands</icon>
+	<name>Compile C# project</name>
+	<unique-id>1501503908357746-3</unique-id>
+	<command>terminator -x &quot;/bin/bash -c xbuild %f; read&quot;</command>
+	<description>Compiles C# project</description>
+	<patterns>*.sln</patterns>
+	<other-files/>
+	<text-files/>
+</action>
 </actions>
