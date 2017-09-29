@@ -1,4 +1,0 @@
-sudo systemctl restart NetworkManager
-sudo systemctl restart dnsmasq
-sudo systemctl status NetworkManager | more
-sudo systemctl status dnsmasq  | more

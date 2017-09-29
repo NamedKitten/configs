@@ -1,0 +1,9 @@
+if [ "x`lspci | grep NVIDIA`" != "x" ]; then
+	# NVIDIA card
+	echo "NVIDIA card"
+        xrandr --output VGA-1 --primary --mode 1440x900 --pos 0x0 --rotate normal --output DVI-I-1 --off  --output HDMI-1 --off
+elif [ "x`lspci | grep ATI`" != "x" ]; then
+	# ATI card
+	echo "ATI card"
+	xrandr --output VGA-1 --primary --mode 1440x900 --pos 1440x0 --rotate normal --output DVI-I-1 --mode 1440x900 --pos 0x0 --rotate normal --output HDMI-1 --off
+fi
