@@ -1,1 +1,1 @@
-exec i3-gaps
+exec i3
