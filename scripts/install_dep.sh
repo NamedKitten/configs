@@ -1,6 +1,6 @@
-sudo pacman -S xorg-server xorg-xinit urxvt-unicode base-devel i3status i3blocks curl --noconfirm 
+sudo pacman -S xorg-server xorg-xinit base-devel i3status i3blocks curl xorg-xrandr feh rxvt-unicode xorg-xsetroot vim nano htop 
 # installing packages required to build the packages
-sudo pacman -S check meson --noconfirm
+sudo pacman -S check meson
 for dir in PKGBUILDS/* ; do
 	cd $dir
 	makepkg
