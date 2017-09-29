@@ -3,7 +3,7 @@ if [ "x$1" != "x--nodeps" ]; then
 		base-devel \
 		i3status i3blocks i3lock \	
 		curl \
-		feh rxvt-unicode compton \
+		feh rxvt-unicode compton rofi \
 		vim nano \
 		htop 
 	# installing packages required to build the packages
