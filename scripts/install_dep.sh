@@ -20,7 +20,8 @@ if [ "x$1" != "x--nodeps" ]; then
 		curl \
 		feh rxvt-unicode compton rofi \
 		vim nano \
-		htop 
+		htop \
+		noto-fonts
 	if [ "x$1" = "x--with-opt" ]; then
 		sudo pacman -S weechat bitlbee \
 				aspell-en pkgfile \
