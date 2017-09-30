@@ -14,7 +14,8 @@ Install base with optional programs
 	exit 0
 fi
 if [ "x$1" != "x--nodeps" ]; then
-	sudo pacman -S xorg-server xorg-xinit xorg-xsetroot xorg-xrandr \
+	sudo pacman -S --noconfirm \
+		xorg-server xorg-xinit xorg-xsetroot xorg-xrandr \
 		base-devel \
 		i3status i3blocks i3lock \
 		curl \
@@ -23,7 +24,8 @@ if [ "x$1" != "x--nodeps" ]; then
 		htop \
 		noto-fonts
 	if [ "x$1" = "x--with-opt" ]; then
-		sudo pacman -S weechat bitlbee \
+		sudo pacman -S --noconfirm \
+				weechat bitlbee \
 				aspell-en pkgfile \
 				pulseaudio alsa-utils \
 				mpv mps-youtube youtube-dl \
@@ -35,7 +37,8 @@ if [ "x$1" != "x--nodeps" ]; then
 		mpsyt set player mpv & mpsyt exit
 	fi
 	# installing packages required to build the packages
-	sudo pacman -S check meson clang imagemagick cairo \
+	sudo pacman -S --noconfirm \
+		check meson clang imagemagick cairo \
 		librsvg libxdg-basedir libxkbcommon libxkbcommon-x11 \
 		pango \
 		xcb-util-wm xcb-util-xrm xcb-util-keysyms xcb-util-cursor \
