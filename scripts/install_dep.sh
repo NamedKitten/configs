@@ -26,14 +26,15 @@ if [ "x$1" != "x--nodeps" ]; then
 				aspell-en pkgfile \
 				pulseaudio alsa-utils \
 				mpv mps-youtube youtube-dl \
-				firefox
+				firefox \
+				screenfetch 
 		echo "Updating repos for pkgfile!"		
 		sudo pkgfile --update
 		echo "Setting default player for mpsyt!"
 		mpsyt set player mpv & mpsyt exit
 	fi
 	# installing packages required to build the packages
-	sudo pacman -S check meson imagemagick cairo \
+	sudo pacman -S check meson clang imagemagick cairo \
 		librsvg libxdg-basedir libxkbcommon libxkbcommon-x11 \
 		pango \
 		xcb-util-wm xcb-util-xrm xcb-util-keysyms xcb-util-cursor \
