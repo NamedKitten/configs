@@ -1,11 +1,37 @@
+if [ "x$1" = "x--help" ]; then
+	echo "
+sh $0 --nodeps
+
+Install without any dependencies, it will only build the PKGBUILDs then
+
+#################################
+
+sh $0 --with-opt
+
+Install base with optional programs
+(weechat, firefox, mps-youtube etc)		
+"
+	exit 0
+fi
 if [ "x$1" != "x--nodeps" ]; then
 	sudo pacman -S xorg-server xorg-xinit xorg-xsetroot \
 		base-devel \
-		i3status i3blocks i3lock \	
+		i3status i3blocks i3lock \
 		curl \
 		feh rxvt-unicode compton rofi \
 		vim nano \
 		htop 
+	if [ "x$1" = "x--with-opt" ]; then
+		sudo pacman -S weechat bitlbee \
+				aspell-en pkgfile \
+				pulseaudio alsa-utils \
+				mpv mps-youtube youtube-dl \
+				firefox
+		echo "Updating repos for pkgfile!"		
+		sudo pkgfile --update
+		echo "Setting default player for mpsyt!"
+		mpsyt set player mpv & mpsyt exit
+	fi
 	# installing packages required to build the packages
 	sudo pacman -S check meson imagemagick cairo \
 		librsvg libxdg-basedir libxkbcommon libxkbcommon-x11 \
