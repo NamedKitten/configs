@@ -14,7 +14,7 @@ Install base with optional programs
 	exit 0
 fi
 if [ "x$1" != "x--nodeps" ]; then
-	sudo pacman -S xorg-server xorg-xinit xorg-xsetroot \
+	sudo pacman -S xorg-server xorg-xinit xorg-xsetroot xorg-xrandr \
 		base-devel \
 		i3status i3blocks i3lock \
 		curl \
