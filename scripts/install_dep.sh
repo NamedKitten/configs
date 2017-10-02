@@ -18,7 +18,7 @@ if [ "x$1" != "x--nodeps" ]; then
 		xorg-server xorg-xinit xorg-xsetroot xorg-xrandr \
 		base-devel \
 		i3status i3blocks i3lock \
-		curl \
+		curl xdg-utils \
 		feh rxvt-unicode compton rofi \
 		vim nano \
 		htop \
