@@ -29,7 +29,7 @@ if [ "x$1" != "x--nodeps" ]; then
 				aspell-en pkgfile \
 				pulseaudio alsa-utils \
 				mpv mps-youtube youtube-dl \
-				firefox \
+				firefox wget \
 				screenfetch 
 		echo "Updating repos for pkgfile!"		
 		sudo pkgfile --update
