@@ -4,7 +4,7 @@
 while true; do
 	T=`date +%H`
 	if [ "x$T" != "x$OLDT" ]; then
-		if [ "$T" -gt "20" ]; then
+		if [ "$T" -gt "19" ]; then
 			echo dark time!
 			feh --bg-fill ~/Pictures/wallpaper/wallpaper_dark.jpg
 		elif [ "$T" -gt "6" ]; then

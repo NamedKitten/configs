@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>KvArcDark</name>
+    <name>Numix</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -226,11 +226,11 @@
         <to>down</to>
         <wrap>no</wrap>
       </action>
-    </keybind> 
+    </keybind>
     <keybind key="W-r">
-	<action name="Execute">
-	  <command>rofi -show run</command>
-	</action>
+      <action name="Execute">
+        <command>rofi -show run</command>
+      </action>
     </keybind>
     <keybind key="W-F1">
       <action name="GoToDesktop">
