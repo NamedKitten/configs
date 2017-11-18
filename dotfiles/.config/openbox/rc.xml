@@ -319,17 +319,7 @@
       <action name="DirectionalCycleWindows">
         <direction>down</direction>
       </action>
-    </keybind>
-    <!-- Keybindings for running applications -->
-    <keybind key="W-e">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Konqueror</name>
-        </startupnotify>
-        <command>kfmclient openProfi_darkle filemanagement</command>
-      </action>
-    </keybind>
+    </keybind>  
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
