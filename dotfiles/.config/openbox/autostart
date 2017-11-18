@@ -5,4 +5,4 @@
 #
 tint2 &
 xsetroot -solid "#000000"
-$HOME/.config/openbox/xrandr/*.sh && $HOME/.config/openbox/scripts/wallpaper.sh &
+$HOME/.config/openbox/xrandr/*.sh && $HOME/.config/openbox/scripts/time.sh &
