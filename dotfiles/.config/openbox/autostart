@@ -5,4 +5,4 @@
 #
 tint2 &
 xsetroot -solid "#000000"
-$HOME/.config/openbox/xrandr/*.sh && feh --bg-fill ~/configs/wallpaper/wallpaper.png
+$HOME/.config/openbox/xrandr/*.sh && feh --bg-fill ~/Pictures/wallpaper/wallpaper_light.png
