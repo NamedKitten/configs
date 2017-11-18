@@ -9,7 +9,7 @@ while true; do
 			feh --bg-fill ~/Pictures/wallpaper/wallpaper_dark.jpg
 		elif [ "$T" -gt "6" ]; then
 			echo light time!
-			feh --bg-fill ~/Pictures/wallpaper/wallpaper_light.png
+			feh --bg-fill ~/Pictures/wallpaper/wallpaper_light.jpg
 		fi
 		OLDT=$T
 	fi
