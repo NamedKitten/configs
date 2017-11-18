@@ -1,9 +1,0 @@
-# Global variables
-export VISUAL=nano
-export EDITOR=nano
-export TERM=terminator
-export PATH=$HOME/bin:$PATH
-# Custom command executed when new terminal is opened
-printarch
-
-# End custom commands
