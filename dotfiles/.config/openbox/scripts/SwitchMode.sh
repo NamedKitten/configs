@@ -17,10 +17,14 @@ if [ "x$1" = "xdark" ]; then
 	# dark
 	echo Dark mode
 	feh --bg-fill ~/Pictures/wallpaper/wallpaper_dark.jpg
+	# Switch GTK+ theme
+	gtk-theme-switch2 /usr/share/themes/VimixDark/
 	SwitchRofiTheme rofi_dark	
 elif [ "x$1" = "xlight" ]; then
 	# light
 	echo Light mode
 	feh --bg-fill ~/Pictures/wallpaper/wallpaper_light.jpg
+        # Switch GTK+ theme	
+	gtk-theme-switch2 /usr/share/themes/Adapta/
 	SwitchRofiTheme rofi_light
 fi

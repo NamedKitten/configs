@@ -722,7 +722,7 @@
   </menu>
   <applications>
     <application class="URxvt">
-	<decor>no</decor>
+      <decor>no</decor>
     </application>
   </applications>
 </openbox_config>
