@@ -5,4 +5,5 @@
 #
 tint2 &
 xsetroot -solid "#000000"
+compton --backend glx -m 0.9 &
 $HOME/.config/openbox/xrandr/*.sh && $HOME/.config/openbox/scripts/time.sh &

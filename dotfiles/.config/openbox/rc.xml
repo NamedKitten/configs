@@ -229,7 +229,7 @@
     </keybind>
     <keybind key="W-r">
       <action name="Execute">
-        <command>rofi_dark -show run</command>
+        <command>rofi_light -show run</command>
       </action>
     </keybind>
     <keybind key="W-F1">
@@ -254,6 +254,12 @@
     </keybind>
     <keybind key="W-d">
       <action name="ToggleShowDesktop"/>
+    </keybind>
+    <!-- Lock the screen -->
+    <keybind key="A-C-l">
+      <action name="Execute">
+        <command>dm-tool lock</command>
+      </action>
     </keybind>
     <!-- Keybindings for windows -->
     <keybind key="A-F4">
@@ -319,7 +325,7 @@
       <action name="DirectionalCycleWindows">
         <direction>down</direction>
       </action>
-    </keybind>  
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
