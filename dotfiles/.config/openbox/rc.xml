@@ -255,6 +255,40 @@
     <keybind key="W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
+    <!-- Manipulate the current window with keyboard -->
+    <keybind key="W-a">
+      <action name="ToggleMaximizeFull"/>
+    </keybind>
+    <keybind key="W-Right">
+      <action name="MoveToEdgeEast"/>
+    </keybind>
+    <keybind key="W-Up">
+      <action name="MoveToEdgeNorth"/>
+    </keybind>
+    <keybind key="W-Left">
+      <action name="MoveToEdgeWest"/>
+    </keybind>
+    <keybind key="W-Down">
+      <action name="MoveToEdgeSouth"/>
+    </keybind>
+    <keybind key="W-h">
+      <action name="ToggleMaximizeHorz"/>
+    </keybind>
+    <keybind key="A-W-Up">
+      <action name="GrowToEdgeNorth"/>
+    </keybind>
+    <keybind key="A-W-Right">
+      <action name="GrowToEdgeEast"/>
+    </keybind>
+    <keybind key="A-W-Down">
+      <action name="GrowToEdgeSouth"/>
+    </keybind>
+    <keybind key="A-W-Left">
+      <action name="GrowToEdgeWest"/>
+    </keybind>
+    <keybind key="W-c">
+      <action name="MoveToCenter"/>
+    </keybind>
     <!-- Lock the screen -->
     <keybind key="A-C-l">
       <action name="Execute">
