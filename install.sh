@@ -16,7 +16,7 @@ echo Installing configs
 echo "exec openbox-session" > ~/.xinitrc
 cp -R dotfiles/.config/* ~/.config/
 cp dotfiles/.Xdefaults ~/.Xdefaults
-cp dotfiles/.gtk* ~/
+cp dotfiles/.gtkrc-2.0.mine ~/.gtkrc-2.0.mine
 if [ ! -d $HOME/Pictures ]; then
 	mkdir ~/Pictures
 fi
