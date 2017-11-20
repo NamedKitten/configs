@@ -2,11 +2,11 @@ CORE_DEPENDENCIES="xorg-server xorg-xinit xorg-xrandr openbox tint2"
 DEPENDENCIES="xterm rxvt-unicode feh rofi nautilus
 		obconf lxappearance
 		xfce4-screenshooter arandr"
-THEME_DEPENDENCIES="numix-gtk-theme adapta-gtk-theme 
+THEME_DEPENDENCIES="kvantum-qt5 arc-gtk-theme numix-gtk-theme adapta-gtk-theme 
 	compton	gtk-theme-switch2"
 GNOME_DEPENDENCIES="gnome-calculator gnome-alsamixer gnome-mplayer 
 	gucharmap xarchiver gimp"
-EXTRAS="firefox chromium mplayer libreoffice pidgin vlc redshift gksu gparted"
+EXTRAS="firefox chromium mplayer libreoffice pidgin vlc redshift gksu gparted tilda"
 if `which pacman > /dev/null 2>&1`; then
 	sudo pacman --needed --noconfirm -S $CORE_DEPENDENCIES $DEPENDENCIES \
 				$THEME_DEPENDENCIES $GNOME_DEPENDENCIES $EXTRAS
