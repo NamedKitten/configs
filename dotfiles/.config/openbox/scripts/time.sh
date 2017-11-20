@@ -6,11 +6,16 @@ while true; do
 	if [ "x$T" != "x$OLDT" ]; then
 		if [ "$T" -gt "19" ]; then
 			$HOME/.config/openbox/scripts/SwitchMode.sh dark
-			killall redshift-gtk
-			redshift-gtk &			
+			# Check if redshift is running
+			if [ "x`ps aux | grep redshift-gtk | grep python`" = "x" ]; then
+				redshift-gtk &			
+			fi
 		elif [ "$T" -gt "5" ]; then
-			killall redshift-gtk &
 			$HOME/.config/openbox/scripts/SwitchMode.sh light
+			# Check if redshift is running
+			if [ "x`ps aux | grep redshift-gtk | grep python`" != "x" ]; then
+				killall redshift-gtk &		
+			fi
 		fi
 		OLDT=$T
 	fi
