@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Numix</name>
+    <name>Adapta</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -229,7 +229,7 @@
     </keybind>
     <keybind key="W-r">
       <action name="Execute">
-        <command>rofi_dark -show run</command>
+        <command>rofi_light -show run</command>
       </action>
     </keybind>
     <keybind key="W-F1">
