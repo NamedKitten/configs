@@ -6,7 +6,7 @@ THEME_DEPENDENCIES="numix-gtk-theme adapta-gtk-theme
 	compton	gtk-theme-switch2"
 GNOME_DEPENDENCIES="gnome-calculator gucharmap 
 	ark gimp gnome-mplayer"
-EXTRAS="firefox chromium mplayer libreoffice pidgin vlc"
+EXTRAS="firefox chromium mplayer libreoffice pidgin vlc redshift"
 if `which pacman > /dev/null 2>&1`; then
 	sudo pacman --needed --noconfirm -S $CORE_DEPENDENCIES $DEPENDENCIES \
 				$THEME_DEPENDENCIES $GNOME_DEPENDENCIES $EXTRAS
