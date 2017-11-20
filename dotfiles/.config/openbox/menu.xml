@@ -168,6 +168,15 @@
   </item>
 </menu>
 
+<menu id="display-menu" label="Display">
+  <item label="Configure display">
+    <action name="Execute">
+      <command>arandr</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
+</menu>
+
 <menu id="root-menu" label="Openbox 3">
   <separator label="Applications" />
   <menu id="apps-accessories-menu"/>
@@ -180,6 +189,7 @@
   <menu id="apps-fileman-menu"/>
   <separator label="System" />
   <menu id="system-menu"/>
+  <menu id="display-menu"/>
   <separator />
   <item label="Log Out">
     <action name="Exit">

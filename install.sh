@@ -1,7 +1,7 @@
 CORE_DEPENDENCIES="xorg-server xorg-xinit xorg-xrandr openbox tint2"
 DEPENDENCIES="xterm rxvt-unicode feh rofi nautilus
 		obconf lxappearance
-		xfce4-screenshooter"
+		xfce4-screenshooter arandr"
 THEME_DEPENDENCIES="numix-gtk-theme adapta-gtk-theme 
 	compton	gtk-theme-switch2"
 GNOME_DEPENDENCIES="gnome-calculator gnome-alsamixer gnome-mplayer 
