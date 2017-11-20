@@ -5,7 +5,7 @@ DEPENDENCIES="xterm rxvt-unicode feh rofi nautilus
 THEME_DEPENDENCIES="numix-gtk-theme adapta-gtk-theme 
 	compton	gtk-theme-switch2"
 GNOME_DEPENDENCIES="gnome-calculator gnome-alsamixer gnome-mplayer 
-	gucharmap ark gimp"
+	gucharmap xarchiver gimp"
 EXTRAS="firefox chromium mplayer libreoffice pidgin vlc redshift"
 if `which pacman > /dev/null 2>&1`; then
 	sudo pacman --needed --noconfirm -S $CORE_DEPENDENCIES $DEPENDENCIES \

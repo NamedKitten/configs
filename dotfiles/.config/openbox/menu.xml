@@ -19,9 +19,9 @@
       </startupnotify>
     </action>
   </item>
-  <item label="Ark File Archiver">
+  <item label="Xarchiver">
     <action name="Execute">
-      <command>ark</command>
+      <command>xarchiver</command>
       <startupnotify>
         <enabled>yes</enabled>
       </startupnotify>
