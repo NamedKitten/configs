@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Adapta</name>
+    <name>KvArcDark</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -229,7 +229,7 @@
     </keybind>
     <keybind key="W-r">
       <action name="Execute">
-        <command>rofi_light -show run</command>
+        <command>rofi_dark -show run</command>
       </action>
     </keybind>
     <keybind key="W-F1">
@@ -724,6 +724,9 @@
     <!-- show the manage desktops section in the client-list-(combined-)menu -->
   </menu>
   <applications>
+    <application class="tilda">
+      <layer>below</layer>
+    </application>
     <application class="URxvt">
       <decor>no</decor>
     </application>

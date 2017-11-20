@@ -1,3 +1,21 @@
+function SwitchGTK3Theme () {	
+	function WriteGTK3Conf () {
+		mkdir -p $HOME/.config/gtk-3.0/settings.ini
+		echo "[Settings]" > $HOME/.config/gtk-3.0/settings.ini
+		echo "gtk-theme-name=$@" >> $HOME/.config/gtk-3.0/settings.ini
+
+	}
+	if [ -f "$HOME/.config/gtk-3.0/settings.ini" ]; then
+		if [ "x`grep -R gtk-theme-name $HOME/.config/gtk-3.0/settings.ini `" != "x" ]; then
+			sed -i "/gtk-theme-name=/c\gtk-theme-name=$@" $HOME/.config/gtk-3.0/settings.ini
+		else
+			WriteGTK3Conf $@
+		fi
+	else
+		WriteGTK3Conf $@
+	fi
+
+}
 function SwitchRofiTheme () {
 	if [ "x`grep -R "rofi_dark" $HOME/.config/openbox/rc.xml`" != "x" ]; then
 		RWORD=rofi_dark
@@ -14,8 +32,8 @@ function SwitchRofiTheme () {
 function SwitchOpenboxTheme () {
 	if [ "x`grep -R "Adapta" $HOME/.config/openbox/rc.xml`" != "x" ]; then
 		RWORD=Adapta
-	elif [ "x`grep -R "Numix" $HOME/.config/openbox/rc.xml`" != "x" ]; then
-		RWORD=Numix
+	elif [ "x`grep -R "KvArcDark" $HOME/.config/openbox/rc.xml`" != "x" ]; then
+		RWORD=KvArcDark
 	fi
 	if [ "x$1" != "x" ]; then
 		sed -i "s/$RWORD/$1/g" $HOME/.config/openbox/rc.xml
@@ -28,9 +46,10 @@ if [ "x$1" = "xdark" ]; then
 	echo Dark mode
 	feh --bg-fill ~/Pictures/wallpaper/wallpaper_dark.jpg
 	# Switch GTK+ theme
-	gtk-theme-switch2 /usr/share/themes/VimixDark/
+	gtk-theme-switch2 /usr/share/themes/Arc-Dark/
+	SwitchGTK3Theme Arc-Dark
 	SwitchRofiTheme rofi_dark
-	SwitchOpenboxTheme Numix	
+	SwitchOpenboxTheme KvArcDark	
 elif [ "x$1" = "xlight" ]; then
 	# light
 	echo Light mode
@@ -38,5 +57,6 @@ elif [ "x$1" = "xlight" ]; then
         # Switch GTK+ theme	
 	gtk-theme-switch2 /usr/share/themes/Adapta/
 	SwitchRofiTheme rofi_light
+	SwitchGTK3Theme Adapta
 	SwitchOpenboxTheme Adapta
 fi
