@@ -1,0 +1,17 @@
+pkgbase = cava
+	pkgdesc = Console-based Audio Visualizer for Alsa
+	pkgver = 0.6.0
+	pkgrel = 1
+	url = https://github.com/karlstav/cava
+	arch = any
+	license = MIT
+	depends = fftw
+	depends = alsa-lib
+	depends = ncurses
+	depends = iniparser
+	depends = pulseaudio
+	source = https://github.com/karlstav/cava/archive/0.6.0.tar.gz
+	sha512sums = ef6f8d49f587b4f5cd423dd4efc5ead597c11b91ba045cb3151586eefa0a4079918b3cbe4c3dfbdf08c73e38d84cd5bc6f6d3b110a9ad38025dc5715b4c07037
+
+pkgname = cava
+
