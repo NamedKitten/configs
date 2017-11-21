@@ -229,7 +229,7 @@
     </keybind>
     <keybind key="W-r">
       <action name="Execute">
-        <command>rofi_light -show run</command>
+        <command>rofi_dark -show run</command>
       </action>
     </keybind>
     <keybind key="W-F1">

@@ -5,5 +5,5 @@
 #
 tint2 &
 xsetroot -solid "#000000"
-compton --backend glx -m 0.9 &
+compton --backend glx -m 0.9 --shadow-exclude 'class_g = "Tilda"' &
 $HOME/.config/openbox/xrandr/*.sh && $HOME/.config/openbox/scripts/time.sh &
