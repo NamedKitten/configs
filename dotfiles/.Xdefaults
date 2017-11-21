@@ -1,5 +1,9 @@
 urxvt*depth: 32
 urxvt*background: rgba:0000/0000/0200/c800
+urxvt*font:xft:Noto Mono:pixelsize=10
+urxvt*boldfont:xft:Noto Mono:pixelsize=10
+urxvt.scrollBar: false
+URxvt.perl-ext-common: selection-to-clipboard
 *foreground: #f8f6f2
 *cursorColor: #aeee00
 *scrollColor: #45413b
@@ -30,6 +34,3 @@ urxvt*background: rgba:0000/0000/0200/c800
 ! white
 *color7: #d9cec3
 *color15: #ffffff
-urxvt*font:xft:Noto Mono:pixelsize=10
-urxvt*boldfont:xft:Noto Mono:pixelsize=10
-urxvt.scrollBar: false
