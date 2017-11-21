@@ -2,8 +2,7 @@ CORE_DEPENDENCIES="xorg-server xorg-xinit xorg-xrandr openbox tint2"
 DEPENDENCIES="xterm rxvt-unicode feh rofi nautilus
 		obconf lxappearance
 		xfce4-screenshooter arandr"
-THEME_DEPENDENCIES="kvantum-qt5 arc-gtk-theme numix-gtk-theme adapta-gtk-theme 
-	compton	gtk-theme-switch2"
+THEME_DEPENDENCIES="kvantum-qt5 arc-gtk-theme compton"
 GNOME_DEPENDENCIES="gnome-calculator gnome-alsamixer gnome-mplayer 
 	gucharmap xarchiver gimp"
 EXTRAS="firefox chromium mplayer libreoffice pidgin vlc redshift gksu gparted tilda"

@@ -1,3 +1,20 @@
+function SwitchGTK2Theme () {
+	function WriteGTK2Conf () {
+		echo "include '$HOME/.gtkrc-2.0.mine'" 		> $HOME/.gtkrc-2.0
+		echo "gtk-theme-name='$@'" 			>> $HOME/.gtkrc-2.0
+		echo "gtk-icon-theme-name='Paper-Mono-Dark'" 	>> $HOME/.gtkrc-2.0
+
+	}
+	if [ -f "$HOME/.gtkrc-2.0" ]; then
+		if [ "x`grep -R gtk-theme-name $HOME/.gtkrc-2.0 `" != "x" ]; then
+			sed -i "/gtk-theme-name=/c\gtk-theme-name='$@'" $HOME/.gtkrc-2.0
+		else
+			WriteGTK2Conf $@
+		fi
+	else
+		WriteGTK2Conf $@
+	fi
+}
 function SwitchGTK3Theme () {	
 	function WriteGTK3Conf () {
 		mkdir -p $HOME/.config/gtk-3.0/settings.ini
@@ -46,7 +63,7 @@ if [ "x$1" = "xdark" ]; then
 	echo Dark mode
 	feh --bg-fill ~/Pictures/wallpaper/wallpaper_dark.jpg
 	# Switch GTK+ theme
-	gtk-theme-switch2 /usr/share/themes/Arc-Dark/
+	SwitchGTK2Theme Arc-Dark
 	SwitchGTK3Theme Arc-Dark
 	SwitchRofiTheme rofi_dark
 	SwitchOpenboxTheme KvArcDark	
@@ -55,8 +72,8 @@ elif [ "x$1" = "xlight" ]; then
 	echo Light mode
 	feh --bg-fill ~/Pictures/wallpaper/wallpaper_light.jpg
         # Switch GTK+ theme	
-	gtk-theme-switch2 /usr/share/themes/Adapta/
 	SwitchRofiTheme rofi_light
-	SwitchGTK3Theme Adapta
-	SwitchOpenboxTheme Adapta
+	SwitchGTK2Theme Arc
+	SwitchGTK3Theme Arc
+	SwitchOpenboxTheme KvArcDark
 fi
