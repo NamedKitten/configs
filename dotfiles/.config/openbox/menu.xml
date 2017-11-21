@@ -183,21 +183,6 @@
   </item>
 </menu>
 
-<menu id="switch-menu" label="Switch theme">
-  <item label="Light theme">
-    <action name="Execute">
-      <command>~/.config/openbox/scripts/SwitchMode.sh light</command>
-      <startupnotify><enabled>no</enabled></startupnotify>
-    </action>
-  </item>
-  <item label="Dark theme">
-    <action name="Execute">
-      <command>~/.config/openbox/scripts/SwitchMode.sh dark</command>
-      <startupnotify><enabled>no</enabled></startupnotify>
-    </action>
-  </item>
-</menu>
-
 <menu id="display-menu" label="Display">
   <item label="Configure display">
     <action name="Execute">
@@ -221,7 +206,6 @@
   <menu id="tools-menu"/>
   <menu id="system-menu"/>
   <menu id="display-menu"/>
-  <menu id="switch-menu"/>
   <separator />
   <item label="Log Out">
     <action name="Exit">

@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>KvArcDark</name>
+    <name>Arc-Dark</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -55,23 +55,24 @@
       D: omnipresent (on all desktops).
   -->
     <keepBorder>yes</keepBorder>
+    <cornerRadius>8</cornerRadius>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
-      <name>sans</name>
+      <name>Sans</name>
       <size>8</size>
       <!-- font size in points -->
-      <weight>bold</weight>
+      <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
+      <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveWindow">
-      <name>sans</name>
+      <name>Sans</name>
       <size>8</size>
       <!-- font size in points -->
-      <weight>bold</weight>
+      <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
+      <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuHeader">
@@ -229,7 +230,7 @@
     </keybind>
     <keybind key="W-r">
       <action name="Execute">
-        <command>rofi_dark -show run</command>
+        <command>rofi -theme gruvbox-dark-hard -show run</command>
       </action>
     </keybind>
     <keybind key="W-F1">
@@ -724,7 +725,7 @@
     <!-- show the manage desktops section in the client-list-(combined-)menu -->
   </menu>
   <applications>
-    <application class="tilda">
+    <application class="Tilda">
       <layer>below</layer>
     </application>
     <application class="URxvt">

@@ -1,8 +1,8 @@
-CORE_DEPENDENCIES="xorg-server xorg-xinit xorg-xrandr openbox tint2"
+CORE_DEPENDENCIES="xorg-server xorg-xinit xorg-xrandr tint2 git"
 DEPENDENCIES="xterm rxvt-unicode feh rofi nautilus
 		obconf lxappearance
 		xfce4-screenshooter arandr"
-THEME_DEPENDENCIES="kvantum-qt5 arc-gtk-theme compton"
+THEME_DEPENDENCIES="arc-gtk-theme arc-icon-theme compton"
 GNOME_DEPENDENCIES="gnome-calculator gnome-alsamixer gnome-mplayer 
 	gucharmap xarchiver gimp"
 EXTRAS="firefox chromium mplayer libreoffice pidgin vlc redshift gksu gparted tilda"
@@ -16,12 +16,15 @@ else
 	echo pacman is not installed!	
 fi
 echo Installing configs
-echo "exec openbox-session" > ~/.xinitrc
+mkdir -p ~/.config/
+mkdir -p ~/.themes/
 cp -R dotfiles/.config/* ~/.config/
+cp -R dotfiles/.themes/* ~/.themes/
+cp -R wallpaper/* ~/Pictures/wallpaper/
+cp dotfiles/.gtkrc-2.0 ~/.gtkrc-2.0 
 cp dotfiles/.Xdefaults ~/.Xdefaults
-cp dotfiles/.gtkrc-2.0.mine ~/.gtkrc-2.0.mine
 if [ ! -d $HOME/Pictures ]; then
-	mkdir ~/Pictures
+	mkdir -p ~/Pictures/wallpaper
 fi
-cp wallpaper/* ~/Pictures/wallpaper/
+echo "exec openbox-session" > ~/.xinitrc
 echo Done!
