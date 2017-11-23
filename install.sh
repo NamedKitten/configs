@@ -3,7 +3,7 @@ DEPENDENCIES="xterm rxvt-unicode feh rofi nautilus
 		obconf lxappearance
 		xfce4-screenshooter arandr"
 THEME_DEPENDENCIES="arc-gtk-theme arc-icon-theme compton"
-GNOME_DEPENDENCIES="gnome-calculator gnome-alsamixer gnome-mplayer 
+GNOME_DEPENDENCIES="gnome-calculator pavucontrol gnome-mplayer 
 	gucharmap xarchiver gimp"
 EXTRAS="firefox chromium mplayer libreoffice pidgin vlc redshift gksu gparted tilda"
 if `which pacman > /dev/null 2>&1`; then
