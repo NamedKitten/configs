@@ -18,13 +18,11 @@ fi
 echo Installing configs
 mkdir -p ~/.config/
 mkdir -p ~/.themes/
+mkdir -p ~/Pictures/wallpaper
 cp -R dotfiles/.config/* ~/.config/
 cp -R dotfiles/.themes/* ~/.themes/
 cp -R wallpaper/* ~/Pictures/wallpaper/
 cp dotfiles/.gtkrc-2.0 ~/.gtkrc-2.0 
 cp dotfiles/.Xdefaults ~/.Xdefaults
-if [ ! -d $HOME/Pictures ]; then
-	mkdir -p ~/Pictures/wallpaper
-fi
 echo "exec openbox-session" > ~/.xinitrc
 echo Done!
