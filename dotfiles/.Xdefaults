@@ -4,6 +4,8 @@ urxvt*font:xft:Noto Mono:pixelsize=10
 urxvt*boldfont:xft:Noto Mono:pixelsize=10
 urxvt.scrollBar: false
 URxvt.perl-ext-common: selection-to-clipboard
+XTerm*background: #404552
+XTerm*font:xft:Noto Mono:pixelsize=10
 *foreground: #f8f6f2
 *cursorColor: #aeee00
 *scrollColor: #45413b
