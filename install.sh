@@ -25,4 +25,5 @@ cp -R wallpaper/* ~/Pictures/wallpaper/
 cp dotfiles/.gtkrc-2.0 ~/.gtkrc-2.0 
 cp dotfiles/.Xdefaults ~/.Xdefaults
 echo "exec openbox-session" > ~/.xinitrc
+xrdb ~/.Xdefaults
 echo Done!
