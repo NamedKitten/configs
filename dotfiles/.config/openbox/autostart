@@ -7,8 +7,7 @@ xrdb ~/.Xdefaults
 tint2 &
 redshift-gtk &
 xsetroot -solid "#000000" &
-compton --backend glx -m 0.9 --shadow-exclude 'class_g = "Tilda"' &
+compton --backend glx -m 0.9 &
 $HOME/.config/openbox/xrandr/*.sh && feh --bg-fill ~/Pictures/wallpaper/wallpaper.jpg
-(sleep 1 && tilda -c cava) &
-(sleep 1 && tilda -c cava) &
+
 
