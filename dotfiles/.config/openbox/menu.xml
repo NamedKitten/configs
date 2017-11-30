@@ -19,9 +19,9 @@
       </startupnotify>
     </action>
   </item>
-  <item label="Xarchiver">
+  <item label="Archive Manager">
     <action name="Execute">
-      <command>xarchiver</command>
+      <command>file-roller</command>
       <startupnotify>
         <enabled>yes</enabled>
       </startupnotify>
