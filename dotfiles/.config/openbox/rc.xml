@@ -230,7 +230,7 @@
     </keybind>
     <keybind key="W-r">
       <action name="Execute">
-        <command>rofi -theme gruvbox-dark-hard -show run</command>
+        <command>rofi -theme ~/.config/openbox/rofi/Arc-Dark.rasi -show run</command>
       </action>
     </keybind>
     <keybind key="W-F1">
