@@ -145,6 +145,14 @@
 </menu>
 
 <menu id="apps-graphics-menu" label="Graphics">
+  <item label="Color picker">
+    <action name="Execute">
+      <command>gcolor2</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
   <item label="Gimp">
     <action name="Execute">
       <command>gimp</command>
