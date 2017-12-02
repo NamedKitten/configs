@@ -2,7 +2,7 @@ CORE_DEPENDENCIES="xorg-server xorg-xinit xorg-xrandr tint2 git"
 DEPENDENCIES="xterm rxvt-unicode feh rofi nautilus
 		obconf lxappearance
 		xfce4-screenshooter arandr"
-THEME_DEPENDENCIES="arc-gtk-theme arc-icon-theme compton"
+THEME_DEPENDENCIES="arc-gtk-theme papirus-icon-theme compton"
 GNOME_DEPENDENCIES="gnome-calculator pavucontrol gnome-mplayer 
 	gucharmap file-roller gimp gcolor2"
 EXTRAS="firefox chromium mplayer libreoffice pidgin vlc redshift gksu gparted"
