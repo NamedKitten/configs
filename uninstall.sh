@@ -1,3 +1,4 @@
+#!/bin/sh
 # Source install.sh to get the dependency list
 PREBUILT="dayplanner perl-any-moose perl-date-holidayparser perl-devel-overloadinfo perl-module-runtime-conflicts perl-moose openbox-patched"
 echo "Are you sure you want to uninstall all the dependencies + configs? [Y/n]"

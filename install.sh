@@ -1,3 +1,4 @@
+#!/bin/sh
 CORE_DEPENDENCIES="xorg-server xorg-xinit xorg-xrandr tint2 git"
 DEPENDENCIES="xterm rxvt-unicode feh rofi nautilus
 		obconf lxappearance

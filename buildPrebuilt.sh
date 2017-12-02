@@ -1,3 +1,4 @@
+#!/bin/sh
 rm -rf prebuilt/*pkg*
 cd prebuilt/dev
 DEVDIR=`pwd`
