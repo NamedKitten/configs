@@ -1,7 +1,7 @@
 rm -rf prebuilt/*pkg*
 cd prebuilt/dev
 DEVDIR=`pwd`
-for item in `ls -1`; do	
+for item in *; do
 	cd $item
 	sh compile.sh
 	cd $DEVDIR
