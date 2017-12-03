@@ -6,7 +6,6 @@
 xrdb ~/.Xdefaults
 dayplanner-daemon &
 tint2 &
-redshift-gtk &
 xsetroot -solid "#000000" &
 compton --backend glx -m 0.9 &
 $HOME/.config/openbox/xrandr/*.sh && feh --bg-fill ~/Pictures/wallpaper/wallpaper.jpg
