@@ -16,7 +16,7 @@ if [ "x$1" != "x--source" ]; then
 		sudo pacman --needed --noconfirm -S $CORE_DEPENDENCIES $DEPENDENCIES \
 					$THEME_DEPENDENCIES $DESKTOP_THEME_TOOLS $GNOME_DEPENDENCIES $EXTRAS
 	else
-		echo pacman is not installed!	
+		echo pacman is not installed!
 	fi
 	echo Installing configs
 	mkdir -p ~/.config/
@@ -28,6 +28,5 @@ if [ "x$1" != "x--source" ]; then
 	cp dotfiles/.gtkrc-2.0 ~/.gtkrc-2.0 
 	cp dotfiles/.Xdefaults ~/.Xdefaults
 	echo "exec openbox-session" > ~/.xinitrc
-	xrdb ~/.Xdefaults
 	echo Done!
 fi
