@@ -1,11 +1,11 @@
 #!/bin/sh
-CORE_DEPENDENCIES="xorg-server xorg-xinit xorg-xrandr tint2 git"
+CORE_DEPENDENCIES="xorg-server xorg-xinit xorg-xrandr tint2 git pulseaudio"
 DEPENDENCIES="xterm rxvt-unicode feh rofi nautilus
 		obconf lxappearance
 		xfce4-screenshooter arandr"
 THEME_DEPENDENCIES="arc-gtk-theme papirus-icon-theme compton"
 DESKTOP_THEME_TOOLS="obconf lxappearance"
-GNOME_DEPENDENCIES="gnome-calculator pavucontrol gnome-mplayer 
+GNOME_DEPENDENCIES="gnome-calculator pavucontrol gnome-mplayer gedit
 	gucharmap file-roller gimp gcolor2"
 EXTRAS="firefox chromium mplayer libreoffice-fresh pidgin vlc redshift gksu gparted"
 if [ "x$1" != "x--source" ]; then
