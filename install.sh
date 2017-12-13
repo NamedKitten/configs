@@ -4,7 +4,7 @@ DEPENDENCIES="xterm rxvt-unicode feh rofi nautilus
 		obconf lxappearance
 		xfce4-screenshooter arandr"
 THEME_DEPENDENCIES="arc-gtk-theme papirus-icon-theme compton qt5ct qt5-styleplugins"
-DESKTOP_THEME_TOOLS="obconf lxappearance"
+DESKTOP_THEME_TOOLS="obconf lxappearance lxappearance-obconf"
 GNOME_DEPENDENCIES="gnome-calculator pavucontrol gnome-mplayer gedit
 	gucharmap file-roller gimp gcolor2"
 EXTRAS="firefox chromium mplayer libreoffice-fresh pidgin qt4 vlc redshift gksu gparted"
