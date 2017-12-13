@@ -1,7 +1,6 @@
 #!/bin/sh
 CORE_DEPENDENCIES="xorg-server xorg-xinit xorg-xrandr tint2 git pulseaudio"
 DEPENDENCIES="xterm rxvt-unicode feh rofi nautilus
-		obconf lxappearance
 		xfce4-screenshooter arandr"
 THEME_DEPENDENCIES="arc-gtk-theme papirus-icon-theme compton qt5ct qt5-styleplugins"
 DESKTOP_THEME_TOOLS="obconf lxappearance lxappearance-obconf"
