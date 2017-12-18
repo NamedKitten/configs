@@ -3,7 +3,7 @@ CORE_DEPENDENCIES="xorg-server xorg-xinit xorg-xrandr tint2 git pulseaudio"
 DEPENDENCIES="xterm rxvt-unicode feh rofi
 		xfce4-screenshooter arandr"
 THEME_DEPENDENCIES="arc-gtk-theme papirus-icon-theme compton qt5ct qt5-styleplugins"
-DESKTOP_THEME_TOOLS="obconf lxappearance lxappearance-obconf"
+DESKTOP_THEME_TOOLS="obconf lxappearance lxappearance-obconf lxmenu-data"
 GNOME_DEPENDENCIES="gnome-calculator pavucontrol gnome-mplayer gedit
 	gucharmap file-roller gimp gcolor2
 	nautilus filemanager-actions nautilus-open-terminal"
