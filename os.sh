@@ -13,7 +13,7 @@ sed -i "s/#en/en/g" /etc/locale.gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 locale-gen
 cp system/etc/pacman.conf /etc/pacman.conf
-DRIVERS="nvidia lib32-nvidia-utils r8168 r8168"
+DRIVERS="nvidia lib32-nvidia-utils opencl-nvidia r8168"
 TOOLS="lshw pkgfile nvidia-settings"
 EXTRAS="mpv mps-youtube youtube-dl steam steam-native-runtime"
 pacman -Sy --noconfirm $DRIVERS $TOOLS $EXTRAS
