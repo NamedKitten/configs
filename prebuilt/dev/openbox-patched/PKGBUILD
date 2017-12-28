@@ -19,6 +19,7 @@ url='http://openbox.org'
 license=('GPL')
 provides=('libobrender.so' $_pkgname)
 conflicts=($_pkgname)
+replaces=(openbox)
 depends=('startup-notification' 'libxml2' 'libxinerama' 'libxrandr'
          'libxcursor' 'pango' 'imlib2' 'librsvg' 'libsm')
 optdepends=('plasma-workspace: for the KDE/Openbox xsession'
@@ -28,12 +29,12 @@ backup=('etc/xdg/openbox/menu.xml'
         'etc/xdg/openbox/rc.xml'
         'etc/xdg/openbox/autostart'
         'etc/xdg/openbox/environment')
-source=("http://openbox.org/dist/openbox/${_pkgname}-${pkgver}.tar.gz"
+source=("git+https://github.com/danakj/openbox.git"
         "openbox-3.5.0-title-matching.patch"
         "openbox-3.5.0-which-2.20.patch"
         "openbox-3.6.2-rounded-corners.patch"
         "openbox-3.6.2-fix-out-of-bounds.patch")
-md5sums=('b72794996c6a3ad94634727b95f9d204'
+md5sums=('SKIP'
          '0a11d7149da210a31ef88f8a9c717711'
          '5be4554431e555084026631898f167aa'
          '3bec0508320653ab33214b3c52bb775e'
@@ -41,7 +42,7 @@ md5sums=('b72794996c6a3ad94634727b95f9d204'
 install="${pkgname}.install"
 
 prepare() {
-    cd "${_pkgname}-${pkgver}"
+    cd "${_pkgname}"
 
     patch -Np1 -i "${srcdir}/openbox-3.5.0-title-matching.patch"  # OB#5277
     patch -Np1 -i "${srcdir}/openbox-3.5.0-which-2.20.patch"  # FS#11455
@@ -57,8 +58,8 @@ prepare() {
 }
 
 build() {
-    cd "${_pkgname}-${pkgver}"
-
+    cd "${_pkgname}"
+    ./bootstrap
     ./configure \
         --prefix=/usr \
         --with-x \
@@ -69,7 +70,7 @@ build() {
 }
 
 package() {
-    cd "${_pkgname}-${pkgver}"
+    cd "${_pkgname}"
     make DESTDIR="$pkgdir" install
 
     # GNOME Panel is no longer available in the official repositories
