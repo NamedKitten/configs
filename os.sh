@@ -12,12 +12,16 @@ echo Setting locale and generating locales
 sed -i "s/#en/en/g" /etc/locale.gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 locale-gen
-cp system/etc/pacman.conf /etc/pacman.conf
+cp system/etc/*.conf /etc/
 DRIVERS="nvidia lib32-nvidia-utils opencl-nvidia r8168"
 TOOLS="lshw pkgfile nvidia-settings"
-EXTRAS="mpv mps-youtube youtube-dl steam steam-native-runtime"
+EXTRAS="mpv mps-youtube youtube-dl steam steam-native-runtime dnsmasq"
 pacman -Sy --noconfirm $DRIVERS $TOOLS $EXTRAS
 pkgfile --update
+# Enable services
+echo Enabling services
+systemctl enable dnsmasq
+systemctl enable dhcpcd
 # Blacklist the r8169 driver, to force the use of the r8168 driver
 echo blacklist r8169 > /etc/modprobe.d/ethernet.conf
 sh install.sh
