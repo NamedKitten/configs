@@ -5,7 +5,9 @@ EXTRAS="mpv mps-youtube youtube-dl steam steam-native-runtime"
 audio () {
 	# Fix audio issue I have
 	echo Fixing audio
-	sed -i "s/load-module module-udev-detect/load-module module-udev-detect tsched=0/g" /etc/pulse/default.pa
+	if [ "x`grep -R "load-module module-udev-detect tsched=0" /etc/pulse/default.pa`" = "x" ]; then
+		sed -i "s/load-module module-udev-detect/load-module module-udev-detect tsched=0/g" /etc/pulse/default.pa
+	fi
 }
 ethernet () {
 	# Blacklist the r8169 driver, to force the use of the r8168 driver
