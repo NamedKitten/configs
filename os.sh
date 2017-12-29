@@ -7,6 +7,8 @@ fi
 echo WARNING: THESE PACKAGES APPLY TO MY SYSTEM ONLY
 echo WARNING: CONTINUE AT YOUR OWN RISK!
 read none
+# Fix audio issue I have
+sed -i "s/load-module module-udev-detect/load-module module-udev-detect tsched=0/g" /etc/pulse/default.pa
 # Locale stuff
 echo Setting locale and generating locales
 sed -i "s/#en/en/g" /etc/locale.gen
