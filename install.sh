@@ -38,4 +38,5 @@ if [ "x$1" != "x--source" ]; then
 	echo Preparing xinitrc
 	echo "exec openbox-session" > ~/.xinitrc
 	echo Done!
+	touch install_completed
 fi

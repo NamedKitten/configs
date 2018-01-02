@@ -28,12 +28,18 @@ fi
 echo WARNING: THESE PACKAGES APPLY TO MY SYSTEM ONLY
 read none
 #
+# Make sure install.sh is executed
+if [ ! -f "install_completed" ]; then
+	sh install.sh
+fi
+#
 # Copy configs
 cp system/etc/*.conf /etc/
 #
 # Install required packages and update db
 pacman -Sy --noconfirm $DRIVERS $TOOLS $EXTRAS
 pkgfile --update
+trizen -S dotnet-sdk-2.0 --noconfirm
 # 
 #
 echo Fixing audio, ethernet and enabling services!
