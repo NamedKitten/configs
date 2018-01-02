@@ -46,4 +46,11 @@ echo Fixing audio, ethernet and enabling services!
 audio
 ethernet
 services
+# 
+#
+echo Setting up $HOME/bin
+git clone https://github.com/tim241/bin ~/bin
+if [ "x`cat ~/.bashrc | grep 'export PATH=$HOME/bin:$PATH'`" = "x" ]; then
+	echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
+fi
 echo WARNING: REBOOT IS REQUIRED!
