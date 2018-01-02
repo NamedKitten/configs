@@ -1,7 +1,7 @@
 #!/bin/sh
 DRIVERS="nvidia lib32-nvidia-utils opencl-nvidia r8168"
 TOOLS="lshw pkgfile nvidia-settings dnsmasq"
-EXTRAS="mpv mps-youtube youtube-dl steam steam-native-runtime"
+EXTRAS="mpv mps-youtube youtube-dl steam steam-native-runtime dotnet-host dotnet-runtime"
 audio () {
 	# Fix audio issue I have
 	echo Fixing audio

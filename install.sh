@@ -23,12 +23,19 @@ if [ "x$1" != "x--source" ]; then
 	mkdir -p ~/.themes/
 	mkdir -p ~/Pictures/wallpaper/
 	mkdir -p ~/Templates/
+	echo Copying configs
 	cp -R dotfiles/.config/* ~/.config/
+	echo Patching trizen config..
+        sed -i "s/tim/$USER/g" ~/.config/trizen/trizen.conf
+	echo Copying openbox gtk theme..
 	cp -R dotfiles/.themes/* ~/.themes/
+	echo Copying wallpaper..
 	cp -R wallpaper/* ~/Pictures/wallpaper/
+	echo Copying templates..
 	cp -R dotfiles/Templates/* ~/Templates/
 	cp dotfiles/.gtkrc-2.0 ~/.gtkrc-2.0 
 	cp dotfiles/.Xdefaults ~/.Xdefaults
+	echo Preparing xinitrc
 	echo "exec openbox-session" > ~/.xinitrc
 	echo Done!
 fi
