@@ -39,7 +39,7 @@ sudo cp system/etc/*.conf /etc/
 # Install required packages and update db
 sudo pacman -Sy --noconfirm $DRIVERS $TOOLS $EXTRAS
 sudo pkgfile --update
-trizen -S dotnet-sdk-2.0 code-git --noconfirm
+trizen -S dotnet-sdk-2.0 code-git --noconfirm --needed
 # 
 #
 echo Fixing audio, ethernet and enabling services!
