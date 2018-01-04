@@ -1,5 +1,5 @@
 #!/bin/sh
-DRIVERS="nvidia lib32-nvidia-utils opencl-nvidia r8168"
+DRIVERS="nvidia-dkms lib32-nvidia-utils opencl-nvidia"
 TOOLS="lshw pkgfile nvidia-settings dnsmasq htop"
 EXTRAS="mpv mps-youtube youtube-dl steam steam-native-runtime dotnet-host dotnet-runtime" 
 audio () {
@@ -39,7 +39,7 @@ sudo cp system/etc/*.conf /etc/
 # Install required packages and update db
 sudo pacman -Sy --noconfirm $DRIVERS $TOOLS $EXTRAS
 sudo pkgfile --update
-trizen -S dotnet-sdk-2.0 code-git --noconfirm --needed
+trizen -S dotnet-sdk-2.0 code-git r8168-dkms --noconfirm --needed
 # 
 #
 echo Fixing audio, ethernet and enabling services!
