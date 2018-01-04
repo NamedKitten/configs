@@ -53,4 +53,6 @@ git clone https://github.com/tim241/bin ~/bin
 if [ "x`cat ~/.bashrc | grep 'export PATH=$HOME/bin:$PATH'`" = "x" ]; then
 	echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
 fi
+echo Setting up VSCode
+code-git --install-extension ms-vscode.csharp --install-extension ph-hawkins.arc-plus --install-extension jmrog.vscode-nuget-package-manager
 echo WARNING: REBOOT IS REQUIRED!
