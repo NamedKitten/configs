@@ -25,8 +25,6 @@ if [ "x$1" != "x--source" ]; then
 	mkdir -p ~/Templates/
 	echo Copying configs
 	cp -R dotfiles/.config/* ~/.config/
-	echo Patching trizen config..
-        sed -i "s/tim/$USER/g" ~/.config/trizen/trizen.conf
 	echo Copying openbox gtk theme..
 	cp -R dotfiles/.themes/* ~/.themes/
 	echo Copying wallpaper..
