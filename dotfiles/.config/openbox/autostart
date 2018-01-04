@@ -7,7 +7,7 @@ xrdb ~/.Xdefaults
 dayplanner-daemon &
 tint2 &
 xsetroot -solid "#000000" &
-compton --backend glx -m 0.9 &
+compton --backend glx -m 0.9 --glx-swap-method 3 -b --refresh-rate 75 --vsync opengl --detect-rounded-corners --vsync-aggressive &
 $HOME/.config/openbox/xrandr/*.sh && feh --bg-fill ~/Pictures/wallpaper/wallpaper.jpg
 
 
