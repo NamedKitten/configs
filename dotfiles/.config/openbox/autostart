@@ -3,11 +3,13 @@
 # You may place a similar script in $HOME/.config/openbox/autostart
 # to run user-specific things.
 #
-xrdb ~/.Xdefaults
+# Fix for crashing DBUS processes: https://bbs.archlinux.org/viewtopic.php?id=224787
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY 
+# Load Xdefaults
+xrdb ~/.Xdefaults 
 dayplanner-daemon &
 tint2 &
 xsetroot -solid "#000000" &
-compton --backend glx -m 0.9 --glx-swap-method 3 -b --refresh-rate 75 --vsync opengl --detect-rounded-corners --vsync-aggressive &
 $HOME/.config/openbox/xrandr/*.sh && feh --bg-fill ~/Pictures/wallpaper/wallpaper.jpg
-
+compton --backend glx -m 0.9 --glx-swap-method 3 -b --refresh-rate 75 --vsync opengl --detect-rounded-corners --vsync-aggressive &
 
