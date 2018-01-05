@@ -233,6 +233,11 @@
         <command>rofi -show run -width 100 -location 2 -theme ~/.config/openbox/rofi/Arc-Dark.rasi</command>
       </action>
     </keybind>
+    <keybind key="W-t">
+      <action name="Execute">
+        <command>urxvt</command>
+      </action>
+    </keybind>
     <keybind key="W-F1">
       <action name="GoToDesktop">
         <to>1</to>
@@ -721,9 +726,6 @@
     <!-- show the manage desktops section in the client-list-(combined-)menu -->
   </menu>
   <applications>
-    <application class="Tilda">
-      <layer>below</layer>
-    </application>
     <application class="URxvt">
       <decor>no</decor>
     </application>
