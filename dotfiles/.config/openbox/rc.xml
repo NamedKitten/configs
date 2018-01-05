@@ -230,7 +230,7 @@
     </keybind>
     <keybind key="W-r">
       <action name="Execute">
-        <command>rofi -theme ~/.config/openbox/rofi/Arc-Dark.rasi -show run</command>
+        <command>rofi -show run -width 100 -location 2 -theme ~/.config/openbox/rofi/Arc-Dark.rasi</command>
       </action>
     </keybind>
     <keybind key="W-F1">
@@ -316,7 +316,7 @@
     <!-- Keybindings for window switching -->
     <keybind key="A-Tab">
       <action name="Execute">
-        <command>rofi -show window -theme ~/.config/openbox/rofi/Arc-Dark.rasi</command>
+        <command>rofi -show window -width 100 -location 2 -theme ~/.config/openbox/rofi/Arc-Dark.rasi</command>
       </action>
     </keybind>
     <keybind key="A-S-Tab">
