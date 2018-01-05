@@ -1,0 +1,7 @@
+#!/bin/sh
+for wallpaper in ~/Pictures/wallpaper/*.jpg; do
+	WP="$WP $wallpaper"
+done
+if [ "x$WP" != "x" ]; then
+	feh --bg-fill $WP
+fi
