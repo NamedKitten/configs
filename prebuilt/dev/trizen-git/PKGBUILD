@@ -2,7 +2,7 @@
 
 _pkgname=trizen
 pkgname=trizen-git
-pkgver=1.37
+pkgver=1.37.2.gec6a6da
 pkgrel=1
 pkgdesc="Trizen AUR Package Manager: A lightweight wrapper for AUR (-git version)."
 arch=('any')
