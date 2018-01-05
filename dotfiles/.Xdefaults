@@ -1,7 +1,8 @@
 urxvt*depth: 32
 urxvt*background: #303642
-urxvt*font:xft:Noto Mono:pixelsize=10
-urxvt*boldfont:xft:Noto Mono:pixelsize=10
+!urxvt*font:xft:Noto Mono:pixelsize=10
+urxvt*font:xft:Noto Mono for Powerline:pixelsize=10
+urxvt*boldfont:xft:Noto Mono for Powerline:pixelsize=10
 urxvt.scrollBar: false
 URxvt.perl-ext-common: selection-to-clipboard
 XTerm*background: #404552

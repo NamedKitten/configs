@@ -20,6 +20,11 @@ services () {
 	sudo systemctl enable dnsmasq
 	sudo systemctl enable dhcpcd
 }
+bash_it () {
+	git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+	bash ~/.bash_it/install.sh --silent
+	sed -i "s/bobby/powerline/g" ~/.bashrc	
+}
 # installing stuff that I want on my os install
 if [ $UID = 0 ]; then
 	echo Execute this script as a user!
@@ -47,6 +52,10 @@ audio
 ethernet
 services
 # 
+#
+echo Installing bash-it!
+bash_it
+#
 #
 echo Setting up $HOME/bin
 git clone https://github.com/tim241/bin ~/bin
