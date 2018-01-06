@@ -23,7 +23,7 @@ services () {
 bash_it () {
 	git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
 	bash ~/.bash_it/install.sh --silent
-	sed -i "s/bobby/powerline/g" ~/.bashrc	
+	cp dotfiles/.bashrc ~/.bashrc
 }
 # installing stuff that I want on my os install
 if [ $UID = 0 ]; then
@@ -59,9 +59,10 @@ bash_it
 #
 echo Setting up $HOME/bin
 git clone https://github.com/tim241/bin ~/bin
-if [ "x`cat ~/.bashrc | grep 'export PATH=$HOME/bin:$PATH'`" = "x" ]; then
-	echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
-fi
+#
+#
 echo Setting up VSCode
 code-git --install-extension ms-vscode.csharp --install-extension ph-hawkins.arc-plus --install-extension jmrog.vscode-nuget-package-manager
+#
+#
 echo WARNING: REBOOT IS REQUIRED!
