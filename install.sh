@@ -8,12 +8,20 @@ GNOME_DEPENDENCIES="gnome-calculator pavucontrol gnome-mplayer gedit
 	gucharmap file-roller gimp gcolor2
 	nautilus filemanager-actions nautilus-open-terminal"
 EXTRAS="firefox chromium mplayer libreoffice-fresh pidgin pidgin-otr qt4 vlc redshift gksu gparted"
+# Exit On Fail
+eof () {
+	$@
+	if [ $? != 0 ]; then
+		echo "Command: '$@' failed!"
+		exit 1
+	fi
+}
 if [ "x$1" != "x--source" ]; then
 	if `which pacman > /dev/null 2>&1`; then
 		echo Installing prebuilt packages!
-		sudo pacman --needed --noconfirm -U prebuilt/*pkg*
+		eof sudo pacman --needed --noconfirm -U prebuilt/*pkg*
 		echo Installing required packages!
-		sudo pacman --needed --noconfirm -S $CORE_DEPENDENCIES $DEPENDENCIES \
+		eof sudo pacman --needed --noconfirm -S $CORE_DEPENDENCIES $DEPENDENCIES \
 					$THEME_DEPENDENCIES $DESKTOP_THEME_TOOLS $GNOME_DEPENDENCIES $EXTRAS
 	else
 		echo pacman is not installed!

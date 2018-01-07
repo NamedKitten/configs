@@ -25,6 +25,8 @@ bash_it () {
 	bash ~/.bash_it/install.sh --silent
 	cp dotfiles/.bashrc ~/.bashrc
 }
+# Source EOF from install.sh
+source ./install.sh --source
 # installing stuff that I want on my os install
 if [ $UID = 0 ]; then
 	echo Execute this script as a user!
@@ -42,9 +44,9 @@ fi
 sudo cp system/etc/*.conf /etc/
 #
 # Install required packages and update db
-sudo pacman -Sy --noconfirm $DRIVERS $TOOLS $EXTRAS
+eof sudo pacman -Sy --noconfirm $DRIVERS $TOOLS $EXTRAS
 sudo pkgfile --update
-trizen -S dotnet-sdk-2.0 code-git r8168-dkms --noconfirm --needed
+eof trizen -S dotnet-sdk-2.0 code-git r8168-dkms --noconfirm --needed
 # 
 #
 echo Fixing audio, ethernet and enabling services!
@@ -62,7 +64,7 @@ git clone https://github.com/tim241/bin ~/bin
 #
 #
 echo Setting up VSCode
-code-git --install-extension ms-vscode.csharp --install-extension ph-hawkins.arc-plus --install-extension jmrog.vscode-nuget-package-manager
+eof code-git --install-extension ms-vscode.csharp --install-extension ph-hawkins.arc-plus --install-extension jmrog.vscode-nuget-package-manager
 #
 #
 echo WARNING: REBOOT IS REQUIRED!
