@@ -25,6 +25,13 @@ bash_it () {
 	bash ~/.bash_it/install.sh --silent
 	cp dotfiles/.bashrc ~/.bashrc
 }
+keep_sudo () {
+	while [ ! -f ks_stop ]; do
+		sleep 60
+		sudo -v
+	done
+	rm ks_stop
+}
 # Source EOF from install.sh
 source ./install.sh --source
 # installing stuff that I want on my os install
@@ -39,6 +46,11 @@ read none
 if [ ! -f "install_completed" ]; then
 	sh install.sh
 fi
+#
+#
+echo Please provide your sudo password...
+eof sudo echo "Thank you for providing your sudo password..let's continue"
+keep_sudo &
 #
 # Copy configs
 sudo cp system/etc/*.conf /etc/
@@ -65,6 +77,9 @@ git clone https://github.com/tim241/bin ~/bin
 #
 echo Setting up VSCode
 eof code-git --install-extension ms-vscode.csharp --install-extension ph-hawkins.arc-plus --install-extension jmrog.vscode-nuget-package-manager
+#
+# 
+touch ks_stop
 #
 #
 echo WARNING: REBOOT IS REQUIRED!
