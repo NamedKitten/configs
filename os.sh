@@ -21,6 +21,9 @@ services () {
 	sudo systemctl enable dhcpcd
 }
 bash_it () {
+	if [ -d ~/.bash_it ]; then
+		rm -rf ~/.bash_it
+	fi
 	git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
 	bash ~/.bash_it/install.sh --silent
 	cp dotfiles/.bashrc ~/.bashrc
@@ -56,7 +59,7 @@ keep_sudo &
 sudo cp system/etc/*.conf /etc/
 #
 # Install required packages and update db
-eof sudo pacman -Sy --noconfirm $DRIVERS $TOOLS $EXTRAS
+eof sudo pacman -Sy $DRIVERS $TOOLS $EXTRAS --noconfirm --needed
 sudo pkgfile --update
 eof trizen -S dotnet-sdk-2.0 code-git r8168-dkms --noconfirm --needed
 # 
