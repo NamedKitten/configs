@@ -9,6 +9,10 @@
 # Add ls alias for terminals other than urxvt ( it isn't required in bash-it )
 alias ls='ls --color=auto'
 
+# Personal preferences
+export VISUAL=nano
+export EDITOR=$VISUAL
+
 # Bash it variables
 export BASH_IT="$HOME/.bash_it"
 export BASH_IT_THEME='powerline'
