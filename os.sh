@@ -1,7 +1,7 @@
 #!/bin/sh
 DRIVERS="nvidia-dkms lib32-nvidia-utils opencl-nvidia"
 TOOLS="lshw pkgfile nvidia-settings dnsmasq htop"
-EXTRAS="mpv mps-youtube youtube-dl steam steam-native-runtime dotnet-host dotnet-runtime" 
+EXTRAS="mpv mps-youtube youtube-dl steam steam-native-runtime dotnet-host dotnet-runtime dotnet-sdk" 
 audio () {
 	# Fix audio issue I have
 	echo Fixing audio
@@ -61,7 +61,7 @@ sudo cp system/etc/*.conf /etc/
 # Install required packages and update db
 eof sudo pacman -Sy $DRIVERS $TOOLS $EXTRAS --noconfirm --needed
 sudo pkgfile --update
-eof trizen -S dotnet-sdk-2.0 code-git r8168-dkms --noconfirm --needed
+eof trizen -S code-git r8168-dkms --noconfirm --needed
 # 
 #
 echo Fixing audio, ethernet and enabling services!
