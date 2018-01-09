@@ -16,33 +16,34 @@ eof () {
 		exit 1
 	fi
 }
-if [ "x$1" != "x--source" ]; then
-	if `which pacman > /dev/null 2>&1`; then
-		echo Installing prebuilt packages!
-		eof sudo pacman --needed --noconfirm -U prebuilt/*pkg*
-		echo Installing required packages!
-		eof sudo pacman --needed --noconfirm -S $CORE_DEPENDENCIES $DEPENDENCIES \
-					$THEME_DEPENDENCIES $DESKTOP_THEME_TOOLS $GNOME_DEPENDENCIES $EXTRAS
-	else
-		echo pacman is not installed!
-	fi
-	echo Installing configs
-	mkdir -p ~/.config/
-	mkdir -p ~/.themes/
-	mkdir -p ~/Pictures/wallpaper/
-	mkdir -p ~/Templates/
-	echo Copying configs
-	cp -R dotfiles/.config/* ~/.config/
-	echo Copying openbox gtk theme..
-	cp -R dotfiles/.themes/* ~/.themes/
-	echo Copying wallpaper..
-	cp -R wallpaper/* ~/Pictures/wallpaper/
-	echo Copying templates..
-	cp -R dotfiles/Templates/* ~/Templates/
-	cp dotfiles/.gtkrc-2.0 ~/.gtkrc-2.0 
-	cp dotfiles/.Xdefaults ~/.Xdefaults
-	echo Preparing xinitrc
-	echo "exec openbox-session" > ~/.xinitrc
-	echo Done!
-	touch install_completed
+if [ "x$1" = "x--source" ]; then
+	return
 fi
+if `which pacman > /dev/null 2>&1`; then
+	echo Installing prebuilt packages!
+	eof sudo pacman --needed --noconfirm -U prebuilt/*pkg*
+	echo Installing required packages!
+	eof sudo pacman --needed --noconfirm -S $CORE_DEPENDENCIES $DEPENDENCIES \
+				$THEME_DEPENDENCIES $DESKTOP_THEME_TOOLS $GNOME_DEPENDENCIES $EXTRAS
+else
+	echo pacman is not installed!
+fi
+echo Installing configs
+mkdir -p ~/.config/
+mkdir -p ~/.themes/
+mkdir -p ~/Pictures/wallpaper/
+mkdir -p ~/Templates/
+echo Copying configs
+cp -R dotfiles/.config/* ~/.config/
+echo Copying openbox gtk theme..
+cp -R dotfiles/.themes/* ~/.themes/
+echo Copying wallpaper..
+cp -R wallpaper/* ~/Pictures/wallpaper/
+echo Copying templates..
+cp -R dotfiles/Templates/* ~/Templates/
+cp dotfiles/.gtkrc-2.0 ~/.gtkrc-2.0 
+cp dotfiles/.Xdefaults ~/.Xdefaults
+echo Preparing xinitrc
+echo "exec openbox-session" > ~/.xinitrc
+echo Done!
+touch install_completed
