@@ -17,16 +17,16 @@ ethernet () {
 services () {
 	# Enable services
 	print Enabling services
-	sudo systemctl enable dnsmasq
-	sudo systemctl enable dhcpcd
+	EOF sudo systemctl enable dnsmasq
+	EOF sudo systemctl enable dhcpcd
 }
 bash_it () {
 	if [ -d ~/.bash_it ]; then
 		rm -rf ~/.bash_it
 	fi
-	git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
-	bash ~/.bash_it/install.sh --silent
-	cp dotfiles/.bashrc ~/.bashrc
+	EOF git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+	EOF bash ~/.bash_it/install.sh --silent
+	EOF cp dotfiles/.bashrc $HOME/.bashrc
 }
 keep_sudo () {
 	while [ ! -f .ks ]; do
@@ -52,7 +52,7 @@ ask_sudo
 keep_sudo &
 #
 # Copy configs
-sudo cp system/etc/*.conf /etc/
+EOF sudo cp system/etc/*.conf /etc/
 #
 # Install required packages and update db
 EOF sudo pacman -Sy $DRIVERS $TOOLS $EXTRAS --noconfirm --needed
