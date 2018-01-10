@@ -33,6 +33,13 @@ EOF () {
 		exit $exitcode
 	fi
 }
+# Exit On Root, don't allow this script to be ran as root
+EOR () {
+	if [ $UID = 0 ]; then
+		printError Execute this script as a user!
+		exit 1
+	fi
+}
 # Ask for sudo password
 ask_sudo () {
 	print Please provide your sudo password...
@@ -42,6 +49,7 @@ ask_sudo () {
 if [ "x$1" = "x--source" ]; then
 	return
 fi
+EOR
 if `which pacman > /dev/null 2>&1`; then
 	ask_sudo
 	print "Installing prebuilt packages!"

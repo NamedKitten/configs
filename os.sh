@@ -37,11 +37,8 @@ keep_sudo () {
 }
 # Source EOF from install.sh
 source ./install.sh --source
-# installing stuff that I want on my os install
-if [ $UID = 0 ]; then
-	printError Execute this script as a user!
-	exit 1
-fi
+# Exit On Root
+EOR
 print WARNING: THESE PACKAGES APPLY TO MY SYSTEM ONLY
 read none
 #
