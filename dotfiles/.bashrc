@@ -9,6 +9,9 @@
 # Add ls alias for terminals other than urxvt ( it isn't required in bash-it )
 alias ls='ls --color=auto'
 
+# Disable nano file wrapping
+alias nano='nano --nowrap'
+
 # Personal preferences
 export VISUAL=nano
 export EDITOR=$VISUAL
