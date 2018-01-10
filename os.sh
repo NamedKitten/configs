@@ -51,9 +51,7 @@ if [ ! -f ".ic" ]; then
 fi
 #
 #
-print Please provide your sudo password...
-EOF sudo -v
-print "Thank you for providing your sudo password..let's continue"
+ask_sudo
 keep_sudo &
 #
 # Copy configs

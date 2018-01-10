@@ -33,10 +33,17 @@ EOF () {
 		exit $exitcode
 	fi
 }
+# Ask for sudo password
+ask_sudo () {
+	print Please provide your sudo password...
+	EOF sudo -v
+	print "Thank you for providing your sudo password..let's continue"
+}
 if [ "x$1" = "x--source" ]; then
 	return
 fi
 if `which pacman > /dev/null 2>&1`; then
+	ask_sudo
 	print "Installing prebuilt packages!"
 	EOF sudo pacman --needed --noconfirm -U prebuilt/*pkg*
 	print "Installing required packages!"
