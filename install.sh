@@ -6,14 +6,15 @@ THEME_DEPENDENCIES="arc-gtk-theme papirus-icon-theme compton qt5ct qt5-styleplug
 DESKTOP_THEME_TOOLS="lxappearance lxmenu-data"
 GNOME_DEPENDENCIES="gnome-calculator pavucontrol gnome-mplayer gedit
 	gucharmap file-roller gimp gcolor2
-	nautilus filemanager-actions nautilus-open-terminal"
+	nautilus filemanager-actions"
 EXTRAS="firefox chromium mplayer libreoffice-fresh pidgin pidgin-otr qt4 vlc redshift gksu gparted"
 # Exit On Fail
-eof () {
+EOF () {
 	$@
-	if [ $? != 0 ]; then
+	exitcode=$?
+	if [ $exitcode != 0 ]; then
 		echo "Command: '$@' failed!"
-		exit 1
+		exit $exitcode
 	fi
 }
 if [ "x$1" = "x--source" ]; then
@@ -21,9 +22,9 @@ if [ "x$1" = "x--source" ]; then
 fi
 if `which pacman > /dev/null 2>&1`; then
 	echo Installing prebuilt packages!
-	eof sudo pacman --needed --noconfirm -U prebuilt/*pkg*
+	EOF sudo pacman --needed --noconfirm -U prebuilt/*pkg*
 	echo Installing required packages!
-	eof sudo pacman --needed --noconfirm -S $CORE_DEPENDENCIES $DEPENDENCIES \
+	EOF sudo pacman --needed --noconfirm -S $CORE_DEPENDENCIES $DEPENDENCIES \
 				$THEME_DEPENDENCIES $DESKTOP_THEME_TOOLS $GNOME_DEPENDENCIES $EXTRAS
 else
 	echo pacman is not installed!

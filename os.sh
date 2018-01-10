@@ -52,16 +52,16 @@ fi
 #
 #
 echo Please provide your sudo password...
-eof sudo echo "Thank you for providing your sudo password..let's continue"
+EOF sudo echo "Thank you for providing your sudo password..let's continue"
 keep_sudo &
 #
 # Copy configs
 sudo cp system/etc/*.conf /etc/
 #
 # Install required packages and update db
-eof sudo pacman -Sy $DRIVERS $TOOLS $EXTRAS --noconfirm --needed
+EOF sudo pacman -Sy $DRIVERS $TOOLS $EXTRAS --noconfirm --needed
 sudo pkgfile --update
-eof trizen -S code-git r8168-dkms --noconfirm --needed
+EOF trizen -S code-git r8168-dkms --noconfirm --needed
 # 
 #
 echo Fixing audio, ethernet and enabling services!
@@ -79,7 +79,7 @@ git clone https://github.com/tim241/bin ~/bin
 #
 #
 echo Setting up VSCode
-eof code-git --install-extension ms-vscode.csharp --install-extension ph-hawkins.arc-plus --install-extension jmrog.vscode-nuget-package-manager
+EOF code-git --install-extension ms-vscode.csharp --install-extension ph-hawkins.arc-plus --install-extension jmrog.vscode-nuget-package-manager
 #
 # 
 touch ks_stop
