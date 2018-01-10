@@ -12,7 +12,7 @@ audio () {
 ethernet () {
 	# Blacklist the r8169 driver, to force the use of the r8168 driver
 	print Blacklisting the r8169 module
- 	echo blacklist r8169 | sudo tee /etc/modprobe.d/ethernet.conf
+ 	echo blacklist r8169 | sudo tee /etc/modprobe.d/ethernet.conf > /dev/null
 }
 services () {
 	# Enable services
