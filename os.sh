@@ -29,11 +29,11 @@ bash_it () {
 	cp dotfiles/.bashrc ~/.bashrc
 }
 keep_sudo () {
-	while [ ! -f ks_stop ]; do
+	while [ ! -f .ks ]; do
 		sleep 60
 		sudo -v
 	done
-	rm ks_stop
+	rm .ks
 }
 # Source EOF from install.sh
 source ./install.sh --source
@@ -46,7 +46,7 @@ echo WARNING: THESE PACKAGES APPLY TO MY SYSTEM ONLY
 read none
 #
 # Make sure install.sh is executed
-if [ ! -f "install_completed" ]; then
+if [ ! -f ".ic" ]; then
 	sh install.sh
 fi
 #
@@ -82,7 +82,7 @@ echo Setting up VSCode
 EOF code-git --install-extension ms-vscode.csharp --install-extension ph-hawkins.arc-plus --install-extension jmrog.vscode-nuget-package-manager
 #
 # 
-touch ks_stop
+touch .ks
 #
 #
 echo WARNING: REBOOT IS REQUIRED!

@@ -47,4 +47,4 @@ cp dotfiles/.Xdefaults ~/.Xdefaults
 echo Preparing xinitrc
 echo "exec openbox-session" > ~/.xinitrc
 echo Done!
-touch install_completed
+touch .ic
