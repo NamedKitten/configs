@@ -61,11 +61,9 @@ else
 	printError "pacman is not installed!"
 fi
 print "Installing configs"
-mkdir -p ~/.config/
-mkdir -p ~/.themes/
-mkdir -p ~/Pictures/wallpaper/
-mkdir -p ~/Templates/
-print "Copying configs"
+print "Creating directories.."
+mkdir -p ~/.config/ ~/.themes/ ~/Pictures/wallpaper/ ~/Templates/
+print "Copying configs.."
 cp -R dotfiles/.config/* ~/.config/
 print "Copying openbox gtk theme.."
 cp -R dotfiles/.themes/* ~/.themes/
