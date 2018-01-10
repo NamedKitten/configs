@@ -11,8 +11,11 @@ EXTRA_DEP="dayplanner/dep/perl-module-runtime-conflicts dayplanner/dep/perl-deve
 	dayplanner/dep/perl-date-holidayparser"
 for PKGdir in $EXTRA_DEP `find . -name "PKGBUILD" -not -path "*dep*" -execdir "pwd" \;`; do 	
 	cd $PKGdir
+	print "Building in $PKGdir"
+	ERRMSG="Building in '$PKGdir' failed!"
 	EOF makepkg -sic --noconfirm --needed
 	mv *.pkg.* $DEVDIR/../
 	rm -rf $RMFILES
 	cd $DEVDIR		
 done
+print All packages have been built!

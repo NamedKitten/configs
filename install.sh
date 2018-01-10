@@ -8,12 +8,28 @@ GNOME_DEPENDENCIES="gnome-calculator pavucontrol gnome-mplayer gedit
 	gucharmap file-roller gimp gcolor2
 	nautilus filemanager-actions"
 EXTRAS="firefox chromium mplayer libreoffice-fresh pidgin pidgin-otr qt4 vlc redshift gksu gparted"
+# Declare colors
+RED='\033[0;31m'
+BLUE='\033[0;34m'
+NC='\033[0m' 
+# Print errors in red
+printError () {
+	echo -e "${RED}===> $@${NC}\n"
+}
+# Print with colors
+print () {
+	echo -e "${BLUE}===> $@${NC}\n"
+}
 # Exit On Fail
 EOF () {
 	$@
 	exitcode=$?
 	if [ $exitcode != 0 ]; then
-		echo "Command: '$@' failed!"
+		if [ "x$ERRMSG" != "x" ]; then
+			printError "$ERRMSG"
+		else 
+			printError "Command: '$@' failed!"
+		fi
 		exit $exitcode
 	fi
 }
@@ -21,30 +37,30 @@ if [ "x$1" = "x--source" ]; then
 	return
 fi
 if `which pacman > /dev/null 2>&1`; then
-	echo Installing prebuilt packages!
+	print "Installing prebuilt packages!"
 	EOF sudo pacman --needed --noconfirm -U prebuilt/*pkg*
-	echo Installing required packages!
+	print "Installing required packages!"
 	EOF sudo pacman --needed --noconfirm -S $CORE_DEPENDENCIES $DEPENDENCIES \
 				$THEME_DEPENDENCIES $DESKTOP_THEME_TOOLS $GNOME_DEPENDENCIES $EXTRAS
 else
-	echo pacman is not installed!
+	printError "pacman is not installed!"
 fi
-echo Installing configs
+print "Installing configs"
 mkdir -p ~/.config/
 mkdir -p ~/.themes/
 mkdir -p ~/Pictures/wallpaper/
 mkdir -p ~/Templates/
-echo Copying configs
+print "Copying configs"
 cp -R dotfiles/.config/* ~/.config/
-echo Copying openbox gtk theme..
+print "Copying openbox gtk theme.."
 cp -R dotfiles/.themes/* ~/.themes/
-echo Copying wallpaper..
+print "Copying wallpaper.."
 cp -R wallpaper/* ~/Pictures/wallpaper/
-echo Copying templates..
+print "Copying templates.."
 cp -R dotfiles/Templates/* ~/Templates/
 cp dotfiles/.gtkrc-2.0 ~/.gtkrc-2.0 
 cp dotfiles/.Xdefaults ~/.Xdefaults
-echo Preparing xinitrc
+print "Preparing xinitrc"
 echo "exec openbox-session" > ~/.xinitrc
-echo Done!
+print "Done!"
 touch .ic
