@@ -4,19 +4,19 @@ TOOLS="lshw pkgfile nvidia-settings dnsmasq htop"
 EXTRAS="mpv mps-youtube youtube-dl steam steam-native-runtime dotnet-host dotnet-runtime dotnet-sdk" 
 audio () {
 	# Fix audio issue I have
-	echo Fixing audio
+	print Fixing audio
 	if [ "x`grep -R "load-module module-udev-detect tsched=0" /etc/pulse/default.pa`" = "x" ]; then
 		sudo sed -i "s/load-module module-udev-detect/load-module module-udev-detect tsched=0/g" /etc/pulse/default.pa
 	fi
 }
 ethernet () {
 	# Blacklist the r8169 driver, to force the use of the r8168 driver
-	echo Blacklisting the r8169 module
+	print Blacklisting the r8169 module
  	echo blacklist r8169 | sudo tee /etc/modprobe.d/ethernet.conf
 }
 services () {
 	# Enable services
-	echo Enabling services
+	print Enabling services
 	sudo systemctl enable dnsmasq
 	sudo systemctl enable dhcpcd
 }
@@ -39,10 +39,10 @@ keep_sudo () {
 source ./install.sh --source
 # installing stuff that I want on my os install
 if [ $UID = 0 ]; then
-	echo Execute this script as a user!
+	printError Execute this script as a user!
 	exit 1
 fi
-echo WARNING: THESE PACKAGES APPLY TO MY SYSTEM ONLY
+print WARNING: THESE PACKAGES APPLY TO MY SYSTEM ONLY
 read none
 #
 # Make sure install.sh is executed
@@ -51,8 +51,9 @@ if [ ! -f ".ic" ]; then
 fi
 #
 #
-echo Please provide your sudo password...
-EOF sudo echo "Thank you for providing your sudo password..let's continue"
+print Please provide your sudo password...
+EOF sudo -v
+print "Thank you for providing your sudo password..let's continue"
 keep_sudo &
 #
 # Copy configs
@@ -64,25 +65,25 @@ sudo pkgfile --update
 EOF trizen -S code-git r8168-dkms --noconfirm --needed
 # 
 #
-echo Fixing audio, ethernet and enabling services!
+print Fixing audio, ethernet and enabling services!
 audio
 ethernet
 services
 # 
 #
-echo Installing bash-it!
+print Installing bash-it!
 bash_it
 #
 #
-echo Setting up $HOME/bin
+print Setting up $HOME/bin
 git clone https://github.com/tim241/bin ~/bin
 #
 #
-echo Setting up VSCode
+print Setting up VSCode
 EOF code-git --install-extension ms-vscode.csharp --install-extension ph-hawkins.arc-plus --install-extension jmrog.vscode-nuget-package-manager
 #
 # 
 touch .ks
 #
 #
-echo WARNING: REBOOT IS REQUIRED!
+print WARNING: REBOOT IS REQUIRED!
