@@ -62,18 +62,18 @@ else
 fi
 print "Installing configs"
 print "Creating directories.."
-mkdir -p ~/.config/ ~/.themes/ ~/Pictures/wallpaper/ ~/Templates/
+EOF mkdir -p $HOME/.config/ $HOME/.themes/ $HOME/Pictures/wallpaper/ $HOME/Templates/
 print "Copying configs.."
-cp -R dotfiles/.config/* ~/.config/
+EOF "cp -R dotfiles/.config/* $HOME/.config/"
 print "Copying openbox gtk theme.."
-cp -R dotfiles/.themes/* ~/.themes/
+EOF "cp -R dotfiles/.themes/* $HOME/.themes/"
 print "Copying wallpaper.."
-cp -R wallpaper/* ~/Pictures/wallpaper/
+EOF "cp -R wallpaper/* $HOME/Pictures/wallpaper/"
 print "Copying templates.."
-cp -R dotfiles/Templates/* ~/Templates/
-cp dotfiles/.gtkrc-2.0 ~/.gtkrc-2.0 
-cp dotfiles/.Xdefaults ~/.Xdefaults
+EOF "cp -R dotfiles/Templates/* $HOME/Templates/"
+EOF "cp dotfiles/.gtkrc-2.0 $HOME/.gtkrc-2.0"
+EOF "cp dotfiles/.Xdefaults $HOME/.Xdefaults"
 print "Preparing xinitrc"
-echo "exec openbox-session" > ~/.xinitrc
+echo "exec openbox-session" > $HOME/.xinitrc
 print "Done!"
 touch .ic
