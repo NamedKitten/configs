@@ -42,6 +42,10 @@ EOR
 print WARNING: THESE PACKAGES APPLY TO MY SYSTEM ONLY
 read none
 #
+# Make sure .ks doesn't exist
+if [ -f ".ks" ]; then
+	rm .ks
+fi
 # Make sure install.sh is executed
 if [ ! -f ".ic" ]; then
 	sh install.sh
