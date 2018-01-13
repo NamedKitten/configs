@@ -47,7 +47,7 @@ vim_stuff () {
 	EOF git clone https://github.com/Rip-Rip/clang_complete ~/.vim/bundle/clang_complete
 	print "Compiling color_coded"
 	cd ~/.vim/bundle/color_coded	
-	mkdir build && cd build && cmake ..
+	mkdir build && cd build && EOF cmake ..
 	EOF make -j5 && EOF make install -j5
 	EOF make clean && EOF make clean_clang
 	print "Enabling clang_complete"
