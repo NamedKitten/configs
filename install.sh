@@ -14,11 +14,11 @@ BLUE='\033[0;34m'
 NC='\033[0m' 
 # Print errors in red
 printError () {
-	echo -e "${RED}===> $@${NC}\n"
+	echo -e "\n${RED}===> $@${NC}\n"
 }
 # Print with colors
 print () {
-	echo -e "${BLUE}===> $@${NC}\n"
+	echo -e "\n${BLUE}===> $@${NC}\n"
 }
 # Exit On Fail
 EOF () {
