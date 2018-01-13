@@ -12,7 +12,10 @@ alias ls='ls --color=auto'
 # Disable nano file wrapping
 alias nano='nano --nowrap'
 
-# Personal preferences
+# Add alias for reloading Xdefaults
+alias reloadXvar='cat ~/.config/openbox/dotfiles/.Xdefaults | sed "s.HOME.$HOME.g" | xrdb'
+
+# Set default text editor to nano
 export VISUAL=nano
 export EDITOR=$VISUAL
 
