@@ -19,10 +19,12 @@ urxvt.scrollBar: false
 !! urvt extensions
 URxvt.perl-ext-common: selection-to-clipboard,resize-font
 
-!! resize-font settings
-URxvt.resize-font.smaller:	C-j
-URxvt.resize-font.bigger:      	C-k
-
+!! urxvt keybindings
+URxvt.keysym.C-0xffad:     resize-font:smaller
+URxvt.keysym.C-0xffab:      resize-font:bigger
+URxvt.keysym.C-equal:     resize-font:reset
+URxvt.keysym.Control-Left:	\033[1;5D
+URxvt.keysym.Control-Right:	\033[1;5C
 
 !! Xterm settings
 XTerm*background: #404552
