@@ -1,39 +1,62 @@
+!! URxvt settings
+
+!! Set perl folder to HOME/.config/urxvt/perl/
+URxvt.perl-lib: HOME/.config/urxvt/perl/
+
+!! 
 urxvt*depth: 32
+
+!! Set background with 10% transparency
 urxvt*background: [90]#303642
-!urxvt*font:xft:Noto Mono:pixelsize=10
+
+!! Set powerline font for bash-it
 urxvt*font:xft:Noto Mono for Powerline:pixelsize=10
 urxvt*boldfont:xft:Noto Mono for Powerline:pixelsize=10
+
+!! Disable the scrollbar
 urxvt.scrollBar: false
-URxvt.perl-ext-common: selection-to-clipboard
+
+!! urvt extensions
+URxvt.perl-ext-common: selection-to-clipboard,resize-font
+
+!! resize-font settings
+URxvt.resize-font.smaller:	C-j
+URxvt.resize-font.bigger:      	C-k
+
+
+!! Xterm settings
 XTerm*background: #404552
 XTerm*font:xft:Noto Mono:pixelsize=10
+
+!! General color settings
 *foreground: #f8f6f2
 *cursorColor: #aeee00
 *scrollColor: #45413b
 *fadeColor: #ffffff
 *fading: 0
 
-! black
+
+!! black
 *color0: #141413
 *color8: #000000
-! red
+!! red
 *color1: #ff2c4b
 *color9: #ff2c4b
-! green
+!! green
 *color2: #aeee00
 *color10: #aeee00
-! yellow
+!! yellow
 *color3: #fade3e
 *color11: #ffa724
-! blue
+!! blue
 *color4: #0a9dff
 *color12: #0a9dff
-! magenta
+!! magenta
 *color5: #ff9eb8
 *color13: #ff9eb8
-! cyan
+!! cyan
 *color6: #8cffba
 *color14: #8cffba
-! white
+!! white
 *color7: #d9cec3
 *color15: #ffffff

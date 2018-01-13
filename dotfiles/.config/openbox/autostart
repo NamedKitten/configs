@@ -6,7 +6,8 @@
 # Fix for crashing DBUS processes: https://bbs.archlinux.org/viewtopic.php?id=224787
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY 
 # Load Xdefaults
-xrdb ~/.Xdefaults 
+#xrdb ~/.Xdefaults 
+cat ~/.config/openbox/dotfiles/.Xdefaults | sed "s.HOME.$HOME.g" | xrdb
 dayplanner-daemon &
 tint2 &
 xsetroot -solid "#000000" &

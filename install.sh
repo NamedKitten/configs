@@ -72,7 +72,6 @@ EOF "cp -R wallpaper/* $HOME/Pictures/wallpaper/"
 print "Copying templates.."
 EOF "cp -R dotfiles/Templates/* $HOME/Templates/"
 EOF "cp dotfiles/.gtkrc-2.0 $HOME/.gtkrc-2.0"
-EOF "cp dotfiles/.Xdefaults $HOME/.Xdefaults"
 print "Preparing xinitrc"
 echo "exec openbox-session" > $HOME/.xinitrc
 print "Done!"
