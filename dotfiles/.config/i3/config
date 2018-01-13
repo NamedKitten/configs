@@ -172,17 +172,5 @@ for_window [class="Steam"] floating enable, border none
 # i3 gaps
 gaps inner 15
 
-# Fix for crashing DBUS processes: https://bbs.archlinux.org/viewtopic.php?id=224787
-exec --no-startup-id dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY 
-
-# Execute xrandr script and set background
-exec --no-startup-id $HOME/.config/tim241/xrandr/*.sh && sh ~/.config/tim241/bin/wallpaper
-
-# Set solid background as 'backup'
-exec --no-startup-id xsetroot -solid "#1c1b1a"
-
-# Load Xdefaults
-exec --no-startup-id $HOME/.config/tim241/bin/lxdef
-
-# Compton 
-exec --no-startup-id $HOME/.config/tim241/bin/compton
+# Autostart
+exec $HOME/.config/tim241/autostart.sh
