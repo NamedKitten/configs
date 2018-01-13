@@ -1,0 +1,1 @@
+compton --backend glx -m 0.9 --glx-swap-method 3 -b --refresh-rate 75 --vsync opengl --detect-rounded-corners --vsync-aggressive

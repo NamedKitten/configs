@@ -230,7 +230,7 @@
     </keybind>
     <keybind key="W-r">
       <action name="Execute">
-        <command>rofi -show run -width 100 -location 2 -theme ~/.config/tim241/rofi/Arc-Dark.rasi</command>
+        <command>~/.config/tim241/bin/rofi -show run</command>
       </action>
     </keybind>
     <keybind key="W-t">
@@ -321,7 +321,7 @@
     <!-- Keybindings for window switching -->
     <keybind key="A-Tab">
       <action name="Execute">
-        <command>rofi -show window -width 100 -location 2 -theme ~/.config/tim241/rofi/Arc-Dark.rasi</command>
+        <command>~/.config/tim241/bin/rofi -show window</command>
       </action>
     </keybind>
     <keybind key="A-S-Tab">
@@ -703,7 +703,7 @@
   <menu>
     <!-- You can specify more than one menu file in here and they are all loaded,
        just don't make menu ids clash or, well, it'll be kind of pointless -->
-    <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
+    <!-- default menu file (or custom one in /.config/openbox/) -->
     <file>menu.xml</file>
     <hideDelay>200</hideDelay>
     <!-- if a press-release lasts longer than this setting (in milliseconds), the

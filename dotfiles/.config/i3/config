@@ -148,7 +148,7 @@ mode "resize" {
 }
 
 #bindsym $mod+r mode "resize"
-bindsym $mod+r exec rofi -show run
+bindsym $mod+r exec $HOME/.config/tim241/bin/rofi -show run
 bindsym $mod+l exec i3lock-fancy -f Noto-Mono
 bindsym $mod+s exec echo "" | rofi -dmenu -p "Search:" | xargs -I{} xdg-open https://duckduckgo.com/?q={}
 
@@ -182,7 +182,7 @@ exec --no-startup-id $HOME/.config/tim241/xrandr/*.sh && sh ~/.config/tim241/bin
 exec --no-startup-id xsetroot -solid "#1c1b1a"
 
 # Load Xdefaults
-exec --no-startup-id cat ~/.config/tim241/dotfiles/.Xdefaults | sed "s.HOME.$HOME.g" | xrdb
+exec --no-startup-id $HOME/.config/tim241/bin/lxdef
 
 # Compton 
-exec --no-startup-id compton --backend glx -m 0.9 --glx-swap-method 3 -b --refresh-rate 75 --vsync opengl --detect-rounded-corners --vsync-aggressive
+exec --no-startup-id $HOME/.config/tim241/bin/compton

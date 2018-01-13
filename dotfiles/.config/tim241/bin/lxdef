@@ -1,0 +1,1 @@
+cat ~/.config/tim241/dotfiles/.Xdefaults | sed "s.HOME.$HOME.g" | xrdb
