@@ -15,6 +15,16 @@ alias nano='nano --nowrap'
 # Add alias for reloading Xdefaults
 alias reloadXvar='cat ~/.config/openbox/dotfiles/.Xdefaults | sed "s.HOME.$HOME.g" | xrdb'
 
+# Switch WM (opnbox -> i3-gaps, i3-gaps -> openbox)
+function switchWM () {
+	if [ "x`cat ~/.xinitrc`" != "xexec openbox-session" ]; then
+		echo Setting openbox as WM
+		echo "exec openbox-session" > ~/.xinitrc
+	else
+		echo Setting i3 as WM
+		echo "exec i3" > ~/.xinitrc
+	fi
+}
 # Set default text editor to nano
 export VISUAL=nano
 export EDITOR=$VISUAL
