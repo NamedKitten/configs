@@ -1,1 +1,5 @@
-cat ~/.config/tim241/dotfiles/.Xdefaults | sed "s.HOME.$HOME.g" | xrdb
+xdef=$HOME/.config/tim241/dotfiles/Xdefaults
+if [ -f $xdef ]; then
+	echo Xdefaults found
+	cat $xdef | sed "s.HOME.$HOME.g" | xrdb
+fi
