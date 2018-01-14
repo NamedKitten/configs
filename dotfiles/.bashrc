@@ -13,7 +13,7 @@ alias ls='ls --color=auto'
 alias nano='nano --nowrap'
 
 # Add alias for reloading Xdefaults
-alias reloadXvar='cat ~/.config/openbox/dotfiles/.Xdefaults | sed "s.HOME.$HOME.g" | xrdb'
+alias reloadXvar='cat ~/.config/tim241/dotfiles/.Xdefaults | sed "s.HOME.$HOME.g" | xrdb'
 
 # Switch WM (opnbox -> i3-gaps, i3-gaps -> openbox)
 function switchWM () {
