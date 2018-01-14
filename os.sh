@@ -20,14 +20,6 @@ services () {
 	EOF sudo systemctl enable dnsmasq
 	EOF sudo systemctl enable dhcpcd
 }
-bash_it () {
-	if [ -d ~/.bash_it ]; then
-		rm -rf ~/.bash_it
-	fi
-	EOF git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
-	EOF bash ~/.bash_it/install.sh --silent
-	EOF cp dotfiles/.bashrc $HOME/.bashrc
-}
 keep_sudo () {
 	while [ ! -f .ks ]; do
 		sleep 60
@@ -90,10 +82,6 @@ print Fixing audio, ethernet and enabling services!
 audio
 ethernet
 services
-# 
-#
-print Installing bash-it!
-bash_it
 #
 #
 print "Preparing VIM"
