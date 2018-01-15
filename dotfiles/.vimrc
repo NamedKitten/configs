@@ -19,3 +19,10 @@ call vundle#end()
 " Required stuff
 filetype plugin indent on
 let g:color_coded_enabled = 1
+
+" Bind f8 to compiling c file
+map <F8> :w <CR> :!gcc % && ./a.out <CR>
+
+" Bind f9 to execute make
+map <F9> :w <CR> :make -j5 <CR>
+
