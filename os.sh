@@ -27,6 +27,11 @@ keep_sudo () {
 	done
 	rm .ks
 }
+code_ext () {
+	for extension in $@; do
+		EOF code-git --install-extension $extension
+	done
+}
 vim_stuff () {
 	cp dotfiles/.vimrc ~/.vimrc
 	BDIR=`pwd`
@@ -93,7 +98,7 @@ git clone https://github.com/tim241/bin ~/bin
 #
 #
 print Setting up VSCode
-EOF code-git --install-extension ms-vscode.csharp --install-extension ph-hawkins.arc-plus --install-extension jmrog.vscode-nuget-package-manager
+code_ext ms-vscode.csharp ph-hawkins.arc-plus jmrog.vscode-nuget-package-manager ms-vscode.cpptools twxs.cmake
 #
 # 
 touch .ks
