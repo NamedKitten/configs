@@ -76,6 +76,7 @@ keep_sudo &
 #
 # Copy configs
 EOF sudo cp system/etc/*.conf /etc/
+EOF sudo cp system/etc/resolv.dnsmasq /etc/
 #
 # Install required packages and update db
 EOF sudo pacman -Sy $DRIVERS $TOOLS $EXTRAS --noconfirm --needed
