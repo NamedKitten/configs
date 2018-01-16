@@ -1,3 +1,5 @@
 {
-    "workbench.colorTheme": "Arc+"
+    "workbench.colorTheme": "Arc+",
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false
 }
