@@ -84,5 +84,7 @@ print "Preparing xinitrc"
 echo "exec openbox-session" > $HOME/.xinitrc
 print Installing bash-it!
 bash_it
+print "Making QT look like GTK+"
+echo QT_QPA_PLATFORMTHEME=qt5ct | sudo tee -a /etc/environment > /dev/null
 print "Done!"
 touch .ic
