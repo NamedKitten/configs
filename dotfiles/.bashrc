@@ -35,7 +35,7 @@ function weather {
 		if [ "$SHORT" = "1" ]; then
 	                curl http://wttr.in/$CITY --silent | head -7
 	        else
-	                curl http://wttr.in/$CITY --silent
+	                curl http://wttr.in/$CITY --silent | head -n -2
 	        fi
 	else
 		echo "The network is down"
