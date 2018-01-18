@@ -15,6 +15,26 @@ alias nano='nano --nowrap'
 # Add alias for reloading Xdefaults
 alias reloadXvar='$HOME/.config/tim241/bin/lxdef'
 
+# Add alias for starting vim with ranger
+alias vimr='vim +Ranger'
+
+# Only export this when we're in bashrc 
+export BASHRC=1
+
+# Change this CITY variable as needed
+export CITY=Heerlen
+# Display weather when we have internet
+function weather {
+	if ping -q -c 1 -W 1 google.com >/dev/null; then
+		if [ "$BASHRC" = "1" ]; then
+	                curl http://wttr.in/$CITY --silent | head -7
+	        else
+	                curl http://wttr.in/$CITY --silent
+	        fi
+	else
+		alias weather='echo "The network is down"'	
+	fi
+}
 # Switch WM (opnbox -> i3-gaps, i3-gaps -> openbox)
 function switchWM () {
 	if [ "x`cat ~/.xinitrc`" != "xexec openbox-session" ]; then
@@ -40,3 +60,9 @@ fi
 
 # Add $HOME/bin to your PATH
 export PATH="$HOME/bin:$PATH"
+
+weather
+
+
+# --> END OF BASHRC <--
+unset BASHRC
