@@ -18,21 +18,27 @@ alias reloadXvar='$HOME/.config/tim241/bin/lxdef'
 # Add alias for starting vim with ranger
 alias vimr='vim +Ranger'
 
-# Only export this when we're in bashrc 
-export BASHRC=1
-
 # Change this CITY variable as needed
 export CITY=Heerlen
 # Display weather when we have internet
 function weather {
+	case $1 in
+		--short | -s ) SHORT=1;;
+		--help | -h ) 
+			echo "weather [-s/--short] for the short version"
+			echo "weather for the full weather forecast"
+			return
+			;;
+		*) SHORT=0;;
+	esac
 	if ping -q -c 1 -W 1 google.com >/dev/null; then
-		if [ "$BASHRC" = "1" ]; then
+		if [ "$SHORT" = "1" ]; then
 	                curl http://wttr.in/$CITY --silent | head -7
 	        else
 	                curl http://wttr.in/$CITY --silent
 	        fi
 	else
-		alias weather='echo "The network is down"'	
+		echo "The network is down"
 	fi
 }
 # Switch WM (opnbox -> i3-gaps, i3-gaps -> openbox)
@@ -61,8 +67,5 @@ fi
 # Add $HOME/bin to your PATH
 export PATH="$HOME/bin:$PATH"
 
-weather
-
-
-# --> END OF BASHRC <--
-unset BASHRC
+# Display the weather forecast(the short version)
+weather --short
