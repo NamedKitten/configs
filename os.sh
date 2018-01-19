@@ -1,7 +1,7 @@
 #!/bin/sh
-DRIVERS="nvidia-dkms lib32-nvidia-utils opencl-nvidia"
-TOOLS="lshw pkgfile nvidia-settings dnsmasq htop cmake llvm"
-EXTRAS="mpv mps-youtube youtube-dl steam steam-native-runtime dotnet-host dotnet-runtime dotnet-sdk vim ranger" 
+_DRIVERS="nvidia-dkms lib32-nvidia-utils opencl-nvidia xf86-video-ati"
+_TOOLS="lshw pkgfile nvidia-settings dnsmasq htop cmake llvm clang"
+_EXTRAS="linux-headers mpv mps-youtube youtube-dl steam steam-native-runtime dotnet-host dotnet-runtime dotnet-sdk vim ranger" 
 audio () {
 	# Fix audio issue I have
 	print Fixing audio
@@ -44,9 +44,9 @@ vim_stuff () {
 	EOF git clone https://github.com/Rip-Rip/clang_complete ~/.vim/bundle/clang_complete
 	print "Compiling color_coded"
 	cd ~/.vim/bundle/color_coded	
-	mkdir build && cd build && EOF cmake ..
+	mkdir build && cd build && EOF cmake .. -DDOWNLOAD_CLANG=0
 	EOF make -j5 && EOF make install -j5
-	EOF make clean && EOF make clean_clang
+	EOF make clean
 	print "Enabling clang_complete"
         cd ~/.vim/bundle/clang_complete
         EOF vim +PluginInstall +qa
@@ -65,6 +65,8 @@ read none
 if [ -f ".ks" ]; then
 	rm .ks
 fi
+EOF sudo cp system/etc/*.conf /etc
+sudo pacman -Sy
 # Make sure install.sh is executed
 if [ ! -f ".ic" ]; then
 	sh install.sh
@@ -79,9 +81,9 @@ EOF sudo cp system/etc/*.conf /etc/
 EOF sudo cp system/etc/resolv.dnsmasq /etc/
 #
 # Install required packages and update db
-EOF sudo pacman -Sy $DRIVERS $TOOLS $EXTRAS --noconfirm --needed
+EOF sudo pacman -Sy $_DRIVERS $_TOOLS $_EXTRAS --noconfirm --needed
 sudo pkgfile --update
-EOF trizen -S code-git r8168-dkms --noconfirm --needed
+EOF trizen -S r8168-dkms --noconfirm --needed
 # 
 #
 print Fixing audio, ethernet and enabling services!
@@ -98,8 +100,8 @@ print Setting up $HOME/bin
 git clone https://github.com/tim241/bin ~/bin
 #
 #
-print Setting up VSCode
-code_ext ms-vscode.csharp ph-hawkins.arc-plus jmrog.vscode-nuget-package-manager ms-vscode.cpptools twxs.cmake
+#print Setting up VSCode
+#code_ext ms-vscode.csharp ph-hawkins.arc-plus jmrog.vscode-nuget-package-manager ms-vscode.cpptools twxs.cmake
 #
 # 
 touch .ks
