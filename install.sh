@@ -4,10 +4,8 @@ DEPENDENCIES="xterm rxvt-unicode feh rofi
 		xfce4-screenshooter arandr"
 THEME_DEPENDENCIES="arc-gtk-theme papirus-icon-theme compton qt5ct qt5-styleplugins"
 DESKTOP_THEME_TOOLS="lxappearance lxmenu-data"
-GNOME_DEPENDENCIES="gnome-calculator pavucontrol gnome-mplayer gedit
-	gucharmap file-roller gimp gcolor2
-	nautilus filemanager-actions"
-EXTRAS="firefox chromium mplayer libreoffice-fresh pidgin pidgin-otr qt4 vlc redshift gksu gparted"
+GNOME_DEPENDENCIES="pavucontrol gimp gcolor2"
+EXTRAS="firefox mplayer pidgin pidgin-otr qt4 vlc"
 # Declare colors
 RED='\033[0;31m'
 BLUE='\033[0;34m'
@@ -81,7 +79,7 @@ print "Copying templates.."
 EOF "cp -R dotfiles/Templates/* $HOME/Templates/"
 EOF "cp dotfiles/.gtkrc-2.0 $HOME/.gtkrc-2.0"
 print "Preparing xinitrc"
-echo "exec openbox-session" > $HOME/.xinitrc
+echo "exec i3" > $HOME/.xinitrc
 print Installing bash-it!
 bash_it
 print "Making QT look like GTK+"
