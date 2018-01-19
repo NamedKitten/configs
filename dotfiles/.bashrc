@@ -22,20 +22,23 @@ alias vimr='vim +Ranger'
 export CITY=Heerlen
 # Display weather when we have internet
 function weather {
+        if (( $(tput lines) >= 32 )) && (( $(tput cols) >= 201 )); then SHORT=0; else SHORT=1; fi
 	case $1 in
+		--full ) SHORT=0;;
 		--short | -s ) SHORT=1;;
 		--help | -h ) 
+			echo "weather [] for autodetecting the terminal size and changing accordingly"
 			echo "weather [-s/--short] for the short version"
-			echo "weather for the full weather forecast"
+			echo "weather [-f/--full] for the full weather forecast"
 			return
 			;;
-		*) SHORT=0;;
+		*);;
 	esac
 	if ping -q -c 1 -W 1 google.com >/dev/null; then
 		if [ "$SHORT" = "1" ]; then
 	                curl http://wttr.in/$CITY --silent | head -7
 	        else
-	                curl http://wttr.in/$CITY --silent | head -n -2
+	                curl http://wttr.in/$CITY --silent | head -n -2 | sed -e '1,7d'
 	        fi
 	else
 		echo "The network is down"
