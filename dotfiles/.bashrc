@@ -18,6 +18,12 @@ alias reloadXvar='$HOME/.config/tim241/bin/lxdef'
 # Add alias for starting vim with ranger
 alias vimr='vim +Ranger'
 
+# Add alias for starting vim
+alias v=vim
+
+# Add alias for starting ranger
+alias r=ranger
+
 # Change this CITY variable as needed
 export CITY=Heerlen
 # Display weather when we have internet
@@ -34,14 +40,12 @@ function weather {
 			;;
 		*);;
 	esac
-	if ping -q -c 1 -W 1 google.com >/dev/null; then
+	if ping -q -c 1 -W 1 google.com >/dev/null 2>&1; then
 		if [ "$SHORT" = "1" ]; then
 	                curl http://wttr.in/$CITY --silent | head -7
 	        else
 	                curl http://wttr.in/$CITY --silent | head -n -2 | sed -e '1,7d'
 	        fi
-	else
-		echo "The network is down"
 	fi
 }
 # Switch WM (opnbox -> i3-gaps, i3-gaps -> openbox)
@@ -54,8 +58,9 @@ function switchWM () {
 		echo "exec i3" > ~/.xinitrc
 	fi
 }
+
 # Set default text editor to nano
-export VISUAL=nano
+export VISUAL=vim
 export EDITOR=$VISUAL
 
 # Bash it variables
