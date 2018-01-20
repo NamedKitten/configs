@@ -34,6 +34,7 @@ export CITY=Heerlen
 function weather {
 	WD=$HOME/.weather
 	ONLINE=false
+	SYNC=false
 	if [ ! -d $WD ]; then
                 mkdir $HOME/.weather
 	fi
@@ -59,7 +60,11 @@ function weather {
 	esac
 	if ping -q -c 1 -W 1 google.com >/dev/null 2>&1; then
 		if [ "$SYNC" = "true" ]; then 
-			curl http://wttr.in/$CITY --silent > $WD/weather
+			curl http://wttr.in/$CITY --silent > $WD/tmp 
+			if [ $(wc -l $WD/tmp | cut -d' ' -f1) = 40 ]; then 
+				cat $WD/tmp  > $WD/weather
+				rm $WD/tmp
+			fi
 		fi
 		ONLINE=true
 	fi	
