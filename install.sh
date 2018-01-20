@@ -2,7 +2,7 @@
 CORE_DEPENDENCIES="xorg-server xorg-xinit xorg-xrandr xorg-xsetroot git pulseaudio i3-gaps"
 DEPENDENCIES="xterm rxvt-unicode feh rofi
 		xfce4-screenshooter arandr"
-THEME_DEPENDENCIES="arc-gtk-theme papirus-icon-theme compton qt5ct qt5-styleplugins"
+THEME_DEPENDENCIES="papirus-icon-theme compton qt5ct qt5-styleplugins"
 DESKTOP_THEME_TOOLS="lxappearance lxmenu-data"
 GNOME_DEPENDENCIES="pavucontrol gimp gcolor2"
 EXTRAS="firefox mplayer pidgin pidgin-otr qt4 vlc"
@@ -79,8 +79,8 @@ print "Copying gtkrc.."
 EOF "cp dotfiles/.gtkrc-2.0 $HOME/.gtkrc-2.0"
 print "Preparing xinitrc"
 echo "exec i3" > $HOME/.xinitrc
-print Installing bash-it!
-bash_it
+#print Installing bash-it!
+#bash_it
 print "Making QT look like GTK+"
 echo QT_QPA_PLATFORMTHEME=qt5ct | sudo tee -a /etc/environment > /dev/null
 print "Done!"
