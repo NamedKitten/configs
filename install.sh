@@ -1,5 +1,5 @@
 #!/bin/sh
-CORE_DEPENDENCIES="xorg-server xorg-xinit xorg-xrandr xorg-xsetroot tint2 git pulseaudio i3-gaps"
+CORE_DEPENDENCIES="xorg-server xorg-xinit xorg-xrandr xorg-xsetroot git pulseaudio i3-gaps"
 DEPENDENCIES="xterm rxvt-unicode feh rofi
 		xfce4-screenshooter arandr"
 THEME_DEPENDENCIES="arc-gtk-theme papirus-icon-theme compton qt5ct qt5-styleplugins"

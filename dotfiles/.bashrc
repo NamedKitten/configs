@@ -6,6 +6,10 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Add sleep command which supports ms
+BASH_LOADABLES_PATH=$(pkg-config bash --variable=loadablesdir 2>/dev/null)
+enable -f sleep sleep
+
 # Add ls alias for terminals other than urxvt ( it isn't required in bash-it )
 alias ls='ls --color=auto'
 
@@ -15,20 +19,33 @@ alias nano='nano --nowrap'
 # Add alias for reloading Xdefaults
 alias reloadXvar='$HOME/.config/tim241/bin/lxdef'
 
-# Add alias for starting vim with ranger
+# Aliases related to vim
+alias v='vim'
+alias vb='vim ~/.bashrc'
+alias vr='vim ~/.vimrc'
 alias vimr='vim +Ranger'
 
-# Add alias for starting vim
-alias v=vim
-
 # Add alias for starting ranger
-alias r=ranger
+alias r='ranger'
 
 # Change this CITY variable as needed
 export CITY=Heerlen
 # Display weather when we have internet
 function weather {
-        if (( $(tput lines) >= 32 )) && (( $(tput cols) >= 201 )); then SHORT=0; else SHORT=1; fi
+	WD=$HOME/.weather
+	ONLINE=false
+	if [ ! -d $WD ]; then
+                mkdir $HOME/.weather
+	fi
+	if [ ! -f $WD/time ]; then
+	        echo $(date +%H%y%m%d) > $WD/time
+		NEW=true
+		SYNC=true
+	fi
+	if [ "$(date +%H%y%m%d)" != "$(cat $WD/time)" ]; then
+		SYNC=true
+	fi
+	if (( $(tput lines) >= 32 )) && (( $(tput cols) >= 201 )); then SHORT=0; else SHORT=1; fi
 	case $1 in
 		--full ) SHORT=0;;
 		--short | -s ) SHORT=1;;
@@ -41,10 +58,16 @@ function weather {
 		*);;
 	esac
 	if ping -q -c 1 -W 1 google.com >/dev/null 2>&1; then
+		if [ "$SYNC" = "true" ]; then 
+			curl http://wttr.in/$CITY --silent > $WD/weather
+		fi
+		ONLINE=true
+	fi	
+	if [ "$NEW" != "true" ] || [ "$ONLINE" = "true" ] ; then
 		if [ "$SHORT" = "1" ]; then
-	                curl http://wttr.in/$CITY --silent | head -7
-	        else
-	                curl http://wttr.in/$CITY --silent | head -n -2 | sed -e '1,7d'
+                        cat $HOME/.weather/weather | head -7
+		else
+                        cat $HOME/.weather/weather | head -n -2 | sed -e '1,7d'
 	        fi
 	fi
 }
