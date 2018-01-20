@@ -1,7 +1,7 @@
 #!/bin/sh
 _DRIVERS="nvidia-dkms lib32-nvidia-utils opencl-nvidia xf86-video-ati"
 _TOOLS="lshw pkgfile nvidia-settings dnsmasq htop cmake llvm clang"
-_EXTRAS="linux-headers mpv mps-youtube youtube-dl steam steam-native-runtime dotnet-host dotnet-runtime dotnet-sdk vim ranger" 
+_EXTRAS="linux-headers mpv mps-youtube youtube-dl steam steam-native-runtime dotnet-host dotnet-runtime dotnet-sdk vim ranger w3m" 
 audio () {
 	# Fix audio issue I have
 	print Fixing audio
