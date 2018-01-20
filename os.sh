@@ -65,8 +65,14 @@ read none
 if [ -f ".ks" ]; then
 	rm .ks
 fi
-EOF sudo cp system/etc/*.conf /etc
+#
+# Copy configs
+EOF sudo cp system/etc/*.conf /etc/
+EOF sudo cp system/etc/resolv.dnsmasq /etc/
+#
+# update db
 sudo pacman -Sy
+#
 # Make sure install.sh is executed
 if [ ! -f ".ic" ]; then
 	sh install.sh
@@ -75,10 +81,6 @@ fi
 #
 ask_sudo
 keep_sudo &
-#
-# Copy configs
-EOF sudo cp system/etc/*.conf /etc/
-EOF sudo cp system/etc/resolv.dnsmasq /etc/
 #
 # Install required packages and update db
 EOF sudo pacman -Sy $_DRIVERS $_TOOLS $_EXTRAS --noconfirm --needed
