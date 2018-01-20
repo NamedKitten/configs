@@ -6,6 +6,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Use minimalistic PS1
+PS1="$USER \w "
 # Add sleep command which supports ms
 BASH_LOADABLES_PATH=$(pkg-config bash --variable=loadablesdir 2>/dev/null)
 enable -f sleep sleep
