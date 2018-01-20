@@ -3,7 +3,7 @@ CORE_DEPENDENCIES="xorg-server xorg-xinit xorg-xrandr xorg-xsetroot git pulseaud
 DEPENDENCIES="xterm rxvt-unicode feh rofi
 		xfce4-screenshooter arandr"
 THEME_DEPENDENCIES="papirus-icon-theme compton qt5ct qt5-styleplugins"
-DESKTOP_THEME_TOOLS="lxappearance lxmenu-data"
+DESKTOP_THEME_TOOLS="lxappearance"
 GNOME_DEPENDENCIES="pavucontrol gimp gcolor2"
 EXTRAS="firefox mplayer pidgin pidgin-otr qt4 vlc"
 # Declare colors
