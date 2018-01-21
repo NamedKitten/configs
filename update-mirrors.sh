@@ -1,5 +1,7 @@
 #!/bin/sh
 source ./install.sh --source
+EOR
+ask_sudo
 print Copying mirrorlist to mirrorlist.bak..
 EOF sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 print Ranking mirrors..
