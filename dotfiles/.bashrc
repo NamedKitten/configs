@@ -64,8 +64,9 @@ function weather {
 		if [ "$SYNC" = "true" ]; then 
 			curl http://wttr.in/$CITY --silent > $WD/tmp 
 			if [ $(wc -l $WD/tmp | cut -d' ' -f1) = 40 ]; then 
-				cat $WD/tmp  > $WD/weather
+				cp $WD/tmp $WD/weather
 				rm $WD/tmp
+				echo $(date +%H%y%m%d) > $WD/time
 			fi
 		fi
 		ONLINE=true
