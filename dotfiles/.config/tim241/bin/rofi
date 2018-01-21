@@ -1,1 +1,1 @@
-rofi -width 100 -location 2 -theme ~/.config/tim241/rofi/Arc-Dark.rasi $@
+rofi -width 100 -location 2 $@
