@@ -148,7 +148,7 @@ mode "resize" {
 }
 
 bindsym $mod+r exec $HOME/.config/tim241/bin/rofi -show run
-bindsym $mod+l exec i3lock-fancy -f Noto-Mono
+bindsym $mod+l exec i3lock -k -i ~/Pictures/wallpaper/wallpaper.jpg -t -u -f Noto-Mono
 bindsym $mod+s exec echo "" | $HOME/.config/tim241/bin/rofi -dmenu -p "Search:" | xargs -I{} xdg-open https://duckduckgo.com/?q={}
 bindsym $mod+Control+f exec urxvt -e ranger 
 # disable window borders
