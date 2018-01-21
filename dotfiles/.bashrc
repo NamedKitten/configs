@@ -79,21 +79,19 @@ function weather {
 	        fi
 	fi
 }
-# Switch WM (opnbox -> i3-gaps, i3-gaps -> openbox)
-function switchWM () {
-	if [ "x`cat ~/.xinitrc`" != "xexec openbox-session" ]; then
-		echo Setting openbox as WM
-		echo "exec openbox-session" > ~/.xinitrc
-	else
-		echo Setting i3 as WM
-		echo "exec i3" > ~/.xinitrc
-	fi
-}
 # Display the date in a pretty way
 function showdate {
-	echo -e "\n$(date '+%D %T' | toilet -f term -F border --gay)\n"
+	if which toilet > /dev/null 2>&1; then
+		echo -e "\n$(date '+%D %T' | toilet -f term -F border --gay)\n"
+	else
+		echo -e "\n$(date '+%D %T')\n"
+	fi
 }
 
+# 'pastebin' 
+function sprunge {
+	curl -F 'sprunge=<-' http://sprunge.us
+}
 # Set default text editor to nano
 export VISUAL=vim
 export EDITOR=$VISUAL
