@@ -8,6 +8,7 @@
 
 # Use minimalistic PS1
 PS1="\u \w "
+
 # Add sleep command which supports ms
 BASH_LOADABLES_PATH=$(pkg-config bash --variable=loadablesdir 2>/dev/null)
 enable -f sleep sleep
@@ -30,8 +31,15 @@ alias vimr='vim +Ranger'
 # Add alias for starting ranger
 alias r='ranger'
 
+# Add newline to all curl output
+alias curl='curl -w "\n"'
+
+# terminal pastebin
+alias tb='nc termbin.com 9999'
+
 # Change this CITY variable as needed
 export CITY=Heerlen
+
 # Display weather when we have internet
 function weather {
 	WD=$HOME/.weather
@@ -86,12 +94,7 @@ function showdate {
 	else
 		echo -e "\n$(date '+%D %T')\n"
 	fi
-}
-
-# 'pastebin' 
-function sprunge {
-	curl -F 'sprunge=<-' http://sprunge.us
-}
+} 
 # Set default text editor to nano
 export VISUAL=vim
 export EDITOR=$VISUAL
