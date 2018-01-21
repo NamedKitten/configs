@@ -68,7 +68,7 @@ else
 fi
 print "Installing configs"
 print "Creating directories.."
-EOF mkdir -p $HOME/.config/ $HOME/.themes/ $HOME/Pictures/wallpaper/ $HOME/Templates/
+EOF mkdir -p $HOME/.config/ $HOME/.themes/ $HOME/Pictures/wallpaper/
 print "Copying configs.."
 EOF "cp -R dotfiles/.config/* $HOME/.config/"
 print "Copying openbox gtk theme.."
