@@ -1,11 +1,10 @@
 #!/bin/sh
-CORE_DEPENDENCIES="xorg-server xorg-xinit xorg-xrandr xorg-xsetroot git pulseaudio i3-gaps"
-DEPENDENCIES="xterm rxvt-unicode feh rofi
-		xfce4-screenshooter arandr"
+CORE_DEPENDENCIES="xorg-server xorg-xinit xorg-xrandr xorg-xsetroot git alsa-utils i3-gaps"
+DEPENDENCIES="rxvt-unicode feh rofi arandr"
 THEME_DEPENDENCIES="papirus-icon-theme compton qt5ct qt5-styleplugins"
 DESKTOP_THEME_TOOLS="lxappearance"
-GNOME_DEPENDENCIES="pavucontrol gimp gcolor2"
-EXTRAS="firefox mplayer pidgin pidgin-otr qt4 vlc"
+GNOME_DEPENDENCIES="pavucontrol gcolor2"
+EXTRAS="firefox mplayer"
 # Declare colors
 RED='\033[0;31m'
 BLUE='\033[0;34m'
