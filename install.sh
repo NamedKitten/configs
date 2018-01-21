@@ -1,5 +1,6 @@
 #!/bin/sh
-CORE_DEPENDENCIES="xorg-server xorg-xinit xorg-xrandr xorg-xsetroot git alsa-utils i3-gaps"
+CORE_DEPENDENCIES="xorg-server xorg-xinit xorg-xrandr xorg-xsetroot git i3-gaps"
+AUDIO="pulseaudio-alsa alsa-utils"
 DEPENDENCIES="rxvt-unicode feh rofi arandr"
 THEME_DEPENDENCIES="papirus-icon-theme compton qt5ct qt5-styleplugins"
 DESKTOP_THEME_TOOLS="lxappearance"
@@ -61,7 +62,7 @@ if `which pacman > /dev/null 2>&1`; then
 	EOF sudo pacman --needed --noconfirm -U prebuilt/*pkg*
 	print "Installing required packages!"
 	EOF sudo pacman --needed --noconfirm -S $CORE_DEPENDENCIES $DEPENDENCIES \
-				$THEME_DEPENDENCIES $DESKTOP_THEME_TOOLS $GNOME_DEPENDENCIES $EXTRAS
+				$THEME_DEPENDENCIES $DESKTOP_THEME_TOOLS $GNOME_DEPENDENCIES $EXTRAS $AUDIO
 else
 	printError "pacman is not installed!"
 fi
