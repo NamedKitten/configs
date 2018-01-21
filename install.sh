@@ -47,14 +47,6 @@ ask_sudo () {
 if [ "x$1" = "x--source" ]; then
 	return
 fi
-bash_it () {
-	if [ -d ~/.bash_it ]; then
-		rm -rf ~/.bash_it
-	fi
-	EOF git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
-	EOF bash ~/.bash_it/install.sh --silent
-	EOF cp dotfiles/.bashrc $HOME/.bashrc
-}
 EOR
 if `which pacman > /dev/null 2>&1`; then
 	ask_sudo
