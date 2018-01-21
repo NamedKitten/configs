@@ -9,4 +9,7 @@ $HOME/.config/tim241/bin/lxdef
 $HOME/.config/tim241/xrandr/*.sh && sh ~/.config/tim241/bin/wallpaper 
 # Start compton
 $HOME/.config/tim241/bin/compton 
-
+# Load nvidia-settings config
+if which nvidia-settings > /dev/null 2>&1; then
+	nvidia-settings -l
+fi
