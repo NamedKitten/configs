@@ -79,8 +79,8 @@ print "Copying gtkrc.."
 EOF "cp dotfiles/.gtkrc-2.0 $HOME/.gtkrc-2.0"
 print "Preparing xinitrc"
 echo "exec i3" > $HOME/.xinitrc
-#print Installing bash-it!
-#bash_it
+print "Installing bashrc.."
+EOF "cp dotfiles/.bashrc $HOME/.bashrc"
 print "Making QT look like GTK+"
 echo QT_QPA_PLATFORMTHEME=qt5ct | sudo tee -a /etc/environment > /dev/null
 print "Done!"
