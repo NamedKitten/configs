@@ -37,6 +37,9 @@ alias curl='curl -w "\n"'
 # terminal pastebin
 alias tb='nc termbin.com 9999'
 
+# Add alias for tty-clock
+alias clock='tty-clock -c'
+
 # Change this CITY variable as needed
 export CITY=Heerlen
 
