@@ -13,3 +13,7 @@ $HOME/.config/tim241/bin/compton
 if which nvidia-settings > /dev/null 2>&1; then
 	nvidia-settings -l
 fi
+# Load sc-controller 
+if which sc-controller > /dev/null 2>&1; then
+	sc-controller --gapplication-service		
+fi
