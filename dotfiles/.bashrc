@@ -7,7 +7,7 @@
 [[ $- != *i* ]] && return
 
 # Use minimalistic PS1
-PS1="\u \w "
+PS1="> \w "
 
 # Add sleep command which supports ms
 BASH_LOADABLES_PATH=$(pkg-config bash --variable=loadablesdir 2>/dev/null)
