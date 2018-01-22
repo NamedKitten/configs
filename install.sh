@@ -5,7 +5,7 @@ DEPENDENCIES="rxvt-unicode feh rofi arandr"
 THEME_DEPENDENCIES="papirus-icon-theme compton qt5ct qt5-styleplugins"
 DESKTOP_THEME_TOOLS="lxappearance"
 GNOME_DEPENDENCIES="pavucontrol gcolor2"
-EXTRAS="firefox mplayer"
+EXTRAS="firefox mplayer mpv mps-youtube youtube-dl vim ranger w3m perl-anyevent-i3 perl-json-xs lshw pkgfile htop cmake llvm clang"
 # Declare colors
 RED='\033[0;31m'
 BLUE='\033[0;34m'
@@ -44,6 +44,29 @@ ask_sudo () {
 	EOF sudo -v
 	print "Thank you for providing your sudo password..let's continue"
 }
+# Install vim stuff..
+vim_stuff () {
+	cp dotfiles/.vimrc ~/.vimrc
+	BDIR=`pwd`
+	if [ -d "$HOME/.vim" ]; then
+		rm -rf ~/.vim
+	fi	
+	mkdir -p ~/.vim/bundle/
+	EOF git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	EOF git clone https://github.com/jeaye/color_coded ~/.vim/bundle/color_coded
+	EOF git clone https://github.com/Rip-Rip/clang_complete ~/.vim/bundle/clang_complete
+	print "Compiling color_coded"
+	cd ~/.vim/bundle/color_coded	
+	mkdir build && cd build && EOF cmake .. -DDOWNLOAD_CLANG=0
+	EOF make -j5 && EOF make install -j5
+	EOF make clean
+	print "Enabling clang_complete"
+        cd ~/.vim/bundle/clang_complete
+        EOF vim +PluginInstall +qa
+	EOF make
+	EOF vim clang_complete.vmb -c 'so %' -c 'q' +qa
+	cd $BDIR
+}
 if [ "x$1" = "x--source" ]; then
 	return
 fi
@@ -75,5 +98,13 @@ print "Installing bashrc.."
 EOF "cp dotfiles/.bashrc $HOME/.bashrc"
 print "Making QT look like GTK+"
 echo QT_QPA_PLATFORMTHEME=qt5ct | sudo tee -a /etc/environment > /dev/null
+if [ ! -f .vc ]; then
+	print "Installing vim stuff"
+	vim_stuff
+	touch .vc
+fi
+print "Updating databases.."
+sudo pkgfile --update
+sudo pacman -Sy
 print "Done!"
 touch .ic
