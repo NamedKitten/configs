@@ -42,6 +42,7 @@ export CITY=Heerlen
 
 # Display weather when we have internet
 function weather {
+	curl=$(which curl)
 	WD=$HOME/.weather
 	ONLINE=false
 	SYNC=false
@@ -70,7 +71,7 @@ function weather {
 	esac
 	if ping -q -c 1 -W 1 google.com >/dev/null 2>&1; then
 		if [ "$SYNC" = "true" ]; then 
-			curl http://wttr.in/$CITY --silent > $WD/tmp 
+			$curl http://wttr.in/$CITY --silent > $WD/tmp 
 			if [ $(wc -l $WD/tmp | cut -d' ' -f1) = 40 ]; then 
 				cp $WD/tmp $WD/weather
 				rm $WD/tmp
