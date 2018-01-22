@@ -57,7 +57,7 @@ function weather {
 	if [ "$(date +%H%y%m%d)" != "$(cat $WD/time)" ]; then
 		SYNC=true
 	fi
-	if (( $(tput lines) >= 32 )) && (( $(tput cols) >= 201 )); then SHORT=0; else SHORT=1; fi
+	if (( $(tput lines) >= 32 )) && (( $(tput cols) >= 127 )); then SHORT=0; else SHORT=1; fi
 	case $1 in
 		--full ) SHORT=0;;
 		--short | -s ) SHORT=1;;
