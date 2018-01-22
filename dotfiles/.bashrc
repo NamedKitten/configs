@@ -40,6 +40,9 @@ alias tb='nc termbin.com 9999'
 # Add alias for tty-clock
 alias clock='tty-clock -c'
 
+# Add alias for sourcing bashrc
+alias sb='source ~/.bashrc'
+
 # Change this CITY variable as needed
 export CITY=Heerlen
 
@@ -52,7 +55,7 @@ function weather {
 	if [ ! -d $WD ]; then
                 mkdir $HOME/.weather
 	fi
-	if [ ! -f $WD/time ]; then
+	if [ ! -f $WD/time ] || [ ! -f $WD/weather ]; then
 	        echo $(date +%H%y%m%d) > $WD/time
 		NEW=true
 		SYNC=true
