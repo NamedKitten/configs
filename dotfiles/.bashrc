@@ -13,6 +13,10 @@ PS1="> \w "
 BASH_LOADABLES_PATH=$(pkg-config bash --variable=loadablesdir 2>/dev/null)
 enable -f sleep sleep
 
+##################################
+##### <<-- alias section -->> ####
+##################################
+
 # Add ls alias for terminals other than urxvt ( it isn't required in bash-it )
 alias ls='ls --color=auto'
 
@@ -42,6 +46,11 @@ alias clock='tty-clock -c'
 
 # Add alias for sourcing bashrc
 alias sb='source ~/.bashrc'
+
+
+#####################################
+##### <<-- function section -->> ####
+#####################################
 
 # Change this CITY variable as needed
 export CITY=Heerlen
@@ -102,6 +111,11 @@ function showdate {
 		echo -e "\n$(date '+%D %T')\n"
 	fi
 } 
+
+#######################################
+##### <<-- preference section -->> ####
+#######################################
+
 # Set default text editor to nano
 export VISUAL=vim
 export EDITOR=$VISUAL
