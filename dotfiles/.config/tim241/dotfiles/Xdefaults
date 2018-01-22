@@ -4,8 +4,8 @@
 URxvt.perl-lib: HOME/.config/urxvt/perl/
 
 !! Set powerline font for bash-it
-urxvt*font:xft:Noto Mono for Powerline:pixelsize=10
-urxvt*boldfont:xft:Noto Mono for Powerline:pixelsize=10
+urxvt*font:xft:Noto Mono:pixelsize=10
+urxvt*boldfont:xft:Noto Mono:pixelsize=10
 
 !! Disable the scrollbar
 urxvt.scrollBar: false
