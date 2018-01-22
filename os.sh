@@ -27,6 +27,11 @@ keep_sudo () {
 	done
 	rm .ks
 }
+# Fail is install.sh doesn't exist
+if [ ! -f install.sh ]; then
+	echo Error: install.sh is missing
+	exit 1
+fi
 # Source EOF from install.sh
 source ./install.sh --source
 # Exit On Root
@@ -40,11 +45,14 @@ if [ -f ".ks" ]; then
 fi
 #
 # Copy configs
+print "Copying system configs"
 EOF sudo cp system/etc/*.conf /etc/
 EOF sudo cp system/etc/resolv.dnsmasq /etc/
 #
 # update db
-sudo pacman -Sy
+print "Populating keys and updating the database"
+EOF sudo pacman -Syy
+EOF sudo pacman-key --populate archlinux
 #
 # Make sure install.sh is executed
 if [ ! -f ".ic" ]; then
@@ -56,7 +64,7 @@ ask_sudo
 keep_sudo &
 #
 # Install required packages and update db
-EOF sudo pacman -Sy $_DRIVERS $_TOOLS $_EXTRAS --noconfirm --needed
+EOF sudo pacman -S $_DRIVERS $_TOOLS $_EXTRAS --noconfirm --needed
 EOF trizen -S r8168-dkms --noconfirm --needed
 # 
 #
@@ -69,8 +77,6 @@ services
 print Setting up $HOME/bin
 git clone https://github.com/tim241/bin ~/bin
 #
-# 
 touch .ks
-#
 #
 print WARNING: REBOOT IS REQUIRED!
