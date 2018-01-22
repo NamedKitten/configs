@@ -17,11 +17,13 @@ enable -f sleep sleep
 ##### <<-- alias section -->> ####
 ##################################
 
-# Add ls alias for terminals other than urxvt ( it isn't required in bash-it )
+# Add ls alias for terminals other than urxvt 
+#(it isn't required in bash-it)
 alias ls='ls --color=auto'
 
-# Disable nano file wrapping
-alias nano='nano --nowrap'
+# Use vim instead of nano
+#(due to my urxvt keybindings, you cannot quit nano)
+alias nano='vim'
 
 # Add alias for reloading Xdefaults
 alias reloadXvar='$HOME/.config/tim241/bin/lxdef'
