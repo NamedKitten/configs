@@ -83,7 +83,7 @@ else
 fi
 print "Installing configs"
 print "Creating directories.."
-EOF mkdir -p $HOME/.config/ $HOME/.themes/ $HOME/Pictures/wallpaper/
+EOF mkdir -p $HOME/.config/ $HOME/.themes/ $HOME/Pictures/wallpaper/ $HOME/.weechat
 print "Copying configs.."
 EOF "cp -R dotfiles/.config/* $HOME/.config/"
 print "Copying openbox gtk theme.."
@@ -92,6 +92,10 @@ print "Copying wallpaper.."
 EOF "cp -R wallpaper/* $HOME/Pictures/wallpaper/"
 print "Copying gtkrc.."
 EOF "cp dotfiles/.gtkrc-2.0 $HOME/.gtkrc-2.0"
+print "Copying weechat configs"
+EOF "cp -R dotfiles/.weechat/* $HOME/.weechat/"
+print "Patching weechat configs"
+cat $HOME/.weechat/irc.conf | sed "s/USER/$USER/g" > $HOME/.weechat/irc.conf
 print "Preparing xinitrc"
 echo "exec i3" > $HOME/.xinitrc
 print "Installing bashrc.."
