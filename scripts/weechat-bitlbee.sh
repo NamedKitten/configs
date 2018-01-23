@@ -16,7 +16,6 @@ EOF sudo systemctl start bitlbee
 EOF sudo systemctl enable bitlbee
 print Enter your bitlbee password
 read password
-export password=$password
 clear; clear; clear; clear; clear; clear
 print Generating weechat command...
 weechat -r "/server add im localhost -autoconnect;/set irc.server.im.sasl_username $USER; /set irc.server.im.sasl_password $password; /set irc.server.im.command '/msg &bitlbee register $password'; /save; /connect im; /set aspell.check.default_dict en; /aspell enable; /save"
