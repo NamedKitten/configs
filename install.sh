@@ -95,7 +95,7 @@ EOF "cp dotfiles/.gtkrc-2.0 $HOME/.gtkrc-2.0"
 print "Copying weechat configs"
 EOF "cp -R dotfiles/.weechat/* $HOME/.weechat/"
 print "Patching weechat configs"
-cat $HOME/.weechat/irc.conf | sed "s/USER/$USER/g" > $HOME/.weechat/irc.conf
+cat dotfiles/.weechat/irc.conf | sed "s/USER/$USER/g" > $HOME/.weechat/irc.conf
 print "Preparing xinitrc"
 echo "exec i3" > $HOME/.xinitrc
 print "Installing bashrc.."
