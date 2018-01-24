@@ -117,6 +117,8 @@ function showdate {
 #######################################
 ##### <<-- preference section -->> ####
 #######################################
+# Set desktop theme
+export DESKTOP_THEME=space
 
 # Set default text editor to nano
 export VISUAL=vim

@@ -1,5 +1,14 @@
 xdef=$HOME/.config/tim241/dotfiles/Xdefaults
 if [ -f $xdef ]; then
-	echo Xdefaults found
-	cat $xdef | sed "s.HOME.$HOME.g" | xrdb
+	echo Main Xdefaults found
+	if [ -f "$HOME/.config/tim241/themes/$DESKTOP_THEME/Xdefaults" ]; then 
+		echo Theme found
+		cat $xdef > $HOME/.config/tim241/tmp
+		cat $HOME/.config/tim241/themes/$DESKTOP_THEME/Xdefaults >> $HOME/.config/tim241/tmp
+		cat $HOME/.config/tim241/tmp | sed "s.HOME.$HOME.g" | xrdb
+		rm $HOME/.config/tim241/tmp
+	else
+		echo Theme Xdefaults not found!
+		exit 1
+	fi
 fi

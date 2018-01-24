@@ -5,6 +5,8 @@ xsetroot -solid "#303642"
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY 
 # Load Xdefaults
 $HOME/.config/tim241/bin/lxdef 
+# Load correct gtk theme
+$HOME/.config/tim241/bin/gtk
 # Execute xrandr scripts
 $HOME/.config/tim241/xrandr/*.sh && sh ~/.config/tim241/bin/wallpaper 
 # Start compton

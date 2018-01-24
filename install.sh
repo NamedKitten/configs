@@ -83,10 +83,10 @@ else
 fi
 print "Installing configs"
 print "Creating directories.."
-EOF mkdir -p $HOME/.config/ $HOME/.themes/ $HOME/Pictures/wallpaper/ $HOME/.weechat
+EOF mkdir -p $HOME/.config/ $HOME/.themes/ $HOME/.weechat
 print "Copying configs.."
 EOF "cp -R dotfiles/.config/* $HOME/.config/"
-print "Copying openbox gtk theme.."
+print "Copying gtk themes.."
 EOF "cp -R dotfiles/.themes/* $HOME/.themes/"
 print "Copying wallpaper.."
 EOF "cp -R wallpaper/* $HOME/Pictures/wallpaper/"

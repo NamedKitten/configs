@@ -1,0 +1,12 @@
+#!/bin/sh
+if [ -f "$HOME/.config/tim241/themes/$DESKTOP_THEME/gtk/gtkrc-2.0" ]; then
+	echo Gtk2 config found..
+	cp $HOME/.config/tim241/themes/$DESKTOP_THEME/gtk/gtkrc-2.0 ~/.gtkrc-2.0
+fi
+if [ -f "$HOME/.config/tim241/themes/$DESKTOP_THEME/gtk//gtk3/settings.ini" ]; then
+	echo Gtk3 config found..
+	if [ ! -d $HOME/.config/gtk-3.0/ ]; then
+		mkdir $HOME/.config/gtk-3.0/
+	fi
+	cp $HOME/.config/tim241/themes/$DESKTOP_THEME/gtk//gtk3/settings.ini $HOME/.config/gtk-3.0/settings.ini
+fi
