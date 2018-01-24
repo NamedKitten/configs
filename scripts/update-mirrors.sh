@@ -8,6 +8,7 @@ if [ -f install.sh ]; then
 else
         install_sh="../install.sh"
 fi
+source $install_sh --source
 EOR
 ask_sudo
 print Copying mirrorlist to mirrorlist.bak..
