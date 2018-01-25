@@ -2,7 +2,7 @@
 DONE=0
 for wallpaper in $HOME/.config/tim241/themes/$DESKTOP_THEME/wallpaper/*.jpg; do
 	if [ "$DONE" = "0" ]; then
-		i3lock -k -i $wallpaper -t -u -f Noto-Mono
+		i3lock -i $wallpaper -t -u -f Noto-Mono
 		DONE=1
 	fi
 done
