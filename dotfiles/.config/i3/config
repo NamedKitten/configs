@@ -169,7 +169,7 @@ for_window [class="Steam"] floating enable, border none
 #	tray_output primary
 #}
 # i3 gaps
-gaps inner 15
+gaps inner 20
 
 # Autostart
 exec $HOME/.config/tim241/autostart.sh
