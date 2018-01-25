@@ -114,6 +114,11 @@ function showdate {
 	fi
 } 
 
+# Source script file from theme, if exists
+if [ -f "$HOME/.config/tim241/themes/$DESKTOP_THEME/source.sh" ]; then
+	source $HOME/.config/tim241/themes/$DESKTOP_THEME/source.sh
+fi
+
 #######################################
 ##### <<-- preference section -->> ####
 #######################################
