@@ -67,7 +67,6 @@ function weather {
                 mkdir $HOME/.weather
 	fi
 	if [ ! -f $WD/time ] || [ ! -f $WD/weather ]; then
-	        echo $(date +%H%y%m%d) > $WD/time
 		NEW=true
 		SYNC=true
 	fi
@@ -79,7 +78,7 @@ function weather {
 		case $arg in
 			--full ) SHORT=0;;
 			--short | -s ) SHORT=1;;
-			--reset | -r ) rm -rf $WD; mkdir $WD; echo $(date +%H%y%m%d) > $WD/time; NEW=true; SYNC=true;;
+			--reset | -r ) rm -rf $WD; mkdir $WD; NEW=true; SYNC=true;;
 			--help | -h ) 
 				echo "weather [] for autodetecting the terminal size and changing accordingly"
 				echo "weather [-s/--short] for the short version"
