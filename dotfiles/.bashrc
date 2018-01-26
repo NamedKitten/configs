@@ -61,7 +61,7 @@ export CITY=Heerlen
 function weather {
 	curl=$(which curl)
 	WD=$HOME/.weather
-	ONLINE=false
+	SYNCED=false
 	SYNC=false
 	if [ ! -d $WD ]; then
                 mkdir $HOME/.weather
@@ -76,7 +76,7 @@ function weather {
 	if (( $(tput lines) >= 32 )) && (( $(tput cols) >= 127 )); then SHORT=0; else SHORT=1; fi
 	for arg in $@; do
 		case $arg in
-			--full ) SHORT=0;;
+			--full | -f ) SHORT=0;;
 			--short | -s ) SHORT=1;;
 			--reset | -r ) rm -rf $WD; mkdir $WD; NEW=true; SYNC=true;;
 			--help | -h ) 
@@ -96,11 +96,11 @@ function weather {
 				cp $WD/tmp $WD/weather
 				rm $WD/tmp
 				echo $(date +%H%y%m%d) > $WD/time
+				SYNCED=true
 			fi
 		fi
-		ONLINE=true
 	fi	
-	if [ "$NEW" != "true" ] || [ "$ONLINE" = "true" ] ; then
+	if [ "$NEW" != "true" ] || [ "$SYNCED" = "true" ] ; then
 		if [ "$SHORT" = "1" ]; then
                         cat $HOME/.weather/weather | head -7
 		else
