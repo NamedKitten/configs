@@ -75,17 +75,21 @@ function weather {
 		SYNC=true
 	fi
 	if (( $(tput lines) >= 32 )) && (( $(tput cols) >= 127 )); then SHORT=0; else SHORT=1; fi
-	case $1 in
-		--full ) SHORT=0;;
-		--short | -s ) SHORT=1;;
-		--help | -h ) 
-			echo "weather [] for autodetecting the terminal size and changing accordingly"
-			echo "weather [-s/--short] for the short version"
-			echo "weather [-f/--full] for the full weather forecast"
-			return
-			;;
-		*);;
-	esac
+	for arg in $@; do
+		case $arg in
+			--full ) SHORT=0;;
+			--short | -s ) SHORT=1;;
+			--reset | -r ) rm -rf $WD; mkdir $WD; echo $(date +%H%y%m%d) > $WD/time; NEW=true; SYNC=true;;
+			--help | -h ) 
+				echo "weather [] for autodetecting the terminal size and changing accordingly"
+				echo "weather [-s/--short] for the short version"
+				echo "weather [-f/--full] for the full weather forecast"
+				echo "weather [-r/--reset] removes the cache and refreshes the weather"
+				return
+				;;
+			*);;
+		esac
+	done
 	if ping -q -c 1 -W 1 google.com >/dev/null 2>&1; then
 		if [ "$SYNC" = "true" ]; then 
 			$curl http://wttr.in/$CITY --silent > $WD/tmp 
