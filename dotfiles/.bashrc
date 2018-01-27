@@ -122,7 +122,7 @@ function showdate {
 _theme(){
 	cur="${COMP_WORDS[COMP_CWORD]}"
 	opts="help list set keep restore get"
-	if [ ${COMP_WORDS[COMP_CWORD-1]} != "set" ]; then
+	if [ ${COMP_WORDS[COMP_CWORD-1]} != "set" ] &&  [ ${COMP_WORDS[COMP_CWORD-1]} != "keep" ]; then
 		COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
 	else
 		COMPREPLY=($(compgen -W "$(theme list)" -- ${cur}))
