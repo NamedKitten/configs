@@ -108,6 +108,40 @@ function weather {
 	        fi
 	fi
 }
+# Switch the theme
+function theme {
+	function showhelp {
+		echo "theme help		| displays this"
+		echo "theme list		| lists all the themes"
+		echo "theme set [theme]	| sets the theme"
+		return
+	}
+	case $1 in 
+		help) showhelp;;
+		list)
+			ls $HOME/.config/tim241/themes/ -1;;
+		set)
+			if [ ! $2 ]; then
+				showhelp
+				return
+			fi
+			export DESKTOP_THEME=$2
+			if [ ! -d "$HOME/.config/tim241/themes/$DESKTOP_THEME" ]; then
+				echo "==> Invalid theme selected"
+				showhelp
+				return
+			fi
+			echo "==> Setting gtk theme"
+			$HOME/.config/tim241/bin/gtk
+			echo "==> Setting Xdefaults theme"
+			$HOME/.config/tim241/bin/lxdef
+			echo "==> Setting wallpaper"
+			$HOME/.config/tim241/bin/wallpaper
+			echo "==> Completed"
+		;;
+		*) showhelp;;
+	esac
+}
 # Display the date in a pretty way
 function showdate {
 	if which toilet > /dev/null 2>&1; then
