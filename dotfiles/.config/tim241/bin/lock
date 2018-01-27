@@ -1,6 +1,6 @@
 #!/bin/sh
 DONE=0
-for wallpaper in $HOME/.config/tim241/themes/$DESKTOP_THEME/wallpaper/*.jpg; do
+for wallpaper in $HOME/.config/tim241/themes/$($HOME/.config/tim241/bin/theme get)/wallpaper/*.jpg; do
 	if [ "$DONE" = "0" ]; then
 		i3lock -i $wallpaper -t -u -f Noto-Mono
 		DONE=1

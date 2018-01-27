@@ -49,6 +49,8 @@ alias clock='tty-clock -c'
 # Add alias for sourcing bashrc
 alias sb='source ~/.bashrc'
 
+# Add alias for theme command
+alias theme='~/.config/tim241/bin/theme'
 
 #####################################
 ##### <<-- function section -->> ####
@@ -107,74 +109,6 @@ function weather {
                         cat $HOME/.weather/weather | head -n -2 | sed -e '1,7d'
 	        fi
 	fi
-}
-# Switch the theme
-function theme {
-	RESTORE=0
-	KEEP=0
-	function showhelp {
-		echo "theme help		| displays this"
-		echo "theme list		| lists all the themes"
-		echo "theme set [theme]	| sets the theme"
-		echo "theme keep [theme]	| sets the theme as default theme, note: this does not apply it"
-		echo "theme restore		| restores the default theme"
-		echo "theme get		| outputs the default theme"
-		return
-	}
-	function settheme {
-		if [ ! $1 ]; then
-			showhelp
-			return
-		fi
-		export DESKTOP_THEME=$1
-		if [ ! -d "$HOME/.config/tim241/themes/$DESKTOP_THEME" ]; then
-			echo "==> Invalid theme selected"
-			showhelp
-			return
-		fi
-		echo "==> Setting gtk theme"
-		$HOME/.config/tim241/bin/gtk
-		echo "==> Setting Xdefaults theme"
-		$HOME/.config/tim241/bin/lxdef
-		echo "==> Setting wallpaper"
-		$HOME/.config/tim241/bin/wallpaper
-		echo "==> Completed"
-	}
-	case $1 in 
-		help) showhelp; return;;
-		list) ls $HOME/.config/tim241/themes/ -1; return;;
-		set) settheme $2; return;;
-		keep) 
-			if [ ! -d "$HOME/.config/tim241/themes/$2" ]; then
-                		echo "==> Invalid theme selected"
-        		        showhelp
-		                return
-		        fi
-			if [ ! -d "$HOME/.cache/theme" ]; then
-                	        mkdir -p $HOME/.cache/theme
-	                fi
-	                echo $2 > $HOME/.cache/theme/name
-			return
-			;;
-		restore) 
-			if [ -f $HOME/.cache/theme/name ]; then
-                	        settheme $(cat $HOME/.cache/theme/name)
-                	else
-                	        echo No previous theme applied.
-                	       	return
-                	fi
-			return
-			;;
-		get)
-			if [ -f $HOME/.cache/theme/name ]; then
-				echo $(cat $HOME/.cache/theme/name)
-			else
-				echo space
-			fi
-			return
-			;;
-		*) showhelp; return;;
-	esac
 }
 # Display the date in a pretty way
 function showdate {
