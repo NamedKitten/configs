@@ -2,7 +2,7 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/tim/.gtkrc-2.0.mine"
-gtk-theme-name="green_paradise"
+gtk-theme-name="nature_mono_green"
 gtk-icon-theme-name="Papirus-Dark"
 gtk-font-name="Noto Mono 10"
 gtk-cursor-theme-name="Adwaita"
