@@ -18,7 +18,7 @@ if [ -d "$HOME/.config/tim241/themes/$THEME" ]; then
 	rm -rf $HOME/.config/tim241/themes/$THEME
 fi
 echo Creating directories..
-execx mkdir "$HOME/.config/tim241/themes/$THEME" "$HOME/.config/tim241/themes/$THEME/gtk" "$HOME/.config/tim241/themes/$THEME/wallpaper"
+execx mkdir "$HOME/.config/tim241/themes/$THEME" "$HOME/.config/tim241/themes/$THEME/gtk" "$HOME/.config/tim241/themes/$THEME/gtk/gtk3" "$HOME/.config/tim241/themes/$THEME/wallpaper"
 echo Generating color scheme using pywal..
 execx wal -i $WALLPAPER -a 90 -c
 echo Copying wallpaper..
