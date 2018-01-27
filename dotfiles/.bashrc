@@ -118,6 +118,17 @@ function showdate {
 		echo -e "\n$(date '+%D %T')\n"
 	fi
 } 
+# Autocompletion for the theme script
+_theme(){
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	opts="help list set keep restore get"
+	if [ ${COMP_WORDS[COMP_CWORD-1]} != "set" ]; then
+		COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
+	else
+		COMPREPLY=($(compgen -W "$(theme list)" -- ${cur}))
+	fi
+}
+complete -F _theme theme
 
 # Source script file from theme, if exists
 if [ -f "$HOME/.config/tim241/themes/$DESKTOP_THEME/source.sh" ]; then
