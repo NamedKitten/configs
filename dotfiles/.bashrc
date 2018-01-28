@@ -61,10 +61,15 @@ export CITY=Heerlen
 
 # Display weather when we have internet
 function weather {
-	curl=$(which curl)
-	WD=$HOME/.weather
-	SYNCED=false
-	SYNC=false
+	if which curl > /dev/null 2>&1; then
+		curl=$(which curl)
+	else
+		echo curl is not installed!
+		return
+	fi
+	local WD=$HOME/.weather
+	local SYNCED=false
+	local SYNC=false
 	if [ ! -d $WD ]; then
                 mkdir $HOME/.weather
 	fi
