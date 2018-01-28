@@ -5,7 +5,7 @@ DEPENDENCIES="rxvt-unicode feh rofi arandr"
 THEME_DEPENDENCIES="papirus-icon-theme compton qt5ct qt5-styleplugins"
 DESKTOP_THEME_TOOLS="lxappearance"
 GNOME_DEPENDENCIES="pavucontrol gcolor2"
-EXTRAS="firefox mplayer mpv mps-youtube youtube-dl vim ranger w3m perl-anyevent-i3 perl-json-xs lshw pkgfile htop cmake llvm clang"
+EXTRAS="firefox mplayer mpv mps-youtube youtube-dl vim ranger w3m perl-anyevent-i3 perl-json-xs lshw pkgfile htop cmake llvm clang lua"
 # Declare colors
 RED='\033[0;31m'
 BLUE='\033[0;34m'
