@@ -27,7 +27,7 @@ keep_sudo () {
 	done
 	rm .ks
 }
-# Fail is install.sh doesn't exist
+# Fail when install.sh doesn't exist
 if [ ! -f install.sh ]; then
 	echo Error: install.sh is missing
 	exit 1
@@ -38,12 +38,10 @@ source ./install.sh --source
 EOR
 print WARNING: THESE PACKAGES APPLY TO MY SYSTEM ONLY
 read none
-#
 # Make sure .ks doesn't exist
 if [ -f ".ks" ]; then
 	rm .ks
 fi
-#
 # Copy configs
 print "Copying system configs"
 EOF sudo cp system/etc/*.conf /etc/
@@ -53,30 +51,20 @@ EOF sudo cp system/etc/resolv.dnsmasq /etc/
 print "Populating keys and updating the database"
 EOF sudo pacman -Syy
 EOF sudo pacman-key --populate archlinux
-#
 # Make sure install.sh is executed
 if [ ! -f ".ic" ]; then
 	sh install.sh
 fi
-#
-#
 ask_sudo
 keep_sudo &
-#
 # Install required packages and update db
 EOF sudo pacman -S $_DRIVERS $_TOOLS $_EXTRAS --noconfirm --needed
 EOF trizen -S r8168-dkms --noconfirm --needed
-# 
-#
 print Fixing audio, ethernet and enabling services!
 audio
 ethernet
 services
-#
-#
 print Setting up $HOME/bin
 git clone https://github.com/tim241/bin ~/bin
-#
 touch .ks
-#
 print WARNING: REBOOT IS REQUIRED!
