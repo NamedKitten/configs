@@ -1,1 +1,10 @@
-compton --backend glx -m 0.9 --glx-swap-method 3 -b --refresh-rate 75 --vsync opengl --detect-rounded-corners --vsync-aggressive
+ARGS="-m 0.9"
+if which nvidia-modprobe > /dev/null 2>&1; then
+	ARGS="$ARGS --backend glx -m 0.9 --glx-swap-method 3 -b --refresh-rate 75 --vsync opengl --detect-rounded-corners --vsync-aggressive"
+fi
+if which pgrep > /dev/null 2>&1; then
+	pgrep -x "compton" && killall compton 
+else
+	killall compton
+fi
+compton $ARGS
