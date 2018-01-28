@@ -1,7 +1,7 @@
 #!/bin/sh
 _DRIVERS="nvidia-dkms lib32-nvidia-utils opencl-nvidia xf86-video-ati"
 _TOOLS="nvidia-settings dnsmasq"
-_EXTRAS="linux-headers steam steam-native-runtime" 
+_EXTRAS="linux-headers steam steam-native-runtime weechat bitlbee"  
 audio () {
 	# Fix audio issue I have
 	print Fixing audio
