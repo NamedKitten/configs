@@ -94,11 +94,13 @@ function weather {
 	if ping -q -c 1 -W 1 google.com >/dev/null 2>&1; then
 		if [ "$SYNC" = "true" ]; then 
 			$curl http://wttr.in/$CITY --silent > $WD/tmp 
-			if [ $(wc -l $WD/tmp | cut -d' ' -f1) = 40 ]; then 
-				cp $WD/tmp $WD/weather
-				rm $WD/tmp
-				echo $(date +%H%y%m%d) > $WD/time
-				SYNCED=true
+			if [ -f $WD/tmp ]; then
+				if [ $(wc -l $WD/tmp | cut -d' ' -f1) = 40 ]; then 
+					cp $WD/tmp $WD/weather
+					rm $WD/tmp
+					echo $(date +%H%y%m%d) > $WD/time
+					SYNCED=true
+				fi
 			fi
 		fi
 	fi	
