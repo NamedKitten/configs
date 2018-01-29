@@ -11,7 +11,7 @@ urxvt*boldfont:		xft:Noto Mono:pixelsize=10
 urxvt.scrollBar: 	false
 
 !! urvt extensions
-URxvt.perl-ext-common: 	keyboard-select,resize-font,url-select
+URxvt.perl-ext-common: 	selection-to-clipboard,keyboard-select,resize-font,url-select
 
 !! url-select
 URxvt.urlLauncher:     	/usr/bin/xdg-open
