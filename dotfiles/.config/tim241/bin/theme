@@ -62,7 +62,7 @@ case $1 in
 		if [ -f $HOME/.cache/theme/name ]; then
 			echo $(cat $HOME/.cache/theme/name)
 		else
-			echo space
+			echo simple_dark
 		fi
 		exit
 		;;
