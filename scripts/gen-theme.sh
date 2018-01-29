@@ -20,7 +20,7 @@ fi
 echo Creating directories..
 execx mkdir "$HOME/.config/tim241/themes/$THEME" "$HOME/.config/tim241/themes/$THEME/gtk" "$HOME/.config/tim241/themes/$THEME/gtk/gtk3" "$HOME/.config/tim241/themes/$THEME/wallpaper"
 echo Generating color scheme using pywal..
-execx wal -i $WALLPAPER -a 90 -c
+execx wal -i $WALLPAPER -c
 echo Copying wallpaper..
 execx cp $WALLPAPER $HOME/.config/tim241/themes/$THEME/wallpaper/
 echo Creating Xdefaults..
