@@ -21,6 +21,8 @@ call vundle#end()
 filetype plugin indent on
 let g:color_coded_enabled = 1
 
+" Make tab 4 spaces
+set tabstop=4
 " Bind f8 to compiling c file
 map <F8> :w <CR> :!gcc % && ./a.out <CR>
 
