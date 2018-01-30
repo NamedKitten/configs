@@ -85,7 +85,8 @@ if which pacman > /dev/null 2>&1; then
 		pavucontrol gcolor2 lxappearance \
 		firefox mplayer mpv mps-youtube youtube-dl aspell-en \
 		vim ranger w3m perl-anyevent-i3 perl-json-xs lshw pkgfile htop cmake llvm clang \
-		lua pulseaudio-alsa alsa-utils
+		lua pulseaudio-alsa alsa-utils \
+		i3lock
 	print "Updating databases.."
 	EOF sudo pkgfile --update
 	EOF sudo pacman -Sy 
