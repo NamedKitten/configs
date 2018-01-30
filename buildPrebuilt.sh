@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Source install.sh for EOF
 source ./install.sh --source
 rm -rf prebuilt/*pkg*
