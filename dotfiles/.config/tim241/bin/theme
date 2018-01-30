@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 RESTORE=0
 KEEP=0
 function showhelp {

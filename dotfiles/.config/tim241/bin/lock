@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 DONE=0
 for wallpaper in $HOME/.config/tim241/themes/$($HOME/.config/tim241/bin/theme get)/wallpaper/*.jpg; do
 	if [ "$DONE" = "0" ]; then

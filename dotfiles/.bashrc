@@ -29,6 +29,9 @@ alias nano='vim'
 alias reloadXvar='$HOME/.config/tim241/bin/lxdef'
 
 # Aliases related to vim
+if which vim-huge > /dev/null 2>&1; then
+	alias vim='vim-huge'
+fi
 alias v='vim'
 alias vb='vim ~/.bashrc'
 alias vr='vim ~/.vimrc'

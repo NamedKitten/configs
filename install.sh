@@ -1,11 +1,4 @@
-#!/bin/sh
-CORE_DEPENDENCIES="xorg-server xorg-xinit xorg-xrandr xorg-xsetroot git i3-gaps"
-AUDIO="pulseaudio-alsa alsa-utils"
-DEPENDENCIES="rxvt-unicode feh rofi arandr"
-THEME_DEPENDENCIES="papirus-icon-theme compton qt5ct qt5-styleplugins"
-DESKTOP_THEME_TOOLS="lxappearance"
-GNOME_DEPENDENCIES="pavucontrol gcolor2"
-EXTRAS="firefox mplayer mpv mps-youtube youtube-dl aspell-en vim ranger w3m perl-anyevent-i3 perl-json-xs lshw pkgfile htop cmake llvm clang lua"
+#!/bin/bash
 # Declare colors
 RED='\033[0;31m'
 BLUE='\033[0;34m'
@@ -46,8 +39,11 @@ ask_sudo () {
 }
 # Install vim stuff..
 vim_stuff () {
-	cp dotfiles/.vimrc ~/.vimrc
+	cp dotfiles/.vimrc ~/.vimrc	
 	BDIR=`pwd`
+	if which vim-huge > /dev/null 2>&1; then
+		alias vim='vim-huge'
+	fi
 	if [ -d "$HOME/.vim" ]; then
 		rm -rf ~/.vim
 	fi	
@@ -70,16 +66,51 @@ vim_stuff () {
 if [ "x$1" = "x--source" ]; then
 	return
 fi
+echo -e "${RED}===> NOTE: This script WILL overwrite your i3, neofetch, weechat, ranger, trizen and vlc configs	${NC}"
+echo -e "${RED}===> NOTE: This script WILL also overwrite your bashrc AND weechat configs			${NC}"
+echo -e "${RED}===> NOTE: You HAVE BEEN WARNED, continue at your own risk					${NC}"
+echo -e "${RED}===> NOTE: Press enter to continue, press Control+C to exit 					${NC}"
+read confirm
 EOR
-if `which pacman > /dev/null 2>&1`; then
-	ask_sudo
+ask_sudo
+print "Checking if platform is supported.."
+if which pacman > /dev/null 2>&1; then
+	print "Arch linux detected.."
 	print "Installing prebuilt packages!"
 	EOF sudo pacman --needed --noconfirm -U prebuilt/*pkg*
-	print "Installing required packages!"
-	EOF sudo pacman --needed --noconfirm -S $CORE_DEPENDENCIES $DEPENDENCIES \
-				$THEME_DEPENDENCIES $DESKTOP_THEME_TOOLS $GNOME_DEPENDENCIES $EXTRAS $AUDIO
+	print "Installing required packages for Arch linux!"
+	EOF sudo pacman --needed --noconfirm -S xorg-server xorg-xinit xorg-xrandr xorg-xsetroot git i3-gaps \
+		rxvt-unicode feh rofi arandr \
+		papirus-icon-theme compton qt5ct qt5-styleplugins \
+		pavucontrol gcolor2 lxappearance \
+		firefox mplayer mpv mps-youtube youtube-dl aspell-en \
+		vim ranger w3m perl-anyevent-i3 perl-json-xs lshw pkgfile htop cmake llvm clang \
+		lua pulseaudio-alsa alsa-utils
+	print "Updating databases.."
+	EOF sudo pkgfile --update
+	EOF sudo pacman -Sy 
+elif which xbps-install > /dev/null 2>&1; then
+	# function Install Void Package(s)
+	function IVP {
+		for package in $@; do
+			if [ ! "$(xbps-query $package)" ]; then
+				EOF sudo xbps-install --yes $package
+			fi
+		done
+	}
+	print "Void linux detected.."
+	print "Updating repos for Void linux"
+	IVP void-repo-multilib
+	print "Installing required packages for Void linux!"
+	IVP noto-fonts-ttf i3lock i3-gaps \
+		curl rofi \
+		adwaita-icon-theme papirus-icon-theme \
+		lua firefox alsa-utils \
+		xorg-minimal xorg-video-drivers \
+		clang llvm \
+		vim-huge
 else
-	printError "pacman is not installed!"
+	printError "Unsupported platform detected.."
 fi
 print "Installing configs"
 print "Creating directories.."
@@ -96,15 +127,14 @@ print "Preparing xinitrc"
 echo "exec i3" > $HOME/.xinitrc
 print "Installing bashrc.."
 EOF "cp dotfiles/.bashrc $HOME/.bashrc"
-print "Making QT look like GTK+"
-echo QT_QPA_PLATFORMTHEME=qt5ct | sudo tee -a /etc/environment > /dev/null
+if [ ! "$(grep 'qt5ct' /etc/environment)" ]; then
+	print "Making QT look like GTK+"
+	echo QT_QPA_PLATFORMTHEME=qt5ct | sudo tee -a /etc/environment > /dev/null
+fi
 if [ ! -f .vc ]; then
 	print "Installing vim stuff"
 	vim_stuff
 	touch .vc
 fi
-print "Updating databases.."
-sudo pkgfile --update
-sudo pacman -Sy
 print "Done!"
 touch .ic

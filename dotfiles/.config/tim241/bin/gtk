@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 if [ -f "$HOME/.config/tim241/themes/$DESKTOP_THEME/gtk/gtkrc-2.0" ]; then
 	echo Gtk2 config found..
 	cp $HOME/.config/tim241/themes/$DESKTOP_THEME/gtk/gtkrc-2.0 ~/.gtkrc-2.0
