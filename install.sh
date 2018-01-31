@@ -41,9 +41,9 @@ ask_sudo () {
 vim_stuff () {
 	cp dotfiles/.vimrc ~/.vimrc	
 	BDIR=`pwd`
-	if which vim-huge > /dev/null 2>&1; then
+	if command -v vim-huge > /dev/null 2>&1; then
 		vim=$(which vim-huge)
-	elif which vim > /dev/null 2>&1; then
+	elif command -v vim > /dev/null 2>&1; then
 		vim=$(which vim)
 	else
 		printError "Vim is not installed!"
@@ -80,7 +80,7 @@ EOR
 ask_sudo
 print "Checking if platform is supported.."
 SHARED_DEPENDENCIES="firefox curl rofi i3lock i3-gaps clang cmake llvm rxvt-unicode ranger feh pulseaudio alsa-utils lua w3m papirus-icon-theme"
-if which pacman > /dev/null 2>&1; then
+if command -v pacman > /dev/null 2>&1; then
 	print "Arch linux detected.."
 	print "Installing packages for compiling packages"
 	EOF sudo pacman -S --noconfirm base-devel
@@ -95,7 +95,7 @@ if which pacman > /dev/null 2>&1; then
 	print "Updating databases.."
 	EOF sudo pkgfile --update
 	EOF sudo pacman -Sy 
-elif which xbps-install > /dev/null 2>&1; then
+elif command -v xbps-install > /dev/null 2>&1; then
 	# function Install Void Package(s)
 	function IVP {
 		for package in $@; do
