@@ -76,8 +76,10 @@ ask_sudo
 print "Checking if platform is supported.."
 if which pacman > /dev/null 2>&1; then
 	print "Arch linux detected.."
-	print "Installing prebuilt packages!"
-	EOF sudo pacman --needed --noconfirm -U prebuilt/*pkg*
+	print "Installing packages for compiling packages"
+	EOF sudo pacman --needed --noconfirm base-devel
+	print "Building packages!"
+	sh buildPrebuilt.sh
 	print "Installing required packages for Arch linux!"
 	EOF sudo pacman --needed --noconfirm -S xorg-server xorg-xinit xorg-xrandr xorg-xsetroot git i3-gaps \
 		rxvt-unicode feh rofi arandr \
