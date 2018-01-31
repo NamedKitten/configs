@@ -73,6 +73,7 @@ function weather {
 	local WD=$HOME/.weather
 	local SYNCED=false
 	local SYNC=false
+	local NEW=false
 	if [ ! -d $WD ]; then
                 mkdir $HOME/.weather
 	fi
@@ -80,8 +81,10 @@ function weather {
 		NEW=true
 		SYNC=true
 	fi
-	if [ "$(date +%H%y%m%d)" != "$(cat $WD/time)" ]; then
-		SYNC=true
+	if [ -f $WD/time ]; then
+		if [ "$(date +%H%y%m%d)" != "$(cat $WD/time)" ]; then
+			SYNC=true
+		fi
 	fi
 	if (( $(tput lines) >= 32 )) && (( $(tput cols) >= 127 )); then SHORT=0; else SHORT=1; fi
 	for arg in $@; do
@@ -99,7 +102,7 @@ function weather {
 			*);;
 		esac
 	done
-	if ping -q -c 1 -W 1 google.com >/dev/null 2>&1; then
+	if ping -q -c 1 -W 1 wttr.in >/dev/null 2>&1; then
 		if [ "$SYNC" = "true" ]; then 
 			$curl http://wttr.in/$CITY --silent > $WD/tmp 
 			if [ -f $WD/tmp ]; then
@@ -117,7 +120,7 @@ function weather {
                         cat $HOME/.weather/weather | head -7
 		else
                         cat $HOME/.weather/weather | head -n -2 | sed -e '1,7d'
-	        fi
+		fi
 	fi
 }
 # Display the date in a pretty way
