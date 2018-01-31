@@ -21,9 +21,8 @@ enable -f sleep sleep
 #(it isn't required in bash-it)
 alias ls='ls --color=auto'
 
-# Use vim instead of nano
-#(due to my urxvt keybindings, you cannot quit nano)
-alias nano='vim'
+# Add alias for nano to disable file wrapping
+alias nano='nano --nowrap'
 
 # Add alias for reloading Xdefaults
 alias reloadXvar='$HOME/.config/tim241/bin/lxdef'
