@@ -49,6 +49,7 @@ void () {
 	# function Enable Service(s)
 	function ES {
 		for service in $@; do
+			print "Enabling service: $service"
 			EOF sudo ln -sf /etc/sv/$service /var/service/
 		done
 	}
@@ -90,7 +91,7 @@ else
 	echo "Error: no /etc/os-release found!"
 	exit 1
 fi
-EOF $($ID)
+EOF $ID
 # Copy configs
 print "Copying system configs for dnsmasq"
 EOF sudo cp system/etc/dnsmasq.conf /etc/dnsmasq.conf
