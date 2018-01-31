@@ -119,7 +119,7 @@ elif command -v xbps-install > /dev/null 2>&1; then
 	IVP void-repo-multilib
 	print "Installing required packages for Void linux!"
 	IVP noto-fonts-ttf 	adwaita-icon-theme lua-devel PAmix \
-		xorg-minimal xorg-video-drivers xorg-apps \
+		xorg-minimal xorg-video-drivers xorg-apps xorg-fonts \
 		vim-huge \
 		rxvt-unicode-terminfo urxvt-perls ranger \
 		ConsoleKit2 dbus bash-completion \
