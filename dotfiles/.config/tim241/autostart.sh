@@ -20,6 +20,10 @@ fi
 if which nvidia-settings > /dev/null 2>&1; then
 	nvidia-settings -l
 fi
+# Load pulseaudio
+if which pulseaudio > /dev/null 2>&1; then
+	pulseaudio -D
+fi
 # Load sc-controller 
 if which sc-controller > /dev/null 2>&1; then
 	sc-controller --gapplication-service		
