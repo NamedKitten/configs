@@ -77,7 +77,7 @@ print "Checking if platform is supported.."
 if which pacman > /dev/null 2>&1; then
 	print "Arch linux detected.."
 	print "Installing packages for compiling packages"
-	EOF sudo pacman --needed --noconfirm base-devel
+	EOF sudo pacman -S --noconfirm base-devel
 	print "Building packages!"
 	sh buildPrebuilt.sh
 	print "Installing required packages for Arch linux!"
