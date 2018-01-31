@@ -79,6 +79,7 @@ read confirm
 EOR
 ask_sudo
 print "Checking if platform is supported.."
+SHARED_DEPENDENCIES="firefox curl rofi i3lock i3-gaps clang cmake llvm rxvt-unicode ranger feh pulseaudio alsa-utils lua w3m papirus-icon-theme"
 if which pacman > /dev/null 2>&1; then
 	print "Arch linux detected.."
 	print "Installing packages for compiling packages"
@@ -86,14 +87,11 @@ if which pacman > /dev/null 2>&1; then
 	print "Building packages from source.."
 	bash ./packages/arch/build.sh
 	print "Installing required packages for Arch linux!"
-	EOF sudo pacman --needed --noconfirm -S xorg-server xorg-xinit xorg-xrandr xorg-xsetroot git i3-gaps \
-		rxvt-unicode feh rofi arandr \
-		papirus-icon-theme compton qt5ct qt5-styleplugins \
-		pavucontrol gcolor2 lxappearance \
-		firefox mplayer mpv mps-youtube youtube-dl aspell-en \
-		vim ranger w3m perl-anyevent-i3 perl-json-xs lshw pkgfile htop cmake llvm clang \
-		lua pulseaudio-alsa alsa-utils \
-		i3lock
+	EOF sudo pacman --needed --noconfirm -S xorg-server xorg-xinit xorg-xrandr xorg-xsetroot arandr \
+		compton qt5ct qt5-styleplugins \
+		pavucontrol gcolor2 aspell-en \
+		vim perl-anyevent-i3 perl-json-xs pkgfile pulseaudio-alsa \
+		$SHARED_DEPENDENCIES
 	print "Updating databases.."
 	EOF sudo pkgfile --update
 	EOF sudo pacman -Sy 
@@ -120,15 +118,12 @@ elif which xbps-install > /dev/null 2>&1; then
 	print "Updating repos for Void linux"
 	IVP void-repo-multilib
 	print "Installing required packages for Void linux!"
-	IVP noto-fonts-ttf i3lock i3-gaps \
-		curl rofi \
-		adwaita-icon-theme papirus-icon-theme \
-		lua lua-devel firefox alsa-utils pulseaudio PAmix \
-		xorg-minimal xorg-video-drivers xorg-apps feh\
-		clang cmake llvm \
+	IVP noto-fonts-ttf 	adwaita-icon-theme lua-devel PAmix \
+		xorg-minimal xorg-video-drivers xorg-apps \
 		vim-huge \
-		rxvt-unicode rxvt-unicode-terminfo urxvt-perls ranger \
-		ConsoleKit2 dbus bash-completion
+		rxvt-unicode-terminfo urxvt-perls ranger \
+		ConsoleKit2 dbus bash-completion \
+		$SHARED_DEPENDENCIES
 	print "Enabling services"
 	ES dbus cgmanager consolekit alsa
 else
