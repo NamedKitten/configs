@@ -95,10 +95,17 @@ elif which xbps-install > /dev/null 2>&1; then
 	function IVP {
 		for package in $@; do
 			if [ ! "$(xbps-query $package)" ]; then
-				EOF sudo xbps-install --yes $package
+				EOF sudo xbps-install -S --yes $package
 			fi
 		done
 	}
+	# function Enable Service(s)
+	function ES {
+		for service in $@; do
+			EOF sudo ln -sf /etc/sv/$service /var/service/
+		done
+	}
+
 	print "Void linux detected.."
 	print "Updating repos for Void linux"
 	IVP void-repo-multilib
@@ -106,10 +113,14 @@ elif which xbps-install > /dev/null 2>&1; then
 	IVP noto-fonts-ttf i3lock i3-gaps \
 		curl rofi \
 		adwaita-icon-theme papirus-icon-theme \
-		lua firefox alsa-utils \
+		lua firefox alsa-utils pulseaudio pamix \
 		xorg-minimal xorg-video-drivers \
 		clang llvm \
-		vim-huge
+		vim-huge \
+		rxvt-unicode rxvt-unicode-terminfo urxvt-perls \
+		ConsoleKit2 
+	print "Enabling services"
+	IVP dbus cgmanager consolekit alsa
 else
 	printError "Unsupported platform detected.."
 fi
