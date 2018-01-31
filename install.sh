@@ -42,7 +42,12 @@ vim_stuff () {
 	cp dotfiles/.vimrc ~/.vimrc	
 	BDIR=`pwd`
 	if which vim-huge > /dev/null 2>&1; then
-		alias vim='vim-huge'
+		vim=$(which vim-huge)
+	elif which vim > /dev/null 2>&1; then
+		vim=$(which vim)
+	else
+		printError "Vim is not installed!"
+		exit 1
 	fi
 	if [ -d "$HOME/.vim" ]; then
 		rm -rf ~/.vim
@@ -58,9 +63,9 @@ vim_stuff () {
 	EOF make clean
 	print "Enabling clang_complete"
         cd ~/.vim/bundle/clang_complete
-        EOF vim +PluginInstall +qa
+        EOF $vim +PluginInstall +qa
 	EOF make
-	EOF vim clang_complete.vmb -c 'so %' -c 'q' +qa
+	EOF $vim clang_complete.vmb -c 'so %' -c 'q'
 	cd $BDIR
 }
 if [ "x$1" = "x--source" ]; then
