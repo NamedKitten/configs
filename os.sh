@@ -102,7 +102,7 @@ EOF sudo cp system/etc/resolv.dnsmasq /etc/resolv.dnsmasq
 #
 # Make sure install.sh is executed
 if [ ! -f ".ic" ]; then
-	sh install.sh
+	bash install.sh
 fi
 print Setting up $HOME/bin
 git clone https://github.com/tim241/bin ~/bin
