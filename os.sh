@@ -18,20 +18,20 @@ keep_sudo () {
 arch () {
 	print "Copying system configs for Arch linux!"
 	EOF sudo cp system/arch/etc/*.conf /etc/
-    print "Populating keys and updating the database"
-    EOF sudo pacman -Syy
-    EOF sudo pacman-key --populate archlinux
-    # Install required packages and update db
-    EOF sudo pacman -S nvidia-dkms lib32-nvidia-utils opencl-nvidia xf86-video-ati \
+	print "Populating keys and updating the database"
+	EOF sudo pacman -Syy
+	EOF sudo pacman-key --populate archlinux
+	# Install required packages and update db
+	EOF sudo pacman -S nvidia-dkms lib32-nvidia-utils opencl-nvidia xf86-video-ati \
 				nvidia-settings dnsmasq \
 				linux-headers steam steam-native-runtime weechat bitlbee \
-		  		--noconfirm --needed
-    EOF trizen -S r8168-dkms --noconfirm --needed
-    print Fixing stuff and enabling services!
-    audio
+				--noconfirm --needed
+	EOF trizen -S r8168-dkms --noconfirm --needed
+	print Fixing stuff and enabling services!
+	audio
 	# Blacklist the r8169 driver, to force the use of the r8168 driver
-    print Blacklisting the r8169 module
-    echo blacklist r8169 | sudo tee /etc/modprobe.d/ethernet.conf > /dev/null
+	print Blacklisting the r8169 module
+	echo blacklist r8169 | sudo tee /etc/modprobe.d/ethernet.conf > /dev/null
 	print Enabling services
 	EOF sudo systemctl enable dnsmasq
 	EOF sudo systemctl enable dhcpcd
@@ -57,14 +57,13 @@ void () {
 		done
 	}
 	print Installing multilib repo
-    IVP void-repo-multilib
+	IVP void-repo-multilib
 	print Installing nonfree repos
 	IVP void-repo-nonfree void-repo-multilib-nonfree
 	print Installing packages
 	IVP nvidia weechat bitlbee steam 
 	print "Enabling services.."
-	ES bitlbee dnsmasq 
-	
+	ES bitlbee dnsmasq 	
 }
 
 ## END OF PLATFORMS ##
