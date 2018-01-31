@@ -104,7 +104,7 @@ elif which xbps-install > /dev/null 2>&1; then
 	# function Enable Service(s)
 	function ES {
 		for service in $@; do
-			EOF sudo ln -sf /etc/sv/$service /var/service/
+			EOF sudo ln -s /etc/sv/$service /var/service/
 		done
 	}
 

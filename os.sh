@@ -50,7 +50,7 @@ void () {
 	function ES {
 		for service in $@; do
 			print "Enabling service: $service"
-			EOF sudo ln -sf /etc/sv/$service /var/service/
+			EOF sudo ln -s /etc/sv/$service /var/service/
 		done
 	}
 	print Installing multilib repo
