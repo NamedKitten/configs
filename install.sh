@@ -128,7 +128,7 @@ elif which xbps-install > /dev/null 2>&1; then
 		clang cmake llvm \
 		vim-huge \
 		rxvt-unicode rxvt-unicode-terminfo urxvt-perls ranger \
-		ConsoleKit2 dbus
+		ConsoleKit2 dbus bash-completion
 	print "Enabling services"
 	ES dbus cgmanager consolekit alsa
 else
