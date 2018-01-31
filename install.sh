@@ -120,9 +120,9 @@ elif which xbps-install > /dev/null 2>&1; then
 		clang llvm \
 		vim-huge \
 		rxvt-unicode rxvt-unicode-terminfo urxvt-perls \
-		ConsoleKit2 
+		ConsoleKit2 dbus
 	print "Enabling services"
-	IVP dbus cgmanager consolekit alsa
+	ES dbus cgmanager consolekit alsa
 else
 	printError "Unsupported platform detected.."
 fi
