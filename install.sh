@@ -16,7 +16,7 @@ EOF () {
 	$@
 	exitcode=$?
 	if [ $exitcode != 0 ]; then
-		if [ "x$ERRMSG" != "x" ]; then
+		if [ "$ERRMSG" ]; then
 			printError "$ERRMSG"
 		else 
 			printError "Command: '$@' failed!"
@@ -97,14 +97,17 @@ elif which xbps-install > /dev/null 2>&1; then
 	function IVP {
 		for package in $@; do
 			if [ ! "$(xbps-query $package)" ]; then
-				EOF sudo xbps-install -S --yes $package
+				PACKAGES="$PACKAGES $package"
 			fi
 		done
+		EOF sudo xbps-install -S --yes $PACKAGES
 	}
 	# function Enable Service(s)
 	function ES {
 		for service in $@; do
-			EOF sudo ln -s /etc/sv/$service /var/service/
+			if [ ! -d "/var/service/$service" ]; then
+				EOF sudo ln -s /etc/sv/$service /var/service/
+			fi
 		done
 	}
 
@@ -115,11 +118,11 @@ elif which xbps-install > /dev/null 2>&1; then
 	IVP noto-fonts-ttf i3lock i3-gaps \
 		curl rofi \
 		adwaita-icon-theme papirus-icon-theme \
-		lua firefox alsa-utils pulseaudio pamix \
-		xorg-minimal xorg-video-drivers \
-		clang llvm \
+		lua lua-devel firefox alsa-utils pulseaudio PAmix \
+		xorg-minimal xorg-video-drivers xorg-apps feh\
+		clang cmake llvm \
 		vim-huge \
-		rxvt-unicode rxvt-unicode-terminfo urxvt-perls \
+		rxvt-unicode rxvt-unicode-terminfo urxvt-perls ranger \
 		ConsoleKit2 dbus
 	print "Enabling services"
 	ES dbus cgmanager consolekit alsa

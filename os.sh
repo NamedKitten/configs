@@ -42,15 +42,18 @@ void () {
 	function IVP {
 		for package in $@; do
 			if [ ! "$(xbps-query $package)" ]; then
-				EOF sudo xbps-install -S --yes $package
+				PACKAGES="$PACKAGES $package"
 			fi
 		done
+		EOF sudo xbps-install -S --yes $PACKAGES
 	}
 	# function Enable Service(s)
 	function ES {
 		for service in $@; do
-			print "Enabling service: $service"
-			EOF sudo ln -s /etc/sv/$service /var/service/
+			if [ ! -d "/var/service/$service" ]; then
+				print "Enabling service: $service"
+				EOF sudo ln -s /etc/sv/$service /var/service/
+			fi
 		done
 	}
 	print Installing multilib repo
