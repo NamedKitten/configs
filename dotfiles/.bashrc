@@ -69,19 +69,22 @@ function weather {
 		echo curl is not installed!
 		return
 	fi
-	local WD=$HOME/.cache/weather
+	if [ ! $XDG_CACHE_HOME ]; then
+		XDG_CACHE_HOME="$HOME/.cache"
+	fi
+	local WD="$XDG_CACHE_HOME/weather"
 	local SYNCED=false
 	local SYNC=false
 	local NEW=false
-	if [ ! -d $WD ]; then
-                mkdir -p $WD
+	if [ ! -d "$WD" ]; then
+                mkdir -p "$WD"
 	fi
-	if [ ! -f $WD/time ] || [ ! -f $WD/weather ]; then
+	if [ ! -f "$WD"/time ] || [ ! -f "$WD"/weather ]; then
 		NEW=true
 		SYNC=true
 	fi
-	if [ -f $WD/time ]; then
-		if [ "$(date +%H%y%m%d)" != "$(cat $WD/time)" ]; then
+	if [ -f "$WD"/time ]; then
+		if [ "$(date +%H%y%m%d)" != "$(cat "$WD"/time)" ]; then
 			SYNC=true
 		fi
 	fi
@@ -90,7 +93,7 @@ function weather {
 		case $arg in
 			--full | -f ) SHORT=0;;
 			--short | -s ) SHORT=1;;
-			--reset | -r ) rm -rf $WD; mkdir $WD; NEW=true; SYNC=true;;
+			--reset | -r ) rm -rf "$WD"; mkdir -p "$WD"; NEW=true; SYNC=true;;
 			--help | -h ) 
 				echo "weather [] for autodetecting the terminal size and changing accordingly"
 				echo "weather [-s/--short] for the short version"
@@ -103,12 +106,12 @@ function weather {
 	done
 	if ping -q -c 1 -W 1 wttr.in >/dev/null 2>&1; then
 		if [ "$SYNC" = "true" ]; then 
-			$curl http://wttr.in/$CITY --silent > $WD/tmp 
-			if [ -f $WD/tmp ]; then
-				if [ $(wc -l $WD/tmp | cut -d' ' -f1) = 40 ]; then 
-					cp $WD/tmp $WD/weather
-					rm $WD/tmp
-					echo $(date +%H%y%m%d) > $WD/time
+			$curl http://wttr.in/$CITY --silent > "$WD"/tmp 
+			if [ -f "$WD"/tmp ]; then
+				if [ $(wc -l "$WD"/tmp | cut -d' ' -f1) = 40 ]; then 
+					cp "$WD"/tmp "$WD"/weather
+					rm "$WD"/tmp
+					echo $(date +%H%y%m%d) > "$WD"/time
 					SYNCED=true
 				fi
 			fi
@@ -116,9 +119,9 @@ function weather {
 	fi	
 	if [ "$NEW" != "true" ] || [ "$SYNCED" = "true" ] ; then
 		if [ "$SHORT" = "1" ]; then
-                        cat $WD/weather | head -7
+                        cat "$WD"/weather | head -7
 		else
-                        cat $WD/weather | head -n -2 | sed -e '1,7d'
+                        cat "$WD"/weather | head -n -2 | sed -e '1,7d'
 		fi
 	fi
 }
