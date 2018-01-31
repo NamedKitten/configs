@@ -69,12 +69,12 @@ function weather {
 		echo curl is not installed!
 		return
 	fi
-	local WD=$HOME/.weather
+	local WD=$HOME/.cache/weather
 	local SYNCED=false
 	local SYNC=false
 	local NEW=false
 	if [ ! -d $WD ]; then
-                mkdir $HOME/.weather
+                mkdir -p $WD
 	fi
 	if [ ! -f $WD/time ] || [ ! -f $WD/weather ]; then
 		NEW=true
@@ -116,9 +116,9 @@ function weather {
 	fi	
 	if [ "$NEW" != "true" ] || [ "$SYNCED" = "true" ] ; then
 		if [ "$SHORT" = "1" ]; then
-                        cat $HOME/.weather/weather | head -7
+                        cat $WD/weather | head -7
 		else
-                        cat $HOME/.weather/weather | head -n -2 | sed -e '1,7d'
+                        cat $WD/weather | head -n -2 | sed -e '1,7d'
 		fi
 	fi
 }
