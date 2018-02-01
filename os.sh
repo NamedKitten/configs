@@ -93,6 +93,7 @@ else
 	echo "Error: no /etc/os-release found!"
 	exit 1
 fi
+ERRMSG="Unsupported platform: $ID"
 EOF $ID
 # Copy configs
 print "Copying system configs for dnsmasq"
@@ -101,7 +102,7 @@ EOF sudo cp system/etc/resolv.dnsmasq /etc/resolv.dnsmasq
 #
 # Make sure install.sh is executed
 if [ ! -f ".ic" ]; then
-	bash install.sh
+	EOF bash install.sh --nowarn
 fi
 print Setting up $HOME/bin
 git clone https://github.com/tim241/bin ~/bin

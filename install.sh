@@ -68,14 +68,21 @@ vim_stuff () {
 	EOF $vim clang_complete.vmb -c 'so %' -c 'q'
 	cd $BDIR
 }
-if [ "x$1" = "x--source" ]; then
-	return
+WARN=true
+if [ $1 ]; then
+	if [ "$1" = "--source" ]; then
+		return
+	elif [ "$1" = "--nowarn" ]; then
+		WARN=false
+	fi
 fi
-echo -e "${RED}===> NOTE: This script WILL overwrite your i3, neofetch, weechat, ranger, trizen and vlc configs	${NC}"
-echo -e "${RED}===> NOTE: This script WILL also overwrite your bashrc AND weechat configs			${NC}"
-echo -e "${RED}===> NOTE: You HAVE BEEN WARNED, continue at your own risk					${NC}"
-echo -e "${RED}===> NOTE: Press enter to continue, press Control+C to exit 					${NC}"
-read confirm
+if [ "$WARN" = "true" ]; then
+	echo -e "${RED}===> NOTE: This script WILL overwrite your i3, neofetch, weechat, ranger, trizen and vlc configs	${NC}"
+	echo -e "${RED}===> NOTE: This script WILL also overwrite your bashrc AND weechat configs			${NC}"
+	echo -e "${RED}===> NOTE: You HAVE BEEN WARNED, continue at your own risk					${NC}"
+	echo -e "${RED}===> NOTE: Press enter to continue, press Control+C to exit 					${NC}"
+	read confirm
+fi
 EOR
 ask_sudo
 print "Checking if platform is supported.."
