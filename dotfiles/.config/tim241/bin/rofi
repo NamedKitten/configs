@@ -1,1 +1,1 @@
-rofi -width 100 -location 2 $@
+rofi -theme $HOME/.config/tim241/themes/$($HOME/.config/tim241/bin/theme get)/rofi/* -width 100 -location 2 $@

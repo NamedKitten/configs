@@ -62,8 +62,3 @@ XClock*secondColor: rgba:d4/e9/db/ff
 
 ! Set depth to make transparency work.
 URxvt*depth: 32
-! Rofi
-rofi.color-window: #031606, #031606, #13C65B
-rofi.color-normal: #031606, #d4e9db, #031606, #13C65B, #031606
-rofi.color-active: #031606, #d4e9db, #031606, #13C65B, #031606
-rofi.color-urgent: #031606, #49B46D,     #031606, #49B46D,  #d4e9db
