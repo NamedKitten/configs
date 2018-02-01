@@ -105,22 +105,25 @@ if command -v pacman > /dev/null 2>&1; then
 elif command -v xbps-install > /dev/null 2>&1; then
 	# function Install Void Package(s)
 	function IVP {
-		for package in $@; do
-			if [ ! "$(xbps-query $package)" ]; then
-				PACKAGES="$PACKAGES $package"
-			fi
-		done
-		EOF sudo xbps-install -Sy $PACKAGES
+		if [ $1 ]; then
+			for package in $@; do
+				if [ ! "$(xbps-query $package)" ]; then
+					PACKAGES="$PACKAGES $package"
+				fi
+			done
+			EOF sudo xbps-install -Sy $PACKAGES
+		fi	
 	}
 	# function Enable Service(s)
 	function ES {
-		for service in $@; do
-			if [ ! -d "/var/service/$service" ]; then
-				EOF sudo ln -s /etc/sv/$service /var/service/
-			fi
-		done
+		if [ $1 ]; then
+			for service in $@; do
+				if [ ! -d "/var/service/$service" ]; then
+					EOF sudo ln -s /etc/sv/$service /var/service/
+				fi
+			done
+		fi
 	}
-
 	print "Void linux detected.."
 	print "Updating repos for Void linux"
 	IVP void-repo-multilib
@@ -135,6 +138,10 @@ elif command -v xbps-install > /dev/null 2>&1; then
 	ES dbus cgmanager consolekit alsa
 else
 	printError "Unsupported platform detected.."
+	printError "Press enter to continue anyways.."
+	printError "It will copy the configs, compile weechat plugins etc.."
+	printError "Continue at your own risk"
+	read confirm
 fi
 print "Installing configs"
 print "Creating directories.."
