@@ -111,7 +111,9 @@ elif command -v xbps-install > /dev/null 2>&1; then
 					PACKAGES="$PACKAGES $package"
 				fi
 			done
-			EOF sudo xbps-install -Sy $PACKAGES
+			if [ "$PACKAGES" ]; then
+				EOF sudo xbps-install -Sy $PACKAGES
+			fi	
 		fi	
 	}
 	# function Enable Service(s)
