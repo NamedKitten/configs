@@ -40,21 +40,26 @@ arch () {
 void () {
 	# function Install Void Package(s)
 	function IVP {
-		for package in $@; do
-			if [ ! "$(xbps-query $package)" ]; then
-				PACKAGES="$PACKAGES $package"
+		if [ $1 ]; then
+			for package in $@; do
+				if [ ! "$(xbps-query $package)" ]; then
+					PACKAGES="$PACKAGES $package"
+				fi
+			done
+			if [ "$PACKAGES" ]; then
+				EOF sudo xbps-install -Sy $PACKAGES
 			fi
-		done
-		EOF sudo xbps-install -S --yes $PACKAGES
+		fi
 	}
-	# function Enable Service(s)
+    # function Enable Service(s)
 	function ES {
-		for service in $@; do
-			if [ ! -d "/var/service/$service" ]; then
-				print "Enabling service: $service"
-				EOF sudo ln -s /etc/sv/$service /var/service/
-			fi
-		done
+		if [ $1 ]; then
+			for service in $@; do
+				if [ ! -d "/var/service/$service" ]; then
+					EOF sudo ln -s /etc/sv/$service /var/service/
+				fi
+			done
+		fi
 	}
 	print Installing multilib repo
 	IVP void-repo-multilib
