@@ -50,7 +50,7 @@ alias curl='curl -w "\n"'
 alias tb='nc termbin.com 9999'
 
 # Add alias for tty-clock
-alias clock='tty-clock -c'
+alias clock='tty-clock -cD'
 
 # Add alias for sourcing bashrc
 alias sb='source ~/.bashrc'
