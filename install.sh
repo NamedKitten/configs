@@ -92,7 +92,7 @@ if command -v pacman > /dev/null 2>&1; then
 	print "Installing packages for compiling packages"
 	EOF sudo pacman -S --noconfirm base-devel
 	print "Building packages from source.."
-	bash ./packages/arch/build.sh
+	EOF bash ./packages/arch/build.sh
 	print "Installing required packages for Arch linux!"
 	EOF sudo pacman --needed --noconfirm -S xorg-server xorg-xinit xorg-xrandr xorg-xsetroot arandr \
 		compton qt5ct qt5-styleplugins \
