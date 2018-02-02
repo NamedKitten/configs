@@ -154,6 +154,17 @@ bindsym $mod+Control+f exec urxvt -e ranger
 # disable window borders
 for_window [class="^.*"] border pixel 0
 
+# Enable borders for terminsla
+for_window [class="URxvt"] border pixel 2
+
+# class			border	bg		text	indicater	child_border
+client.focused	#A3917F	#A3917F	#A3917F	#A3917F		#A3917F 
+#client.unfocused  #A3917F #A3917F #A3917F #A3917F     #A3917F
+#client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+#client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+#client.urgent           #2f343a #900000 #ffffff #900000   #900000
+#client.background       #ffffff
+
 # enable float for Steam
 for_window [class="Steam"] floating enable, border none 
  
