@@ -160,7 +160,7 @@ fi
 # Set desktop theme
 export DESKTOP_THEME=$(theme get)
 
-# Set default text editor to nano
+# Set default text editor to vim
 if [ "$VIM_HUGE" = "true" ]; then
 	export VISUAL=vim-huge
 else
