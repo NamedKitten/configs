@@ -1,5 +1,4 @@
 #!/bin/bash
-# Source install.sh for EOF
 # Print errors in red
 printError () {
 	echo -e "\n${RED}===> $@${NC}\n"
