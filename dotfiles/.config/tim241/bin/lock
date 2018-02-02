@@ -1,7 +1,8 @@
 #!/bin/bash
 DONE=0
-for wallpaper in $HOME/.config/tim241/themes/$($HOME/.config/tim241/bin/theme get)/wallpaper/*.jpg; do
+for wallpaper in $HOME/.config/tim241/themes/$($HOME/.config/tim241/bin/theme get)/wallpaper/*; do
 	if [ "$DONE" = "0" ]; then
+		echo $wallpaper
 		i3lock -i $wallpaper -t -u -f Noto-Mono
 		DONE=1
 	fi

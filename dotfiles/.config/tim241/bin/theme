@@ -27,6 +27,8 @@ function settheme {
 	$HOME/.config/tim241/bin/lxdef
 	echo "==> Setting wallpaper"
 	$HOME/.config/tim241/bin/wallpaper
+	echo "==> Updating terminal colors"
+	cat $HOME/.config/tim241/themes/$DESKTOP_THEME/sequences | tee /dev/pts/*
 	echo "==> Completed"
 }
 case $1 in 
