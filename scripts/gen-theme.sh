@@ -26,7 +26,7 @@ echo Creating directories..
 execx mkdir "$HOME/.config/tim241/themes/$THEME" "$HOME/.config/tim241/themes/$THEME/gtk" "$HOME/.config/tim241/themes/$THEME/gtk/gtk3" \
 		"$HOME/.config/tim241/themes/$THEME/wallpaper" "$HOME/.config/tim241/themes/$THEME/rofi"
 echo Generating color scheme using pywal..
-execx wal -i $WALLPAPER -c -a $TRANS
+execx wal -i $WALLPAPER -c -a $TRANS -g
 echo Copying wallpaper..
 execx cp $WALLPAPER $HOME/.config/tim241/themes/$THEME/wallpaper/
 echo Copying files..
