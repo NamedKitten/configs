@@ -28,9 +28,13 @@ alias nano='nano --nowrap'
 alias reloadXvar='$HOME/.config/tim241/bin/lxdef'
 
 # Aliases related to vim
-if which vim-huge > /dev/null 2>&1; then
+if command -v  vim-huge > /dev/null 2>&1; then
 	alias vim='vim-huge'
+	VIM_HUGE=true
+else
+	VIM_HUGE=false
 fi
+
 alias v='vim'
 alias vb='vim ~/.bashrc'
 alias vr='vim ~/.vimrc'
@@ -157,7 +161,11 @@ fi
 export DESKTOP_THEME=$(theme get)
 
 # Set default text editor to nano
-export VISUAL=vim
+if [ "$VIM_HUGE" = "true" ]; then
+	export VISUAL=vim-huge
+else
+	export VISUAL=vim
+fi
 export EDITOR=$VISUAL
 
 # Add $HOME/bin to your PATH
