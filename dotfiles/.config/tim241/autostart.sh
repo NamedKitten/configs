@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+COMPTON=true
 # Set solid background as 'backup'
 xsetroot -solid "#303642" 
 # Fix for crashing DBUS processes: https://bbs.archlinux.org/viewtopic.php?id=224787
@@ -13,7 +14,7 @@ $HOME/.config/tim241/bin/gtk
 # Execute xrandr scripts
 $HOME/.config/tim241/xrandr/*.sh && sh ~/.config/tim241/bin/wallpaper 
 # Start compton
-if [ "x$COMPTON" != "xfalse" ]; then
+if [ "$COMPTON" != "false" ]; then
 	$HOME/.config/tim241/bin/compton 
 fi
 # Load nvidia-settings config
