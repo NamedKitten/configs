@@ -1,1 +1,0 @@
-export COMPTON=false
