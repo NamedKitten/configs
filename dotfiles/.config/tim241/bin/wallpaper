@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 if [ -d "$HOME/.config/tim241/themes/$DESKTOP_THEME/wallpaper/" ]; then
 	for wallpaper in $HOME/.config/tim241/themes/$DESKTOP_THEME/wallpaper/*; do
 		WP="$WP $wallpaper"

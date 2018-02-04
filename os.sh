@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 audio () {
 	# Fix audio issue I have
 	print Fixing audio

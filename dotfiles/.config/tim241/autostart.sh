@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 COMPTON=true
 # Set solid background as 'backup'
 xsetroot -solid "#303642" 

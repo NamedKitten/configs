@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 RESTORE=0
 KEEP=0
 function showhelp {
