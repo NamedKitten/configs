@@ -152,7 +152,7 @@ bindsym $mod+l exec $HOME/.config/tim241/bin/lock
 bindsym $mod+s exec echo "" | $HOME/.config/tim241/bin/rofi -dmenu -p "Search:" | xargs -I{} xdg-open https://duckduckgo.com/?q={}
 bindsym $mod+Control+f exec urxvt -e ranger 
 # Bind print to scrot
-bindsym Print exec scrot ~/screenshots/%Y-%m-%d-%T-screenshot.png
+bindsym Print exec $HOME/.config/tim241/bin/screenshot rofi
 # disable window borders
 for_window [class="^.*"] border pixel 0
 

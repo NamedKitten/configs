@@ -1,0 +1,26 @@
+#!/bin/sh
+
+if [ -z "$1" ] || [ "$1" = "--help" ] ; then
+	printf "%s\\n%s\\n" \
+    	"Fullscreen" \
+    	"Select"
+    exit 1
+fi
+
+dir=${HOME}/screenshots
+file=%Y-%m-%d-%T-screenshot.png
+[ ! -d "$dir" ] && mkdir "$dir"
+
+case "$1" in
+    Fullscreen)
+        scrot "$dir"/"$file"
+        ;;
+    Select)
+		scrot --select "$dir"/"$file"
+        ;;
+    rofi)
+		"$0" "$("$0" | "$HOME/.config/tim241/bin/rofi" -dmenu \
+				-mesg "-------------" \
+				-p "Screenshot:")"
+		;;
+esac
