@@ -7,7 +7,7 @@
 [[ $- != *i* ]] && return
 
 # Use minimalistic PS1
-PS1="> \w "
+PS1="> \\w "
 
 # Add sleep command which supports ms
 BASH_LOADABLES_PATH=$(pkg-config bash --variable=loadablesdir 2>/dev/null)
@@ -73,7 +73,7 @@ function weather {
 		echo curl is not installed!
 		return
 	fi
-	if [ ! $XDG_CACHE_HOME ]; then
+	if [ ! "$XDG_CACHE_HOME" ]; then
 		XDG_CACHE_HOME="$HOME/.cache"
 	fi
 	local WD="$XDG_CACHE_HOME/weather"
@@ -110,12 +110,12 @@ function weather {
 	done
 	if ping -q -c 1 -W 1 wttr.in >/dev/null 2>&1; then
 		if [ "$SYNC" = "true" ]; then 
-			$curl http://wttr.in/$CITY --silent > "$WD"/tmp 
+			"$curl" http://wttr.in/$CITY --silent > "$WD"/tmp 
 			if [ -f "$WD"/tmp ]; then
-				if [ $(wc -l "$WD"/tmp | cut -d' ' -f1) = 40 ]; then 
+				if [ "$(wc -l "$WD"/tmp | cut -d' ' -f1)" = 40 ]; then 
 					cp "$WD"/tmp "$WD"/weather
 					rm "$WD"/tmp
-					echo $(date +%H%y%m%d) > "$WD"/time
+					echo "$(date +%H%y%m%d)" > "$WD"/time
 					SYNCED=true
 				fi
 			fi
