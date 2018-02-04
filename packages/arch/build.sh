@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Print errors in red
 printError () {
 	echo -e "\n${RED}===> $@${NC}\n"
