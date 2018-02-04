@@ -19,7 +19,12 @@ case "$1" in
 		scrot --select "$dir"/"$file"
         ;;
     rofi)
-		"$0" "$("$0" | "$HOME/.config/tim241/bin/rofi" -dmenu \
+		if ! -f "$HOME/.config/tim241/bin/rofi"; then
+			rofi="$HOME/.config/tim241/bin/rofi"	
+		else
+			rofi="$(which rofi)"
+		fi
+		"$0" "$("$0" | "$rofi" -dmenu \
 				-mesg "-------------" \
 				-p "Screenshot:")"
 		;;
