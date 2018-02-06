@@ -66,7 +66,7 @@ void () {
 	print Installing nonfree repos
 	IVP void-repo-nonfree void-repo-multilib-nonfree
 	print Installing packages
-	IVP nvidia weechat bitlbee steam 
+	IVP nvidia weechat bitlbee steam oomox
 	print "Enabling services.."
 	ES bitlbee dnsmasq 	
 }
