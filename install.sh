@@ -97,7 +97,7 @@ if command -v pacman > /dev/null 2>&1; then
 	EOF sudo pacman --needed --noconfirm -S xorg-server xorg-xinit xorg-xrandr xorg-xsetroot arandr \
 		compton qt5ct qt5-styleplugins \
 		pavucontrol gcolor2 aspell-en \
-		vim perl-anyevent-i3 perl-json-xs pkgfile pulseaudio-alsa \
+		vim perl-anyevent-i3 perl-json-xs pkgfile pulseaudio-alsa w3m-img \
 		$SHARED_DEPENDENCIES
 	print "Updating databases.."
 	EOF sudo pkgfile --update
