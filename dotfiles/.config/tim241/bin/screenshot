@@ -13,9 +13,11 @@ file=%Y-%m-%d-%T-screenshot.png
 
 case "$1" in
     Fullscreen)
+		sleep 1
         scrot "$dir"/"$file"
         ;;
     Select)
+		sleep 1
 		scrot --select "$dir"/"$file"
         ;;
     rofi)
