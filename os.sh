@@ -104,6 +104,7 @@ if [ ! -f ".ic" ]; then
 fi
 ERRMSG="Unsupported platform: $ID"
 EOF $ID
+unset ERRMSG
 # Copy configs
 print "Copying system configs for dnsmasq"
 EOF sudo cp system/etc/dnsmasq.conf /etc/dnsmasq.conf
