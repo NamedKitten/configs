@@ -66,7 +66,7 @@ void () {
 	print Installing nonfree repos
 	IVP void-repo-nonfree void-repo-multilib-nonfree
 	print Installing packages
-	IVP nvidia weechat bitlbee steam oomox
+	IVP nvidia weechat bitlbee steam oomox nvidia-libs-32bit libdrm-32bit
 	print "Enabling services.."
 	ES bitlbee dnsmasq 	
 }
@@ -98,6 +98,10 @@ else
 	echo "Error: no /etc/os-release found!"
 	exit 1
 fi
+# Make sure install.sh is executed
+if [ ! -f ".ic" ]; then
+    EOF bash install.sh --nowarn
+fi
 ERRMSG="Unsupported platform: $ID"
 EOF $ID
 # Copy configs
@@ -105,10 +109,6 @@ print "Copying system configs for dnsmasq"
 EOF sudo cp system/etc/dnsmasq.conf /etc/dnsmasq.conf
 EOF sudo cp system/etc/resolv.dnsmasq /etc/resolv.dnsmasq
 #
-# Make sure install.sh is executed
-if [ ! -f ".ic" ]; then
-	EOF bash install.sh --nowarn
-fi
 print Setting up $HOME/bin
 git clone https://github.com/tim241/bin ~/bin
 touch .ks
