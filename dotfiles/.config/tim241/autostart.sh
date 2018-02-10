@@ -18,14 +18,18 @@ if [ "$COMPTON" != "false" ]; then
 	$HOME/.config/tim241/bin/compton 
 fi
 # Load nvidia-settings config
-if which nvidia-settings > /dev/null 2>&1; then
+if command -v nvidia-settings > /dev/null 2>&1; then
 	nvidia-settings -l
 fi
 # Load pulseaudio
-if which pulseaudio > /dev/null 2>&1; then
+if command -v pulseaudio > /dev/null 2>&1; then
 	pulseaudio -D
 fi
 # Load sc-controller 
-if which sc-controller > /dev/null 2>&1; then
+if command -v sc-controller > /dev/null 2>&1; then
 	sc-controller --gapplication-service		
+fi
+# Load mopidy
+if command -v mopidy > /dev/null 2>&1; then
+	mopidy
 fi
