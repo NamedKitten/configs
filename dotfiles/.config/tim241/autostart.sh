@@ -3,7 +3,7 @@ COMPTON=true
 # Set solid background as 'backup'
 xsetroot -solid "#303642" 
 # Fix for crashing DBUS processes: https://bbs.archlinux.org/viewtopic.php?id=224787
-dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY 
+dbus-update-activation-environment DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY 
 if [ -f "$HOME/.config/tim241/themes/$DESKTOP_THEME/source.sh" ]; then
 	source $HOME/.config/tim241/themes/$DESKTOP_THEME/source.sh
 fi
