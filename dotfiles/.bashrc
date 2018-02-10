@@ -58,6 +58,9 @@ alias sb='source ~/.bashrc'
 # Add alias for theme command
 alias theme='~/.config/tim241/bin/theme'
 
+# Add alias for ncmpcpp
+alias music='ncmpcpp'
+
 #####################################
 ##### <<-- function section -->> ####
 #####################################
