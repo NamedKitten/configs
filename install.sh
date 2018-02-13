@@ -86,7 +86,7 @@ fi
 EOR
 ask_sudo
 print "Checking if platform is supported.."
-SHARED_DEPENDENCIES="firefox curl rofi i3lock i3-gaps clang cmake llvm rxvt-unicode ranger feh pulseaudio alsa-utils lua w3m papirus-icon-theme scrot"
+SHARED_DEPENDENCIES="firefox curl rofi i3lock i3-gaps clang cmake llvm rxvt-unicode ranger feh pulseaudio alsa-utils lua w3m papirus-icon-theme scrot base-devel"
 if command -v pacman > /dev/null 2>&1; then
 	print "Arch linux detected.."
 	print "Installing packages for compiling packages"
@@ -134,7 +134,7 @@ elif command -v xbps-install > /dev/null 2>&1; then
 		xorg-minimal xorg-video-drivers xorg-apps xorg-fonts \
 		vim-huge \
 		rxvt-unicode-terminfo urxvt-perls ranger \
-		ConsoleKit2 dbus bash-completion \
+		ConsoleKit2 dbus bash-completion zlib-devel pulsemixer\
 		$SHARED_DEPENDENCIES
 	print "Enabling services"
 	ES dbus cgmanager consolekit alsa
