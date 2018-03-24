@@ -24,5 +24,6 @@ Get-AppxPackage *soundrecorder* | Remove-AppxPackage
 Get-AppxPackage *bingweather* | Remove-AppxPackage
 Get-AppxPackage *xboxapp* | Remove-AppxPackage
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-choco install firefox notepadplusplus steam git 7zip discord visualstudiocode --noconfirm -y --force
+choco install firefox notepadplusplus steam git 7zip discord visualstudiocode origin malwarebytes --noconfirm -y --force
 pause
+
