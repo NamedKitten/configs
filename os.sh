@@ -35,6 +35,8 @@ arch () {
 	print Enabling services
 	EOF sudo systemctl enable dnsmasq
 	EOF sudo systemctl enable dhcpcd
+	print "Enabling network time sync!"
+	sudo timedatectl set-ntp true
 }
 # Void linux
 void () {
