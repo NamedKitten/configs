@@ -90,14 +90,14 @@ SHARED_DEPENDENCIES="firefox curl rofi i3lock i3-gaps clang cmake llvm rxvt-unic
 if command -v pacman > /dev/null 2>&1; then
 	print "Arch linux detected.."
 	print "Installing packages for compiling packages"
-	EOF sudo pacman -S --noconfirm base-devel
+	EOF sudo pacman --needed --noconfirm -S base-devel 
 	print "Building packages from source.."
 	EOF bash ./packages/arch/build.sh
 	print "Installing required packages for Arch linux!"
 	EOF sudo pacman --needed --noconfirm -S xorg-server xorg-xinit xorg-xrandr xorg-xsetroot arandr \
 		compton qt5ct qt5-styleplugins \
 		pavucontrol gcolor2 aspell-en \
-		vim perl-anyevent-i3 perl-json-xs pkgfile pulseaudio-alsa w3m-img \
+		vim perl-anyevent-i3 perl-json-xs pkgfile pulseaudio-alsa w3m \
 		$SHARED_DEPENDENCIES
 	print "Updating databases.."
 	EOF sudo pkgfile --update
