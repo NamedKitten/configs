@@ -2,7 +2,7 @@
 audio () {
 	# Fix audio issue I have
 	print Fixing audio
-	if [ "$(grep "load-module module-udev-detect tsched=0" /etc/pulse/default.pa)" ]; then
+	if [ "$(grep "load-module module-udev-detect tsched=0" /etc/pulse/default.pa)" = "" ]; then
 		sudo sed -i "s/load-module module-udev-detect/load-module module-udev-detect tsched=0/g" /etc/pulse/default.pa
 	fi
 }
@@ -26,7 +26,7 @@ arch () {
 				nvidia-settings dnsmasq \
 				linux-headers steam steam-native-runtime weechat bitlbee \
 				--noconfirm --needed
-	EOF trizen -S r8168-dkms --noconfirm --needed
+	EOF trizen -S r8168-dkms all-repository-fonts --noconfirm --needed
 	print Fixing stuff and enabling services!
 	audio
 	# Blacklist the r8169 driver, to force the use of the r8168 driver
