@@ -70,7 +70,7 @@ export CITY=Heerlen
 
 # Display weather when we have internet
 function weather {
-	if which curl > /dev/null 2>&1; then
+	if command -v curl > /dev/null 2>&1; then
 		curl=$(which curl)
 	else
 		echo curl is not installed!
@@ -134,7 +134,7 @@ function weather {
 }
 # Display the date in a pretty way
 function showdate {
-	if which toilet > /dev/null 2>&1; then
+	if command -v toilet > /dev/null 2>&1; then
 		echo -e "\n$(date '+%D %T' | toilet -f term -F border --gay)\n"
 	else
 		echo -e "\n$(date '+%D %T')\n"
@@ -161,7 +161,7 @@ fi
 ##### <<-- preference section -->> ####
 #######################################
 # Set desktop theme
-if which theme > /dev/null 2>&1; then
+if command -v theme > /dev/null 2>&1; then
         export DESKTOP_THEME=$(theme get)
 fi
 
