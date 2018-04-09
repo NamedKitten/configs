@@ -161,7 +161,9 @@ fi
 ##### <<-- preference section -->> ####
 #######################################
 # Set desktop theme
-export DESKTOP_THEME=$(theme get)
+if which theme > /dev/null 2>&1; then
+        export DESKTOP_THEME=$(theme get)
+fi
 
 # Set default text editor to vim
 if [ "$VIM_HUGE" = "true" ]; then
