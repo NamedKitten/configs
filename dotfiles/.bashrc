@@ -28,7 +28,7 @@ alias nano='nano --nowrap'
 alias reloadXvar='$HOME/.config/tim241/bin/lxdef'
 
 # Aliases related to vim
-if command -v  vim-huge > /dev/null 2>&1; then
+if command -v vim-huge > /dev/null 2>&1; then
 	alias vim='vim-huge'
 	VIM_HUGE=true
 else
@@ -154,7 +154,7 @@ complete -F _theme theme
 
 # Source script file from theme, if exists
 if [ -f "$HOME/.config/tim241/themes/$DESKTOP_THEME/source.sh" ]; then
-	source $HOME/.config/tim241/themes/$DESKTOP_THEME/source.sh
+	source "$HOME/.config/tim241/themes/$DESKTOP_THEME/source.sh"
 fi
 
 #######################################
