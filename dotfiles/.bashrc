@@ -11,7 +11,7 @@ PS1="> \\w "
 
 # Add sleep command which supports ms
 BASH_LOADABLES_PATH=$(pkg-config bash --variable=loadablesdir 2>/dev/null)
-enable -f sleep sleep
+enable -f sleep sleep > /dev/null 2>&1
 
 ##################################
 ##### <<-- alias section -->> ####
@@ -56,7 +56,9 @@ alias clock='tty-clock -cD'
 alias sb='source ~/.bashrc'
 
 # Add alias for theme command
-alias theme='~/.config/tim241/bin/theme'
+if [ -f "$HOME/.config/tim241/bin/theme" ]; then
+	alias theme='~/.config/tim241/bin/theme'
+fi
 
 # Add alias for ncmpcpp
 alias music='ncmpcpp'
@@ -161,7 +163,7 @@ fi
 ##### <<-- preference section -->> ####
 #######################################
 # Set desktop theme
-if command -v theme > /dev/null 2>&1; then
+if [ -f "$HOME/.config/tim241/bin/theme" ]; then
         export DESKTOP_THEME=$(theme get)
 fi
 
