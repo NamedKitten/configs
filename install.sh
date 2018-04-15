@@ -102,7 +102,7 @@ if command -v pacman > /dev/null 2>&1; then
 	print "Updating databases.."
 	EOF sudo pkgfile --update
 	EOF sudo pacman -Sy 
-	EOF trizen -S betterlockscreen --noconfirm
+	EOF trizen -S betterlockscreen polybar --noconfirm
 	print "Configuring betterlockscreen"
 	betterlockscreen -u ./dotfiles/.config/tim241/themes/simple_dark/wallpaper/*
 elif command -v xbps-install > /dev/null 2>&1; then

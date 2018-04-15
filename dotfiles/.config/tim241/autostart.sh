@@ -29,6 +29,10 @@ fi
 if command -v sc-controller > /dev/null 2>&1; then
 	sc-controller --gapplication-service		
 fi
+# Load polybar
+if command -v polybar > /dev/null 2>&1; then
+	polybar i3
+fi
 # Load mopidy
 if command -v mopidy > /dev/null 2>&1; then
 	mopidy
