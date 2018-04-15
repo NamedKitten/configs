@@ -86,7 +86,7 @@ fi
 EOR
 ask_sudo
 print "Checking if platform is supported.."
-SHARED_DEPENDENCIES="firefox curl rofi i3lock i3-gaps clang cmake llvm rxvt-unicode ranger feh pulseaudio alsa-utils lua w3m papirus-icon-theme scrot base-devel"
+SHARED_DEPENDENCIES="firefox curl rofi i3-gaps clang cmake llvm rxvt-unicode ranger feh pulseaudio alsa-utils lua w3m papirus-icon-theme scrot base-devel"
 if command -v pacman > /dev/null 2>&1; then
 	print "Arch linux detected.."
 	print "Installing packages for compiling packages"
@@ -102,6 +102,9 @@ if command -v pacman > /dev/null 2>&1; then
 	print "Updating databases.."
 	EOF sudo pkgfile --update
 	EOF sudo pacman -Sy 
+	EOF trizen -S betterlockscreen --noconfirm
+	print "Configuring betterlockscreen"
+	betterlockscreen -u ./dotfiles/.config/tim241/themes/simple_dark/wallpaper/*
 elif command -v xbps-install > /dev/null 2>&1; then
 	# function Install Void Package(s)
 	function IVP {
@@ -134,7 +137,7 @@ elif command -v xbps-install > /dev/null 2>&1; then
 		xorg-minimal xorg-video-drivers xorg-apps xorg-fonts \
 		vim-huge \
 		rxvt-unicode-terminfo urxvt-perls ranger \
-		ConsoleKit2 dbus bash-completion zlib-devel pulsemixer\
+		ConsoleKit2 dbus bash-completion zlib-devel pulsemixer i3lock\
 		$SHARED_DEPENDENCIES
 	print "Enabling services"
 	ES dbus cgmanager consolekit alsa
