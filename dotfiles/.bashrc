@@ -162,6 +162,7 @@ fi
 #######################################
 ##### <<-- preference section -->> ####
 #######################################
+
 # Set desktop theme
 if [ -f "$HOME/.config/tim241/bin/theme" ]; then
         export DESKTOP_THEME=$(theme get)
@@ -177,6 +178,11 @@ export EDITOR=$VISUAL
 
 # Add $HOME/bin to your PATH
 export PATH="$HOME/bin:$PATH"
+
+# Start X in tty1
+if [ "$(tty)" = "/dev/tty1" ] && [ -f "$HOME/.xinitrc" ]; then
+	startx
+fi
 
 # Display the weather forecast(the short version)
 weather --short
