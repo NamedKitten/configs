@@ -28,7 +28,12 @@ function settheme {
 	echo "==> Setting wallpaper"
 	$HOME/.config/tim241/bin/wallpaper
 	echo "==> Updating terminal colors"
-	cat $HOME/.config/tim241/themes/$DESKTOP_THEME/sequences | tee /dev/pts/*
+	for terminal in /dev/pts/*; do
+		case $(echo ${terminal: -4} | cut -d'/' -f2) in
+    		''|*[!0-9]*) ;;
+    		*) echo Updating $terminal; cat "$HOME/.config/tim241/themes/$DESKTOP_THEME/sequences" > "$terminal" ;;
+		esac
+	done
 	if command -v betterlockscreen > /dev/null 2>&1; then
 		echo "==> Configuring betterlockscreen"
 		betterlockscreen -u "$HOME/.config/tim241/themes/$DESKTOP_THEME/wallpaper/$(ls "$HOME/.config/tim241/themes/$DESKTOP_THEME/wallpaper/" | head -1)"
