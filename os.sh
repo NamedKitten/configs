@@ -1,22 +1,22 @@
 #!/usr/bin/env bash
 set -e
 trap "echo '==> Command failed to execute!'; exit 1" ERR
-echo "==> Fixing audio"
-if [ "$(grep "load-module module-udev-detect tsched=0" /etc/pulse/default.pa)" = "" ]; then
-	sudo sed -i "s/load-module module-udev-detect/load-module module-udev-detect tsched=0/g" /etc/pulse/default.pa
-fi
+echo "==> Copying system configs"
+for file in system/arch/etc/*; do 
+        sudo cp $file /etc/$(basename $file)
+done
+sudo cp system/etc/dnsmasq.conf /etc/dnsmasq.conf
+sudo cp system/etc/resolv.dnsmasq /etc/resolv.dnsmasq
 if [ ! -f .ic ]; then
 	bash install.sh
 	touch .ic
 fi
-echo "==> Copying system configs"
-for file in system/arch/etc/*; do 
-		sudo cp $file /etc/$(basename $file)
-done
-sudo cp system/etc/dnsmasq.conf /etc/dnsmasq.conf
-sudo cp system/etc/resolv.dnsmasq /etc/resolv.dnsmasq
+echo "==> Fixing audio"
+if [ "$(grep "load-module module-udev-detect tsched=0" /etc/pulse/default.pa)" = "" ]; then
+    sudo sed -i "s/load-module module-udev-detect/load-module module-udev-detect tsched=0/g" /etc/pulse/default.pa
+fi
 echo "==> Installing packages"
-sudo pacman -S nvidia-dkms lib32-nvidia-utils opencl-nvidia \
+sudo pacman -Syu nvidia-dkms lib32-nvidia-utils opencl-nvidia \
 		nvidia-settings dnsmasq \
 		linux-headers steam steam-native-runtime weechat bitlbee \
 		--noconfirm --needed

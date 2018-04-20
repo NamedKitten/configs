@@ -18,7 +18,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 git clone https://github.com/jeaye/color_coded ~/.vim/bundle/color_coded
 git clone https://github.com/Rip-Rip/clang_complete ~/.vim/bundle/clang_complete
 cd ~/.vim/bundle/color_coded
-mkdir build && cd build && EOF cmake .. -DDOWNLOAD_CLANG=0
+mkdir build && cd build && cmake .. -DDOWNLOAD_CLANG=0
 make -j5
 make install -j5
 make clean
