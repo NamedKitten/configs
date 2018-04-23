@@ -149,40 +149,33 @@ mode "resize" {
 
 bindsym $mod+r exec $HOME/.config/tim241/bin/rofi -show run
 bindsym $mod+l exec $HOME/.config/tim241/bin/lock
-bindsym $mod+s exec echo "" | $HOME/.config/tim241/bin/rofi -dmenu -p "Search:" | xargs -I{} xdg-open https://duckduckgo.com/?q={}
 bindsym $mod+Control+f exec urxvt -e ranger 
-# Bind print to scrot
+
+# Bind print to screenshot script
 bindsym Print exec $HOME/.config/tim241/bin/screenshot rofi
+
+# toggle sticky
+bindsym $mod+Shift+s sticky toggle
+
 # disable window borders
 for_window [class="^.*"] border pixel 0
 
 # Enable borders for terminsla
 for_window [class="URxvt"] border pixel 2
 
-# class			border	bg		text	indicater	child_border
-client.focused	#A3917F	#A3917F	#A3917F	#A3917F		#A3917F 
-client.unfocused  #00000000 #00000000 #00000000 #00000000 #00000000
+# class                 border    bg        text      indicater child_border
+client.focused          #A3917F   #A3917F   #A3917F   #A3917F   #A3917F 
+client.unfocused        #00000000 #00000000 #00000000 #00000000 #00000000
 client.focused_inactive #00000000 #00000000 #00000000 #00000000 #00000000
-#client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-#client.urgent           #2f343a #900000 #ffffff #900000   #900000
-#client.background       #ffffff
 
 # enable float for Steam
 for_window [class="Steam"] floating enable, border none 
- 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#	colors{
-#		#background #1c1b1a
-#		background #00000000
-#	}
-#	position top
-#       status_command $HOME/.config/i3/bin/bar
-#	tray_output primary
-#}
-# i3 gaps
+
+# gaps 
 gaps inner 20
 
+# bar
+exec --no-startup-id polybar i3
+
 # Autostart
-exec $HOME/.config/tim241/autostart.sh
+exec --no-startup-id $HOME/.config/tim241/autostart.sh
