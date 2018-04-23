@@ -1,12 +1,21 @@
 #!/usr/bin/env bash
 set -e
 trap "echo '==> Command failed to execute!'; exit 1" ERR
+_sudo_session=yes
+function _keep_sudo() {
+    while [ "$_sudo_session" = "yes" ]; do
+        sleep 60
+        sudo -v
+    done
+}
+_keep_sudo &
 echo "==> Copying system configs"
 for file in system/arch/etc/*; do 
         sudo cp $file /etc/$(basename $file)
 done
 sudo cp system/etc/dnsmasq.conf /etc/dnsmasq.conf
 sudo cp system/etc/resolv.dnsmasq /etc/resolv.dnsmasq
+sudo pacman -Sy
 if [ ! -f .ic ]; then
 	bash install.sh
 	touch .ic
@@ -30,5 +39,6 @@ if [ ! -d "$HOME/bin" ]; then
 	echo "==> Preparing $HOME/bin"
 	git clone https://github.com/tim241/bin "$HOME/bin"
 fi
+_sudo_session=no
 echo "==> Enabling network time"
 sudo timedatectl set-ntp true
