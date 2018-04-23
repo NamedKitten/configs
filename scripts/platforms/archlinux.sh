@@ -7,9 +7,9 @@ trizen --needed --noconfirm -S xorg-server xorg-xinit xorg-xrandr xorg-xsetroot 
         compton qt5ct qt5-styleplugins \
         pavucontrol gcolor2 aspell-en \
         vim perl-anyevent-i3 perl-json-xs pkgfile pulseaudio-alsa w3m adapta-gtk-theme \
-	    firefox curl rofi i3-gaps clang cmake llvm rxvt-unicode ranger feh pulseaudio \
-		alsa-utils lua w3m papirus-icon-theme scrot base-devel \
-		betterlockscreen polybar toilet cava-git
+        firefox curl rofi i3-gaps clang cmake llvm rxvt-unicode ranger feh pulseaudio \
+        alsa-utils lua w3m papirus-icon-theme scrot base-devel \
+        betterlockscreen polybar toilet cava-git
 echo "==> Preparing dotfiles"
  mkdir -p $HOME/.config/ $HOME/.themes/ $HOME/.weechat
 echo "exec i3" > "$HOME/.xinitrc"

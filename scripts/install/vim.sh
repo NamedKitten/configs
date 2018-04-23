@@ -4,14 +4,14 @@ BDIR="$(pwd)"
 trap "echo '==> Command failed to execute!'; exit 1" ERR
 cp dotfiles/.vimrc ~/.vimrc
 if command -v vim-huge > /dev/null 2>&1; then
-	vim=$(which vim-huge)
+    vim=$(which vim-huge)
 elif command -v vim > /dev/null 2>&1; then
-	vim=$(which vim)
+    vim=$(which vim)
 else
     exit 1
 fi
 if [ -d "$HOME/.vim/bundle" ]; then
-	exit
+    exit
 fi
 mkdir -p ~/.vim/bundle/
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim

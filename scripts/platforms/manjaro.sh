@@ -4,7 +4,7 @@ echo "==> Building packages"
 bash ./scripts/install/packages/archlinux/build.sh
 echo "==> Installing packages"
 trizen --needed --noconfirm -S aspell-en pkgfile base-devel \
-			polybar toilet cava-git
+            polybar toilet cava-git
 echo "==> Preparing dotfiles"
 mkdir -p $HOME/.config/
 cp dotfiles/.bashrc "$HOME/.bashrc"
