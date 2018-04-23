@@ -23,6 +23,9 @@ let g:color_coded_enabled = 1
 
 " Make tab 4 spaces
 set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
 " Bind f8 to compiling c file
 map <F8> :w <CR> :!gcc % && ./a.out <CR>
 
