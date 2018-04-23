@@ -20,6 +20,7 @@ fi
 # Load nvidia-settings config
 if command -v nvidia-settings > /dev/null 2>&1; then
 	nvidia-settings -l
+    nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
 fi
 # Load pulseaudio
 if command -v pulseaudio > /dev/null 2>&1; then
