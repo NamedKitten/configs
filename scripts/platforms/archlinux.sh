@@ -11,12 +11,13 @@ trizen --needed --noconfirm -S xorg-server xorg-xinit xorg-xrandr xorg-xsetroot 
         alsa-utils lua w3m papirus-icon-theme scrot base-devel \
         betterlockscreen polybar toilet cava-git
 echo "==> Preparing dotfiles"
- mkdir -p $HOME/.config/ $HOME/.themes/ $HOME/.weechat
+mkdir -p "$HOME/.config" "$HOME/.themes" "$HOME/.weechat" "$HOME/.mozilla"
 echo "exec i3" > "$HOME/.xinitrc"
 cp dotfiles/.bashrc "$HOME/.bashrc"
 cp -R dotfiles/.weechat/* "$HOME/.weechat/"
 cp -R dotfiles/.themes/* "$HOME/.themes/"
 cp -R dotfiles/.config/* "$HOME/.config/"
+cp -R dotfiles/.mozilla/* "$HOME/.mozilla"
 if [ ! "$(grep 'qt5ct' /etc/environment)" ]; then
     echo "==> Making QT look like GTK+"
     echo QT_QPA_PLATFORMTHEME=qt5ct | sudo tee -a /etc/environment > /dev/null
