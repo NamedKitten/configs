@@ -164,7 +164,7 @@ for_window [class="^.*"] border pixel 0
 for_window [class="URxvt"] border pixel 2
 
 # class                 border    bg        text      indicater child_border
-client.focused          #A3917F   #A3917F   #A3917F   #A3917F   #A3917F 
+client.focused          #ffffff   #ffffff   #ffffff   #ffffff   #ffffff 
 client.unfocused        #00000000 #00000000 #00000000 #00000000 #00000000
 client.focused_inactive #00000000 #00000000 #00000000 #00000000 #00000000
 
