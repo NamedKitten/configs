@@ -137,7 +137,7 @@ function weather {
 # Display the date in a pretty way
 function showdate {
     if command -v toilet > /dev/null 2>&1; then
-        echo -e "\n$(date '+%D %T' | toilet -f term -F border --gay)\n"
+        echo -e "\n$(date '+%D %T' | toilet -f term -F border)\n"
     else
         echo -e "\n$(date '+%D %T')\n"
     fi
