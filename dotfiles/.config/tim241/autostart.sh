@@ -5,7 +5,7 @@ xsetroot -solid "#303642"
 # Fix for crashing DBUS processes: https://bbs.archlinux.org/viewtopic.php?id=224787
 dbus-update-activation-environment DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY 
 if [ -f "$HOME/.config/tim241/themes/$DESKTOP_THEME/source.sh" ]; then
-	source $HOME/.config/tim241/themes/$DESKTOP_THEME/source.sh
+    source $HOME/.config/tim241/themes/$DESKTOP_THEME/source.sh
 fi
 # Load Xdefaults
 $HOME/.config/tim241/bin/lxdef 
@@ -15,22 +15,23 @@ $HOME/.config/tim241/bin/gtk
 $HOME/.config/tim241/xrandr/*.sh && sh ~/.config/tim241/bin/wallpaper 
 # Start compton
 if [ "$COMPTON" != "false" ]; then
-	$HOME/.config/tim241/bin/compton 
+    $HOME/.config/tim241/bin/compton 
 fi
 # Load nvidia-settings config
 if command -v nvidia-settings > /dev/null 2>&1; then
-	nvidia-settings -l
-    nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
+    nvidia-settings -l
+    nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"  
+    nvidia-settings --assign GPULogoBrightness=0
 fi
 # Load pulseaudio
 if command -v pulseaudio > /dev/null 2>&1; then
-	pulseaudio -D
+    pulseaudio -D
 fi
 # Load sc-controller 
 if command -v sc-controller > /dev/null 2>&1; then
-	sc-controller --gapplication-service		
+    sc-controller --gapplication-service        
 fi
 # Load mopidy
 if command -v mopidy > /dev/null 2>&1; then
-	mopidy
+    mopidy
 fi
