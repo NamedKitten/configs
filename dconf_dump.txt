@@ -1,0 +1,200 @@
+[org/gnome/settings-daemon/plugins/power]
+power-button-action='interactive'
+sleep-inactive-ac-type='nothing'
+
+[org/gnome/settings-daemon/plugins/xsettings]
+hinting='slight'
+
+[org/gnome/settings-daemon/peripherals/keyboard]
+numlock-state='on'
+
+[org/gnome/shell]
+enabled-extensions=['dash-to-dock@micxgx.gmail.com', 'gnomenu@panacier.gmail.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'appindicatorsupport@rgcjonas.gmail.com', 'arc-menu@linxgem33.com', 'hidetopbar@mathieu.bidon.ca', 'openweather-extension@jenslody.de', 'no-workspace-switcher-popup@devbury.com']
+favorite-apps=['firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'sublime_text.desktop']
+
+[org/gnome/shell/extensions/user-theme]
+name='X-Arc-Plus'
+
+[org/gnome/shell/extensions/dash-to-dock]
+show-windows-preview=true
+extend-height=false
+dock-fixed=false
+show-show-apps-button=false
+multi-monitor=true
+custom-background-color=true
+apply-custom-theme=false
+dock-position='BOTTOM'
+custom-theme-shrink=true
+background-opacity=0.77000000000000002
+running-indicator-style='SEGMENTED'
+background-color='#eeeeec'
+transparency-mode='FIXED'
+
+[org/gnome/shell/extensions/workspaces-to-dock]
+intellihide-action='SHOW_PARTIAL_FIXED'
+background-opacity=0.47999999999999998
+autohide=false
+dock-fixed=false
+intellihide=true
+hide-dash=true
+overview-action='HIDE'
+
+[org/gnome/shell/extensions/arc-menu]
+custom-menu-button-text='Finder'
+custom-menu-button-icon='@HOME@/Pictures/wallpaper/macOS-High-Sierra-Wallpaper.jpg'
+menu-button-icon='Arc_Menu_Icon'
+
+[org/gnome/shell/extensions/openweather]
+weather-provider='openweathermap'
+days-forecast=2
+unit='celsius'
+geolocation-provider='openstreetmaps'
+actual-city=0
+use-default-owm-key=true
+show-text-in-panel=true
+wind-speed-unit='mph'
+use-symbolic-icons=true
+position-in-panel='center'
+translate-condition=true
+city='50.87627725,5.98279521547417>Heerlen, Parkstad Limburg, Limburg, Nederland >-1'
+wind-direction=true
+pressure-unit='inHg'
+show-comment-in-forecast=true
+decimal-places=1
+
+[org/gnome/shell/overrides]
+dynamic-workspaces=false
+
+[org/gnome/gedit/preferences/ui]
+show-tabs-mode='auto'
+
+[org/gnome/gedit/plugins/filebrowser]
+virtual-root='file://@HOME@'
+tree-view=true
+root='file:///'
+
+[org/gnome/gedit/plugins]
+active-plugins=['filebrowser', 'modelines', 'docinfo', 'time', 'spell']
+
+[org/gnome/gedit/state/window]
+size=(900, 700)
+state=87168
+bottom-panel-size=140
+side-panel-size=200
+side-panel-active-page='GeditWindowDocumentsPanel'
+
+[org/gnome/gnome-screenshot]
+include-pointer=false
+include-border=true
+border-effect='none'
+delay=0
+last-save-directory='file://@HOME@/Pictures'
+
+[org/gnome/nautilus/preferences]
+default-folder-viewer='icon-view'
+search-filter-time-type='last_modified'
+
+[org/gnome/nautilus/window-state]
+maximized=false
+initial-size=(890, 550)
+
+[org/gnome/evolution-data-server]
+network-monitor-gio-name=''
+migrated=true
+
+[org/gnome/desktop/interface]
+clock-show-date=false
+text-scaling-factor=0.89999999999999991
+icon-theme='Arc-OSX-P'
+show-battery-percentage=false
+cursor-theme='Paper'
+gtk-theme='X-Arc-Plus'
+
+[org/gnome/desktop/notifications]
+application-children=['firefox', 'gnome-shell-extension-prefs', 'org-gnome-tweaks', 'discord']
+
+[org/gnome/desktop/notifications/application/org-gnome-tweaks]
+application-id='org.gnome.tweaks.desktop'
+
+[org/gnome/desktop/notifications/application/gnome-shell-extension-prefs]
+application-id='gnome-shell-extension-prefs.desktop'
+
+[org/gnome/desktop/notifications/application/discord]
+application-id='Discord.desktop'
+
+[org/gnome/desktop/notifications/application/firefox]
+application-id='firefox.desktop'
+
+[org/gnome/desktop/screensaver]
+picture-uri='file://@HOME@/Pictures/wallpaper/macOS-High-Sierra-Wallpaper.jpg'
+
+[org/gnome/desktop/session]
+idle-delay=uint32 0
+
+[org/gnome/desktop/search-providers]
+sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
+
+[org/gnome/desktop/calendar]
+show-weekdate=false
+
+[org/gnome/desktop/wm/preferences]
+button-layout='close,minimize,maximize:appmenu'
+num-workspaces=8
+
+[org/gnome/desktop/wm/keybindings]
+panel-main-menu=['<Alt>F1']
+
+[org/gnome/desktop/background]
+picture-uri='file://@HOME@/Pictures/wallpaper/macOS-High-Sierra-Wallpaper.jpg'
+primary-color='#02023c3c8888'
+picture-options='zoom'
+
+[org/gnome/desktop/input-sources]
+sources=[('xkb', 'us')]
+xkb-options=@as []
+
+[org/gnome/control-center]
+last-panel='bluetooth'
+
+[org/gnome/terminal/legacy/profiles:]
+list=['76c069b5-f305-4a2e-a859-87dde0ec7836', 'a96676bd-e195-4a6d-8706-ad9dd06871d9']
+default='a96676bd-e195-4a6d-8706-ad9dd06871d9'
+
+[org/gnome/terminal/legacy/profiles:/:76c069b5-f305-4a2e-a859-87dde0ec7836]
+foreground-color='rgb(255,255,255)'
+visible-name='Base 16 Default Dark'
+palette=['rgb(0,0,0)', 'rgb(170,0,0)', 'rgb(0,170,0)', 'rgb(170,85,0)', 'rgb(0,0,170)', 'rgb(170,0,170)', 'rgb(0,170,170)', 'rgb(170,170,170)', 'rgb(85,85,85)', 'rgb(255,85,85)', 'rgb(85,255,85)', 'rgb(255,255,85)', 'rgb(85,85,255)', 'rgb(255,85,255)', 'rgb(85,255,255)', 'rgb(255,255,255)']
+cursor-background-color='#d8d8d8'
+cursor-colors-set=true
+use-theme-colors=false
+cursor-foreground-color='#181818'
+use-theme-background=false
+bold-color-same-as-fg=true
+bold-color='#d8d8d8'
+background-color='rgb(0,0,0)'
+
+[org/gnome/terminal/legacy/profiles:/:a96676bd-e195-4a6d-8706-ad9dd06871d9]
+use-theme-colors=false
+visible-name='Manjaro'
+
+[org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+palette=['rgb(0,0,0)', 'rgb(170,0,0)', 'rgb(0,170,0)', 'rgb(170,85,0)', 'rgb(0,0,170)', 'rgb(170,0,170)', 'rgb(0,170,170)', 'rgb(170,170,170)', 'rgb(85,85,85)', 'rgb(255,85,85)', 'rgb(85,255,85)', 'rgb(255,255,85)', 'rgb(85,85,255)', 'rgb(255,85,255)', 'rgb(85,255,255)', 'rgb(255,255,255)']
+
+[org/gnome/terminal/legacy]
+schema-version=uint32 3
+
+[org/gtk/settings/file-chooser]
+sort-column='name'
+sidebar-width=163
+window-position=(359, 59)
+show-size-column=true
+show-hidden=false
+window-size=(1203, 902)
+sort-directories-first=false
+date-format='regular'
+sort-order='ascending'
+location-mode='path-bar'
+
+[org/gtk/settings/color-chooser]
+selected-color=(true, 0.93333333333333335, 0.93333333333333335, 0.92549019607843142, 1.0)
+custom-colors=[(0.074509803921568626, 0.098039215686274508, 0.10980392156862745, 1.0)]
