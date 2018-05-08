@@ -72,9 +72,7 @@ export CITY=Heerlen
 
 # Display weather when we have internet
 function weather {
-    if command -v curl > /dev/null 2>&1; then
-        curl=$(which curl)
-    else
+    if ! command -v curl > /dev/null 2>&1; then
         echo curl is not installed!
         return
     fi
@@ -115,12 +113,12 @@ function weather {
     done
     if ping -q -c 1 -W 1 wttr.in >/dev/null 2>&1; then
         if [ "$SYNC" = "true" ]; then 
-            "$curl" http://wttr.in/$CITY --silent > "$WD"/tmp 
+            curl http://wttr.in/$CITY --silent > "$WD"/tmp 
             if [ -f "$WD"/tmp ]; then
                 if [ "$(wc -l "$WD"/tmp | cut -d' ' -f1)" = 40 ]; then 
                     cp "$WD"/tmp "$WD"/weather
                     rm "$WD"/tmp
-                    echo "$(date +%H%y%m%d)" > "$WD"/time
+                    date +%H%y%m%d > "$WD"/time
                     SYNCED=true
                 fi
             fi
@@ -181,7 +179,7 @@ export PATH="$HOME/bin:$PATH"
 
 # Start X in tty1
 if [ "$(tty)" = "/dev/tty1" ] && [ -f "$HOME/.xinitrc" ]; then
-    startx
+    exec startx
 fi
 
 # Display the weather forecast(the short version)
