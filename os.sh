@@ -6,6 +6,9 @@ function trizen() {
 function print() {
 	printf "\n==> $*\n\n"
 }
+print "Copying user configs..."
+mkdir -p "$HOME/.config"
+cp -r dotfiles/.config/* "$HOME/.config/"
 print "Copying system configs..."
 sudo cp system/etc/makepkg.conf /etc/makepkg.conf
 if [ ! $(grep "sublime-text" /etc/pacman.conf) ]
