@@ -3,6 +3,7 @@ power-button-action='interactive'
 sleep-inactive-ac-type='nothing'
 
 [org/gnome/settings-daemon/plugins/xsettings]
+antialiasing='grayscale'
 hinting='slight'
 
 [org/gnome/settings-daemon/peripherals/keyboard]
@@ -26,8 +27,11 @@ apply-custom-theme=false
 dock-position='BOTTOM'
 custom-theme-shrink=true
 background-opacity=0.77000000000000002
-running-indicator-style='SEGMENTED'
+height-fraction=0.90000000000000002
+dash-max-icon-size=32
 background-color='#eeeeec'
+running-indicator-style='SEGMENTED'
+icon-size-fixed=false
 transparency-mode='FIXED'
 
 [org/gnome/shell/extensions/workspaces-to-dock]
@@ -42,6 +46,8 @@ overview-action='HIDE'
 [org/gnome/shell/extensions/arc-menu]
 custom-menu-button-text='Finder'
 custom-menu-button-icon='@HOME@/Pictures/wallpaper/macOS-High-Sierra-Wallpaper.jpg'
+menu-button-text='Custom_Text'
+menu-button-appearance='Icon_Text'
 menu-button-icon='Arc_Menu_Icon'
 
 [org/gnome/shell/overrides]
@@ -87,10 +93,11 @@ migrated=true
 [org/gnome/desktop/interface]
 clock-show-date=false
 text-scaling-factor=0.89999999999999991
-icon-theme='Arc-OSX-P'
+gtk-im-module='gtk-im-context-simple'
 show-battery-percentage=false
 cursor-theme='Paper'
 gtk-theme='X-Arc-Plus'
+icon-theme='Arc-OSX-P'
 
 [org/gnome/desktop/notifications]
 application-children=['firefox', 'gnome-shell-extension-prefs', 'org-gnome-tweaks', 'discord']
@@ -110,17 +117,37 @@ application-id='firefox.desktop'
 [org/gnome/desktop/notifications/application/org-gnome-nautilus]
 application-id='org.gnome.Nautilus.desktop'
 
+[org/gnome/desktop/app-folders]
+folder-children=['Utilities', 'Sundry', 'YaST']
+
+[org/gnome/desktop/app-folders/folders/Utilities]
+translate=true
+categories=['X-GNOME-Utilities']
+apps=['org.gnome.baobab.desktop', 'deja-dup-preferences.desktop', 'eog.desktop', 'evince.desktop', 'org.gnome.FileRoller.desktop', 'gnome-calculator.desktop', 'gnome-dictionary.desktop', 'org.gnome.Characters.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.font-viewer.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Screenshot.desktop', 'gnome-system-log.desktop', 'gnome-system-monitor.desktop', 'gnome-tweak-tool.desktop', 'gucharmap.desktop', 'seahorse.desktop', 'vinagre.desktop', 'yelp.desktop']
+name='X-GNOME-Utilities.directory'
+
+[org/gnome/desktop/app-folders/folders/Sundry]
+translate=true
+categories=['X-GNOME-Sundry']
+apps=['alacarte.desktop', 'authconfig.desktop', 'ca.desrt.dconf-editor.desktop', 'fedora-release-notes.desktop', 'firewall-config.desktop', 'flash-player-properties.desktop', 'gconf-editor.desktop', 'gnome-abrt.desktop', 'gnome-power-statistics.desktop', 'ibus-setup-anthy.desktop', 'ibus-setup.desktop', 'ibus-setup-hangul.desktop', 'ibus-setup-libbopomofo.desktop', 'ibus-setup-libpinyin.desktop', 'ibus-setup-m17n.desktop', 'ibus-setup-typing-booster.desktop', 'im-chooser.desktop', 'itweb-settings.desktop', 'jhbuild.desktop', 'javaws.desktop', 'java-1.7.0-openjdk-jconsole.desktop', 'java-1.7.0-openjdk-policytool.desktop', 'log4j-chainsaw.desktop', 'log4j-logfactor5.desktop', 'nm-connection-editor.desktop', 'orca.desktop', 'setroubleshoot.desktop', 'system-config-date.desktop', 'system-config-firewall.desktop', 'system-config-keyboard.desktop', 'system-config-language.desktop', 'system-config-printer.desktop', 'system-config-users.desktop', 'vino-preferences.desktop']
+name='X-GNOME-Sundry.directory'
+
+[org/gnome/desktop/app-folders/folders/YaST]
+translate=true
+categories=['X-SuSE-YaST']
+name='suse-yast.directory'
+
 [org/gnome/desktop/screensaver]
 picture-uri='file://@HOME@/Pictures/wallpaper/macOS-High-Sierra-Wallpaper.jpg'
-
-[org/gnome/desktop/session]
-idle-delay=uint32 0
 
 [org/gnome/desktop/search-providers]
 sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
 
 [org/gnome/desktop/calendar]
 show-weekdate=false
+
+[org/gnome/desktop/session]
+idle-delay=uint32 0
 
 [org/gnome/desktop/wm/preferences]
 button-layout='close,minimize,maximize:appmenu'
@@ -139,7 +166,7 @@ sources=[('xkb', 'us')]
 xkb-options=@as []
 
 [org/gnome/control-center]
-last-panel='bluetooth'
+last-panel='default-apps'
 
 [org/gnome/terminal/legacy/profiles:]
 list=['a96676bd-e195-4a6d-8706-ad9dd06871d9']
@@ -149,11 +176,24 @@ default='a96676bd-e195-4a6d-8706-ad9dd06871d9'
 palette=['rgb(0,0,0)', 'rgb(170,0,0)', 'rgb(0,170,0)', 'rgb(170,85,0)', 'rgb(0,0,170)', 'rgb(170,0,170)', 'rgb(0,170,170)', 'rgb(170,170,170)', 'rgb(85,85,85)', 'rgb(255,85,85)', 'rgb(85,255,85)', 'rgb(255,255,85)', 'rgb(85,85,255)', 'rgb(255,85,255)', 'rgb(85,255,255)', 'rgb(255,255,255)']
 
 [org/gnome/terminal/legacy/profiles:/:a96676bd-e195-4a6d-8706-ad9dd06871d9]
+background-color='rgb(69,70,73)'
 use-theme-colors=false
+palette=['rgb(0,0,0)', 'rgb(170,0,0)', 'rgb(0,170,0)', 'rgb(170,85,0)', 'rgb(0,0,170)', 'rgb(170,0,170)', 'rgb(0,170,170)', 'rgb(170,170,170)', 'rgb(85,85,85)', 'rgb(255,85,85)', 'rgb(85,255,85)', 'rgb(255,255,85)', 'rgb(85,85,255)', 'rgb(255,85,255)', 'rgb(85,255,255)', 'rgb(255,255,255)']
+bold-color-same-as-fg=true
+foreground-color='rgb(255,255,255)'
 visible-name='OSX'
 
 [org/gnome/terminal/legacy]
 schema-version=uint32 3
+
+[org/gnome/software]
+check-timestamp=int64 1525945379
+
+[org/gnome/gnome-system-monitor]
+show-dependencies=false
+maximized=false
+show-whose-processes='user'
+window-state=(700, 500, 50, 50)
 
 [org/gtk/settings/file-chooser]
 sort-column='name'
@@ -168,5 +208,5 @@ sort-order='ascending'
 location-mode='path-bar'
 
 [org/gtk/settings/color-chooser]
-selected-color=(true, 0.93333333333333335, 0.93333333333333335, 0.92549019607843142, 1.0)
-custom-colors=[(0.074509803921568626, 0.098039215686274508, 0.10980392156862745, 1.0)]
+selected-color=(true, 1.0, 1.0, 1.0, 1.0)
+custom-colors=[(0.33333333333333331, 0.33333333333333331, 0.33333333333333331, 1.0), (0.66666666666666663, 0.66666666666666663, 0.66666666666666663, 1.0), (0.48627450980392156, 0.57647058823529396, 0.62745098039215685, 1.0), (0.396078431372549, 0.4823529411764706, 0.51372549019607838, 1.0), (0.27058823529411763, 0.27450980392156865, 0.28627450980392155, 1.0), (0.99215686274509807, 0.96470588235294119, 0.8901960784313725, 1.0), (0.074509803921568626, 0.098039215686274508, 0.10980392156862745, 1.0)]
