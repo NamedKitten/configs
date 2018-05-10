@@ -9,7 +9,7 @@ hinting='slight'
 numlock-state='on'
 
 [org/gnome/shell]
-enabled-extensions=['dash-to-dock@micxgx.gmail.com', 'gnomenu@panacier.gmail.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'appindicatorsupport@rgcjonas.gmail.com', 'arc-menu@linxgem33.com', 'hidetopbar@mathieu.bidon.ca', 'openweather-extension@jenslody.de', 'no-workspace-switcher-popup@devbury.com']
+enabled-extensions=['dash-to-dock@micxgx.gmail.com', 'gnomenu@panacier.gmail.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'appindicatorsupport@rgcjonas.gmail.com', 'arc-menu@linxgem33.com', 'hidetopbar@mathieu.bidon.ca', 'no-workspace-switcher-popup@devbury.com']
 favorite-apps=['firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'sublime_text.desktop']
 
 [org/gnome/shell/extensions/user-theme]
@@ -43,24 +43,6 @@ overview-action='HIDE'
 custom-menu-button-text='Finder'
 custom-menu-button-icon='@HOME@/Pictures/wallpaper/macOS-High-Sierra-Wallpaper.jpg'
 menu-button-icon='Arc_Menu_Icon'
-
-[org/gnome/shell/extensions/openweather]
-weather-provider='openweathermap'
-days-forecast=2
-unit='celsius'
-geolocation-provider='openstreetmaps'
-actual-city=0
-use-default-owm-key=true
-show-text-in-panel=true
-wind-speed-unit='mph'
-use-symbolic-icons=true
-position-in-panel='center'
-translate-condition=true
-city='50.87627725,5.98279521547417>Heerlen, Parkstad Limburg, Limburg, Nederland >-1'
-wind-direction=true
-pressure-unit='inHg'
-show-comment-in-forecast=true
-decimal-places=1
 
 [org/gnome/shell/overrides]
 dynamic-workspaces=false
@@ -125,6 +107,9 @@ application-id='Discord.desktop'
 [org/gnome/desktop/notifications/application/firefox]
 application-id='firefox.desktop'
 
+[org/gnome/desktop/notifications/application/org-gnome-nautilus]
+application-id='org.gnome.Nautilus.desktop'
+
 [org/gnome/desktop/screensaver]
 picture-uri='file://@HOME@/Pictures/wallpaper/macOS-High-Sierra-Wallpaper.jpg'
 
@@ -156,29 +141,35 @@ xkb-options=@as []
 [org/gnome/control-center]
 last-panel='bluetooth'
 
+[org/gnome/gthumb/browser]
+startup-location='file:///tmp/mozilla_tim0'
+thumbnail-list-visible=false
+sort-type='file::mtime'
+sidebar-visible=true
+viewer-sidebar='hidden'
+sort-inverse=false
+maximized=false
+fullscreen-thumbnails-visible=false
+startup-current-file='file:///tmp/mozilla_tim0/aurheb.png'
+fullscreen-sidebar='hidden'
+statusbar-visible=true
+
+[org/gnome/gthumb/general]
+active-extensions=['23hq', 'bookmarks', 'burn_disc', 'catalogs', 'change_date', 'comments', 'contact_sheet', 'convert_format', 'desktop_background', 'edit_metadata', 'exiv2_tools', 'facebook', 'file_manager', 'find_duplicates', 'flicker', 'gstreamer_tools', 'gstreamer_utils', 'image_print', 'image_rotation', 'importer', 'jpeg_utils', 'list_tools', 'oauth', 'photo_importer', 'photobucket', 'picasaweb', 'raw_files', 'red_eye_removal', 'rename_series', 'resize_images', 'search', 'selections', 'slideshow', 'webalbums']
+
+[org/gnome/gthumb/data-migration]
+catalogs-2-10=true
+
 [org/gnome/terminal/legacy/profiles:]
-list=['76c069b5-f305-4a2e-a859-87dde0ec7836', 'a96676bd-e195-4a6d-8706-ad9dd06871d9']
+list=['a96676bd-e195-4a6d-8706-ad9dd06871d9']
 default='a96676bd-e195-4a6d-8706-ad9dd06871d9'
-
-[org/gnome/terminal/legacy/profiles:/:76c069b5-f305-4a2e-a859-87dde0ec7836]
-foreground-color='rgb(255,255,255)'
-visible-name='Base 16 Default Dark'
-palette=['rgb(0,0,0)', 'rgb(170,0,0)', 'rgb(0,170,0)', 'rgb(170,85,0)', 'rgb(0,0,170)', 'rgb(170,0,170)', 'rgb(0,170,170)', 'rgb(170,170,170)', 'rgb(85,85,85)', 'rgb(255,85,85)', 'rgb(85,255,85)', 'rgb(255,255,85)', 'rgb(85,85,255)', 'rgb(255,85,255)', 'rgb(85,255,255)', 'rgb(255,255,255)']
-cursor-background-color='#d8d8d8'
-cursor-colors-set=true
-use-theme-colors=false
-cursor-foreground-color='#181818'
-use-theme-background=false
-bold-color-same-as-fg=true
-bold-color='#d8d8d8'
-background-color='rgb(0,0,0)'
-
-[org/gnome/terminal/legacy/profiles:/:a96676bd-e195-4a6d-8706-ad9dd06871d9]
-use-theme-colors=false
-visible-name='Manjaro'
 
 [org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
 palette=['rgb(0,0,0)', 'rgb(170,0,0)', 'rgb(0,170,0)', 'rgb(170,85,0)', 'rgb(0,0,170)', 'rgb(170,0,170)', 'rgb(0,170,170)', 'rgb(170,170,170)', 'rgb(85,85,85)', 'rgb(255,85,85)', 'rgb(85,255,85)', 'rgb(255,255,85)', 'rgb(85,85,255)', 'rgb(255,85,255)', 'rgb(85,255,255)', 'rgb(255,255,255)']
+
+[org/gnome/terminal/legacy/profiles:/:a96676bd-e195-4a6d-8706-ad9dd06871d9]
+use-theme-colors=false
+visible-name='OSX'
 
 [org/gnome/terminal/legacy]
 schema-version=uint32 3
@@ -186,7 +177,7 @@ schema-version=uint32 3
 [org/gtk/settings/file-chooser]
 sort-column='name'
 sidebar-width=163
-window-position=(359, 59)
+window-position=(732, 201)
 show-size-column=true
 show-hidden=false
 window-size=(1203, 902)
