@@ -9,7 +9,7 @@ hinting='slight'
 numlock-state='on'
 
 [org/gnome/shell]
-enabled-extensions=['dash-to-dock@micxgx.gmail.com', 'gnomenu@panacier.gmail.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'appindicatorsupport@rgcjonas.gmail.com', 'arc-menu@linxgem33.com', 'hidetopbar@mathieu.bidon.ca', 'no-workspace-switcher-popup@devbury.com']
+enabled-extensions=['dash-to-dock@micxgx.gmail.com', 'gnomenu@panacier.gmail.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'appindicatorsupport@rgcjonas.gmail.com', 'arc-menu@linxgem33.com', 'hidetopbar@mathieu.bidon.ca', 'no-workspace-switcher-popup@devbury.com', 'user-theme@gnome-shell-extensions.gcampax.github.com']
 favorite-apps=['firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'sublime_text.desktop']
 
 [org/gnome/shell/extensions/user-theme]
@@ -140,25 +140,6 @@ xkb-options=@as []
 
 [org/gnome/control-center]
 last-panel='bluetooth'
-
-[org/gnome/gthumb/browser]
-startup-location='file:///tmp/mozilla_tim0'
-thumbnail-list-visible=false
-sort-type='file::mtime'
-sidebar-visible=true
-viewer-sidebar='hidden'
-sort-inverse=false
-maximized=false
-fullscreen-thumbnails-visible=false
-startup-current-file='file:///tmp/mozilla_tim0/aurheb.png'
-fullscreen-sidebar='hidden'
-statusbar-visible=true
-
-[org/gnome/gthumb/general]
-active-extensions=['23hq', 'bookmarks', 'burn_disc', 'catalogs', 'change_date', 'comments', 'contact_sheet', 'convert_format', 'desktop_background', 'edit_metadata', 'exiv2_tools', 'facebook', 'file_manager', 'find_duplicates', 'flicker', 'gstreamer_tools', 'gstreamer_utils', 'image_print', 'image_rotation', 'importer', 'jpeg_utils', 'list_tools', 'oauth', 'photo_importer', 'photobucket', 'picasaweb', 'raw_files', 'red_eye_removal', 'rename_series', 'resize_images', 'search', 'selections', 'slideshow', 'webalbums']
-
-[org/gnome/gthumb/data-migration]
-catalogs-2-10=true
 
 [org/gnome/terminal/legacy/profiles:]
 list=['a96676bd-e195-4a6d-8706-ad9dd06871d9']
