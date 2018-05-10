@@ -21,7 +21,7 @@ then
 	print -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | sudo tee -a /etc/pacman.conf > /dev/null
 fi
 print Installing tools
-sudo pacman -S base-devel linux-headers dkms --noconfirm --needed
+sudo pacman -S base-devel linux-headers dkms pulseaudio --noconfirm --needed
 if ! command -v trizen > /dev/null 2>&1
 then
 	bdir="$(pwd)"
@@ -46,6 +46,12 @@ then
 	print Blacklisting bad LAN driver...
 	echo blacklist r8169 | sudo tee /etc/modprobe.d/ethernet.conf > /dev/null
 fi 
+if [ "x$(lspci | grep "HD Audio Controller")" != "x" ] && \
+	[ "x$(grep "load-module module-udev-detect tsched=0" /etc/pulse/default.pa)" = "x" ]
+then
+	print Fixing audio...
+	sudo sed -i "s/load-module module-udev-detect/load-module module-udev-detect tsched=0/g" /etc/pulse/default.pa
+fi
 if [ ! -f ".ic" ]
 then
 	bash install.sh
