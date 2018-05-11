@@ -21,7 +21,7 @@ then
 	printf "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | sudo tee -a /etc/pacman.conf > /dev/null
 fi
 print Installing tools
-sudo pacman -Sy base-devel linux-headers dkms pulseaudio --noconfirm --needed
+sudo pacman -Sy base-devel linux-headers dkms pulseaudio pkgfile --noconfirm --needed
 if ! which trizen > /dev/null 2>&1
 then
 	bdir="$(pwd)"
@@ -57,4 +57,5 @@ then
 	bash install.sh
 	touch ".ic"
 fi
+sudo pkgfile --update
 print Completed!
