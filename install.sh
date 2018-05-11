@@ -35,10 +35,8 @@ cp dconf_dump.txt 			dconf_dump_patched.txt
 sed -i "s<@HOME@<$HOME<g" 	dconf_dump_patched.txt
 printf "Loading patched dconf dump...\n"
 dconf load / < 			  	dconf_dump_patched.txt
-printf "Please install these extensions yourself:\n"
-for extension in $(cat extension_list.txt)
-do
-	printf "Extension: $(printf $extension | sed "s/-/ /g")\n"
-done
+printf "Installing extensions!\n"
+mkdir -p "$HOME/.local/share/gnome-shell/extensions"
+cp -r dotfiles/.local/share/gnome-shell/extensions/* "$HOME/.local/share/gnome-shell/extensions/"
 printf "Cleaning up...\n"
 rm -rf dconf_dump_patched.txt tmp
