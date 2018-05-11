@@ -1,4 +1,0 @@
-Arc-menu
-Dash-to-dock
-Hide-top-bar
-No-workspace-switcher-popup
