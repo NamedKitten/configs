@@ -7,8 +7,12 @@ function print() {
 	printf "\n==> $*\n\n"
 }
 print "Copying user configs..."
-mkdir -p "$HOME/.config"
+mkdir -p "$HOME/.config" 
 cp -r dotfiles/.config/* "$HOME/.config/"
+if [ ! -d "$HOME/.mozilla" ]
+then
+	cp -r dotfiles/.mozilla "$HOME/.mozilla"
+fi
 print "Copying system configs..."
 sudo cp system/etc/makepkg.conf /etc/makepkg.conf
 if [ ! $(grep "sublime-text" /etc/pacman.conf) ]
