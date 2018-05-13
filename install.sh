@@ -2,7 +2,7 @@
 set -e
 if command -v pacman > /dev/null 2>&1
 then
-	sudo pacman -S gnome gnome-tweak-tool xorg-xinit chrome-gnome-shell --needed --noconfirm
+	sudo pacman -S gnome gnome-tweak-tool xorg-xinit chrome-gnome-shell xdg-utils --needed --noconfirm
 fi
 if [ ! -d "$HOME/.themes/X-Arc-Plus" ] 
 then
