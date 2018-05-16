@@ -14,16 +14,7 @@ then
 	cp -r dotfiles/.mozilla "$HOME/.mozilla"
 fi
 print "Copying system configs..."
-sudo cp system/etc/makepkg.conf /etc/makepkg.conf
-if [ ! $(grep "sublime-text" /etc/pacman.conf) ]
-then
-	print Preparing sublime...
-	curl -O https://download.sublimetext.com/sublimehq-pub.gpg 
-	sudo pacman-key --add sublimehq-pub.gpg
-	sudo pacman-key --lsign-key 8A8F901A
-	rm sublimehq-pub.gpg
-	printf "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | sudo tee -a /etc/pacman.conf > /dev/null
-fi
+sudo cp system/etc/* /etc/
 print Installing tools
 sudo pacman -Sy base-devel linux-headers dkms pulseaudio pkgfile --noconfirm --needed
 if ! which trizen > /dev/null 2>&1
