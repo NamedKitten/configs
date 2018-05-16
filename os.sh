@@ -28,7 +28,7 @@ then
 	cd "$bdir"
 fi
 print Installing programs...
-_trizen -Sy sublime-text all-repository-fonts firefox
+_trizen -Sy sublime-text all-repository-fonts firefox steam-native-runtime steam
 if [ "x$(lspci | grep NVIDIA)" != "x" ]
 then
 	print Installing NVIDIA drivers and tools...
