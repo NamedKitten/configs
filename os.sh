@@ -47,8 +47,11 @@ then
 	print Fixing audio...
 	sudo sed -i "s/load-module module-udev-detect/load-module module-udev-detect tsched=0/g" /etc/pulse/default.pa
 fi
+print Enabling network time...
+sudo timedatectl set-ntp true
 if [ ! -f ".ic" ]
 then
+	print Executing install.sh...
 	bash install.sh
 	touch ".ic"
 fi
