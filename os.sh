@@ -49,8 +49,11 @@ then
 fi
 print Enabling network time...
 sudo timedatectl set-ntp true
-print Enabling GDM...
-sudo systemctl enable gdm
+for service in gdm NetworkManager
+do
+	print Enabling $service...
+	sudo systemctl enable $service
+done
 if [ ! -f ".ic" ]
 then
 	print Executing install.sh...
